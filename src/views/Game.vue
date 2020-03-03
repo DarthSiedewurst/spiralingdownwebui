@@ -13,12 +13,20 @@
       </b-col>
 
       <b-col>
-        <button @click="rollTheDie">Würfeln</button>
-        {{ roll }}
-        <div>Player {{ activePlayer }} ist am zug</div>
+        <b-row>
+          <h1 class="player m-auto">{{ activePlayer.name }} ist am zug</h1>
+        </b-row>
+        <b-row class="diceContainer">
+          <div class="m-auto" @click="rollTheDie">
+            <dice ref="dice"></dice>
+          </div>
+        </b-row>
+        <b-row>
+          <b-button class="newGameButton" type="button">Neues Spiel</b-button>
+        </b-row>
       </b-col>
     </b-row>
-    <b-modal ref="rule">{{ rulename }}</b-modal>
+    <b-modal ok-only no-close-on-esc no-close-on-backdrop ref="rule" @ok="handleOk">{{ rulename }}</b-modal>
   </div>
 </template>
 
@@ -28,69 +36,108 @@ import { Component, Vue } from "vue-property-decorator";
 import ofSize from "@/services/spiralmatrix";
 import tile from "@/components/Tile.vue";
 import player from "@/components/Player.vue";
+import dice from "@/components/Dice.vue";
 
 @Component({
-  components: { tile, player }
+  components: { tile, player, dice }
 })
 export default class Game extends Vue {
   private ruleset1 = require("@/rules/ruleset1.json");
   private rulename = "";
+  private ruleMovement = 0;
 
   private matrix: any = ofSize.ofSize(8);
   private players: any = [
-    { id: 0, activeTurn: true, name: "playerOne", tile: 1 },
-    { id: 1, activeTurn: false, name: "playerTwo", tile: 1 },
-    { id: 2, activeTurn: false, name: "playerThree", tile: 1 },
-    { id: 3, activeTurn: false, name: "playerFour", tile: 1 },
-    { id: 4, activeTurn: false, name: "playerFive", tile: 1 }
+    { id: 0, activeTurn: true, name: "Marco", tile: 1 },
+    { id: 1, activeTurn: false, name: "Andre", tile: 1 }
   ];
   private roll = 0;
-  private activePlayer = this.players[0].name;
+  private activePlayer = this.players[0];
 
-  private async rollTheDie() {
+  private rollTheDie() {
     let id = 0;
     this.players.forEach((element: any) => {
       if (element.activeTurn) {
         id = element.id;
       }
     });
-    this.roll = Math.floor(Math.random() * 6) + 1;
+    this.roll = (this.$refs.dice as any).roll();
+    console.log(this.roll);
 
-    await this.move(id);
+    this.move(id);
+  }
+  private handleOk(bvModalEvt: any) {
+    const fieldId = "fieldId" + this.players[this.activePlayer.id].tile;
+    this.ruleMovement = (this.ruleset1 as any)[fieldId].move;
 
-    this.showRule(id);
+    if (this.ruleMovement !== 0) {
+      this.roll = this.ruleMovement;
+      this.move(this.activePlayer.id);
+      return;
+    }
 
-    this.players[id].activeTurn = false;
+    this.players[this.activePlayer.id].activeTurn = false;
 
-    if (id < this.players.length - 1) {
-      this.players[id + 1].activeTurn = true;
-      this.activePlayer = this.players[id + 1].name;
+    if (this.activePlayer.id < this.players.length - 1) {
+      this.players[this.activePlayer.id + 1].activeTurn = true;
+      this.activePlayer = this.players[this.activePlayer.id + 1];
     } else {
       this.players[0].activeTurn = true;
-      this.activePlayer = this.players[0].name;
+      this.activePlayer = this.players[0];
     }
   }
 
-  private move(id: number) {
-    for (let i = 0; i < this.roll; i++) {
-      setTimeout(() => {
-        if (this.players[id].tile < 64) {
-          this.players[id].tile++;
-          (this.$refs.player as any)[id].movePlayer();
-        }
-        console.log("Timeout: " + this.players[id].tile);
-      }, i * 500);
+  private async move(id: number) {
+    if (this.roll > 0) {
+      for (let i = 0; i < this.roll; i++) {
+        await new Promise(resolve => {
+          setTimeout(() => {
+            resolve(this.moveForward(id));
+          }, 500);
+        });
+      }
+      this.showRule(id);
+    } else {
+      for (let i = 0; i < Math.abs(this.roll); i++) {
+        await new Promise(resolve => {
+          setTimeout(() => {
+            resolve(this.moveBackward(id));
+          }, 500);
+        });
+      }
+      this.showRule(id);
     }
-    console.log("move: " + this.players[id].tile);
+  }
+
+  private moveForward(id: number) {
+    if (this.players[id].tile < 64) {
+      this.players[id].tile++;
+      (this.$refs.player as any)[id].movePlayer();
+    }
+  }
+
+  private moveBackward(id: number) {
+    this.players[id].tile--;
+    (this.$refs.player as any)[id].movePlayer();
   }
 
   private showRule(id: number) {
     const fieldId = "fieldId" + this.players[id].tile;
     this.rulename = (this.ruleset1 as any)[fieldId].name;
     (this.$refs["rule"] as any).show();
-    console.log("showRule: " + this.players[id].tile);
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.player {
+  margin: auto;
+}
+.diceContainer {
+  margin-top: 25%;
+}
+.newGameButton {
+  margin: auto;
+  margin-top: 50%;
+}
+</style>
