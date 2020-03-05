@@ -65,15 +65,8 @@ export default class Dice extends Vue {
 <style scoped>
 /* MODAL THINGS*/
 
-.modal-overlay,
-.modal {
-  visibility: hidden;
-  opacity: 0;
-}
-
 /*########## DICE THINGS ###########*/
 .container-dice {
-  margin-top: 100px;
 }
 
 .dice {

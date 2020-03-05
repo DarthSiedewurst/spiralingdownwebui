@@ -28,7 +28,7 @@ export default class Game extends Vue {
 <style lang="scss" scoped>
 .tile {
   width: 150px;
-  height: 100px;
+  height: 90px;
   box-shadow: 0 0 10px lightgreen;
   margin: 5px;
 }
