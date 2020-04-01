@@ -71,51 +71,51 @@ export default class Dice extends Vue {
 
 .dice {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   transform-style: preserve-3d;
   transition: transform 1s;
 }
 
 .divot {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  margin: -20px 0 0 -20px;
-  border-radius: 20px;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border-radius: 10px;
   background: #000;
 }
 
 .side {
   background-color: rgba(255, 255, 204, 0.97);
   position: absolute;
-  width: 200px;
-  height: 200px;
-  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
 }
 
 .side:nth-child(1) {
-  transform: translateZ(100px);
+  transform: translateZ(50px);
 }
 
 .side:nth-child(6) {
-  transform: rotateY(180deg) translateZ(100px);
+  transform: rotateY(180deg) translateZ(50px);
 }
 
 .side:nth-child(3) {
-  transform: rotateY(90deg) translateZ(100px);
+  transform: rotateY(90deg) translateZ(50px);
 }
 
 .side:nth-child(4) {
-  transform: rotateY(-90deg) translateZ(100px);
+  transform: rotateY(-90deg) translateZ(50px);
 }
 
 .side:nth-child(5) {
-  transform: rotateX(90deg) translateZ(100px);
+  transform: rotateX(90deg) translateZ(50px);
 }
 
 .side:nth-child(2) {
-  transform: rotateX(-90deg) translateZ(100px);
+  transform: rotateX(-90deg) translateZ(50px);
 }
 
 .show-1 {

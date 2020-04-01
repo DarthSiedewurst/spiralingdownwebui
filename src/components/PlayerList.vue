@@ -29,9 +29,9 @@
 
 <script lang="ts">
 // @ is an alias to /src
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import Player from '@/models/player';
-import { validate } from 'vee-validate';
+import { Component, Prop, Vue } from "vue-property-decorator";
+import Player from "@/models/player";
+import { validate } from "vee-validate";
 
 @Component({
   components: {}
@@ -39,16 +39,16 @@ import { validate } from 'vee-validate';
 export default class PlayerList extends Vue {
   @Prop() private players!: Player[];
 
-  private valid: any = '';
+  private valid: any = "";
 
   private get playerColors(): string[] {
     const colors: any[] = [
-      { value: 'orange', text: 'Orange' },
-      { value: 'green', text: 'Grün' },
-      { value: 'yellow', text: 'Gelb' },
-      { value: 'black', text: 'Schwarz' },
-      { value: 'dafuq', text: 'Dafuq' },
-      { value: 'purple', text: 'Lila' }
+      { value: "orange", text: "Orange" },
+      { value: "green", text: "Grün" },
+      { value: "yellow", text: "Gelb" },
+      { value: "black", text: "Schwarz" },
+      { value: "dafuq", text: "Dafuq" },
+      { value: "purple", text: "Lila" }
     ];
 
     this.players.forEach(element => {
@@ -72,8 +72,8 @@ export default class PlayerList extends Vue {
     return colors;
   }
 
-  private playerName = '';
-  private playerColor = '';
+  private playerName = "";
+  private playerColor = "";
 
   private addPlayer() {
     (this.$refs.valid as any).validate().then((success: boolean) => {
@@ -87,18 +87,18 @@ export default class PlayerList extends Vue {
           id,
           name: this.playerName,
           activeTurn,
-          tile: 1,
+          tile: 0,
           color: this.playerColor
         };
-        this.$emit('addPlayer', newPlayer);
-        this.playerName = '';
-        this.playerColor = '';
+        this.$emit("addPlayer", newPlayer);
+        this.playerName = "";
+        this.playerColor = "";
         this.$nextTick(() => (this.$refs.valid as any).reset());
       }
     });
   }
   private deletePlayer(playerId: number) {
-    this.$emit('deletePlayer', playerId);
+    this.$emit("deletePlayer", playerId);
   }
 }
 </script>
