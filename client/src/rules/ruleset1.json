@@ -76,7 +76,7 @@
     "move": 0,
     "rulerule": ""
   },
-  "fieldId17": { "name": "Und Tschüss", "describtion": "Ciao, wir sehen uns auf Feld 4", "move": -17, "rulerule": "" },
+  "fieldId17": { "name": "Und Tschüss", "describtion": "Ciao, wir sehen uns auf Feld 4", "move": -13, "rulerule": "" },
   "fieldId18": {
     "name": "Da haben wir wieder mal Glück gehabt",
     "describtion": "Lehn dich zurück und genehmige dir einen Entspannungsschluck",
