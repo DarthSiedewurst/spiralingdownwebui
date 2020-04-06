@@ -1,20 +1,22 @@
 <template>
   <div
-    :id="fieldId"
-    class="tile"
-    :class="[{'borderBottom': borderBottom}, {'borderLeft' : borderLeft}]"
+    :style="{'background-image' : 'url(' + require('@/assets/tilebackground.png') + ')'}"
+    class="tileContainer"
+    :class="[{'borderBottom': borderBottom}, {'borderLeft' : borderLeft}, {'borderRight' : borderRight}]"
   >
-    <span class="responsiveNumber">{{ fieldNumber }}</span>
-    <br />
-    <div class="responsiveText">{{ rule }}</div>
+    <div :id="fieldId" class="tile">
+      <span class="responsiveNumber">{{ fieldNumber }}</span>
+      <br />
+      <div class="responsiveText">
+        <strong>{{ rule }}</strong>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 // @ is an alias to /src
 import { Component, Prop, Vue } from "vue-property-decorator";
-//import * as ruleset1 from "@/rules/ruleset1.json";
-
 @Component({
   components: {}
 })
@@ -22,6 +24,7 @@ export default class Game extends Vue {
   @Prop() private fieldNumber!: number;
 
   private ruleset1 = require("@/rules/ruleset1.json");
+  private rulesetJanschepers = require("@/rules/janschepers.json");
 
   private fieldId: string = "fieldId" + this.fieldNumber;
   private rule = (this.ruleset1 as any)[this.fieldId].name;
@@ -31,6 +34,9 @@ export default class Game extends Vue {
   }
   private get borderLeft() {
     return this.borderLeftList.indexOf(this.fieldNumber) > -1 ? true : false;
+  }
+  private get borderRight() {
+    return this.borderRightList.indexOf(this.fieldNumber) > -1 ? true : false;
   }
 
   private borderBottomList: number[] = [
@@ -70,28 +76,20 @@ export default class Game extends Vue {
     66,
     67
   ];
-  private borderLeftList: number[] = [
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    47,
-    48,
-    49,
-    50,
-    51,
+  private borderLeftList: number[] = [47, 48, 49, 50, 51, 63, 64, 65, 71];
+  private borderRightList: number[] = [
+    36,
     37,
     38,
     39,
     40,
-    63,
-    64,
-    65,
+    41,
+    56,
     57,
     58,
-    71
+    59,
+    68,
+    69
   ];
 
   //private rule: string = ruleset1[this.fieldNumber];
@@ -100,16 +98,19 @@ export default class Game extends Vue {
 
 <style lang="scss" scoped>
 .tile {
-  width: 10vw;
-  height: 9vh;
-  box-shadow: 0 0 2px lightgreen;
-  margin: 0px;
+  width: 90%;
+  height: 90%;
 }
 .borderBottom {
-  border-bottom: 2px solid black;
+  border-bottom: 0.3vh solid black;
+  //box-shadow: 0 10px 0px -1px black, 0 0 15px 5px lightgreen;
 }
 .borderLeft {
-  border-left: 2px solid black;
+  border-left: 0.3vh solid black;
+}
+
+.borderRight {
+  border-right: 0.3vh solid black;
 }
 .responsiveText {
   font-size: 1vw;
@@ -118,5 +119,10 @@ export default class Game extends Vue {
   font-size: 1vw;
   margin-top: 0%;
   padding-top: 0%;
+}
+.tileContainer {
+  width: 11vw;
+  height: 12.3vh;
+  margin: 0px;
 }
 </style>

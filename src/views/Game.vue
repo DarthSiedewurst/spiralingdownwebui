@@ -1,5 +1,5 @@
 <template>
-  <div class="fullscreen">
+  <div>
     <b-modal
       :title="rulename"
       hide-backdrop
@@ -9,56 +9,55 @@
       no-close-on-backdrop
       ref="rule"
       @ok="handleOk"
-      >{{ ruledescribtion }}</b-modal
-    >
+    >{{ ruledescribtion }}</b-modal>
     <div v-for="(player, index) in players" :key="'player' + index">
       <player ref="player" :player="player"></player>
     </div>
     <table class="fullscreen">
       <tr v-for="(line, index) in matrix" :key="index">
-        <td v-for="(n, index) in line" :key="index">
+        <td class="m-0 p-0" v-for="(n, index) in line" :key="index">
           <tile :fieldNumber="n" :players="players"></tile>
         </td>
       </tr>
-    </table>
 
-    <div :class="[isRight ? 'floatLeft' : 'floatRight', 'overlay']">
-      <div>
-        <b-row class="overlayCenter">
-          <h1 class="player m-auto">{{ activePlayer.name }} ist am zug</h1>
-        </b-row>
-        <b-row class="diceContainer">
-          <div class="m-auto" @click="rollTheDie">
-            <dice ref="dice"></dice>
-          </div>
-        </b-row>
-        <b-row>
-          <div class="activeRule m-auto">{{ rulerule }}</div>
-        </b-row>
-        <b-row>
-          <b-button @click="newGame" class="newGameButton" type="button">Neues Spiel</b-button>
-        </b-row>
+      <div :class="[isRight ? 'floatLeft' : 'floatRight', 'overlay']">
+        <div>
+          <b-row class="overlayCenter">
+            <h1 class="player m-auto">{{ activePlayer.name }} ist am zug</h1>
+          </b-row>
+          <b-row>
+            <div class="m-auto" @click="rollTheDie">
+              <dice ref="dice"></dice>
+            </div>
+          </b-row>
+          <b-row>
+            <div class="activeRule m-auto">{{ rulerule }}</div>
+          </b-row>
+          <b-row>
+            <b-button @click="newGame" class="newGameButton" type="button">Neues Spiel</b-button>
+          </b-row>
+        </div>
       </div>
-    </div>
+    </table>
   </div>
 </template>
 
 <script lang="ts">
 // @ is an alias to /src
-import { Component, Vue } from 'vue-property-decorator';
-import tile from '@/components/Tile.vue';
-import player from '@/components/Player.vue';
-import dice from '@/components/Dice.vue';
-import Player from '@/models/player.ts';
+import { Component, Vue } from "vue-property-decorator";
+import tile from "@/components/Tile.vue";
+import player from "@/components/Player.vue";
+import dice from "@/components/Dice.vue";
+import Player from "@/models/player.ts";
 
 @Component({
   components: { tile, player, dice }
 })
 export default class Game extends Vue {
-  private ruleset1 = require('@/rules/ruleset1.json');
-  private rulename = '';
-  private ruledescribtion = '';
-  private rulerule = '';
+  private ruleset1 = require("@/rules/ruleset1.json");
+  private rulename = "";
+  private ruledescribtion = "";
+  private rulerule = "";
   private ruleMovement = 0;
 
   private matrix: any = [
@@ -96,7 +95,7 @@ export default class Game extends Vue {
     this.move(id);
   }
   private handleOk(bvModalEvt: any) {
-    const fieldId = 'fieldId' + this.players[this.activePlayer.id].tile;
+    const fieldId = "fieldId" + this.players[this.activePlayer.id].tile;
     this.ruleMovement = (this.ruleset1 as any)[fieldId].move;
 
     if (this.ruleMovement !== 0) {
@@ -114,8 +113,10 @@ export default class Game extends Vue {
       this.players[0].activeTurn = true;
       this.activePlayer = this.players[0];
     }
-    document.getElementById('fieldId' + this.activePlayer.tile)!.getBoundingClientRect().left >
-    document.getElementById('fieldId4')!.getBoundingClientRect().left
+    document
+      .getElementById("fieldId" + this.activePlayer.tile)!
+      .getBoundingClientRect().left >
+    document.getElementById("fieldId4")!.getBoundingClientRect().left
       ? (this.right = true)
       : (this.right = false);
   }
@@ -155,21 +156,23 @@ export default class Game extends Vue {
   }
 
   private showRule(id: number) {
-    document.getElementById('fieldId' + this.activePlayer.tile)!.getBoundingClientRect().left > 750
+    document
+      .getElementById("fieldId" + this.activePlayer.tile)!
+      .getBoundingClientRect().left > 750
       ? (this.right = true)
       : (this.right = false);
-    const fieldId = 'fieldId' + this.players[id].tile;
+    const fieldId = "fieldId" + this.players[id].tile;
     this.rulename = (this.ruleset1 as any)[fieldId].name;
     this.ruledescribtion = (this.ruleset1 as any)[fieldId].describtion;
-    if ((this.ruleset1 as any)[fieldId].rulerule !== '') {
+    if ((this.ruleset1 as any)[fieldId].rulerule !== "") {
       this.rulerule = (this.ruleset1 as any)[fieldId].rulerule;
     }
-    (this.$refs['rule'] as any).show();
+    (this.$refs["rule"] as any).show();
   }
 
   private newGame() {
-    this.$store.dispatch('newGame');
-    this.$router.push({ name: 'newGame' });
+    this.$store.dispatch("newGame");
+    this.$router.push({ name: "newGame" });
   }
 }
 </script>
@@ -178,16 +181,21 @@ export default class Game extends Vue {
 .player {
   margin: auto;
 }
-.diceContainer {
+
+.fullscreen {
+  margin: auto;
+  margin-top: 1vh;
+  box-shadow: 0 0 10px 10px darkgreen;
 }
 .newGameButton {
   margin: auto;
 }
 .overlay {
   width: 30vw;
-  height: 75vh;
+  height: 90vh;
   position: fixed;
-  top: 12.5%;
+  top: 0vh;
+  margin-top: 5vh;
   z-index: 100;
   background-color: #becbd2;
   text-align: center;
@@ -207,10 +215,7 @@ export default class Game extends Vue {
   margin: auto;
   margin-top: 25%;
 }
-.fullscreen {
-  width: 100vw;
-  height: 90vh;
-}
+
 .activeRule {
   font-size: 2vw;
   font-weight: bold;

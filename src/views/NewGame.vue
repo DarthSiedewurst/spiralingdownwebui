@@ -15,13 +15,27 @@
 <script lang="ts">
 // @ is an alias to /src
 import { Component, Vue } from "vue-property-decorator";
+// @ts-ignore
 import Player from "@/models/player.ts";
 import playerList from "@/components/PlayerList.vue";
+// @ts-ignore
+import io from "socket.io-client";
 
 @Component({
   components: { playerList }
 })
 export default class NewGame extends Vue {
+  private socket: any = {};
+  private created() {
+    this.socket = io("https://localhost:3000");
+  }
+
+  private mounted() {
+    this.socket.on("testMessage", (data: any) => {
+      console.log(data);
+    });
+  }
+
   private get players(): Player[] {
     return this.$store.state.players;
   }

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "strict": true,
+    "strict": false,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
@@ -18,6 +18,8 @@
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
+  "ban-ts-ignore": false,
+
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx"],
   "exclude": ["node_modules"]
 }
