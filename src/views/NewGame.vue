@@ -14,24 +14,24 @@
 
 <script lang="ts">
 // @ is an alias to /src
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from 'vue-property-decorator';
 // @ts-ignore
-import Player from "@/models/player.ts";
-import playerList from "@/components/PlayerList.vue";
+import Player from '@/models/player.ts';
+import playerList from '@/components/PlayerList.vue';
 // @ts-ignore
-import io from "socket.io-client";
+import io from 'socket.io-client';
 
 @Component({
-  components: { playerList }
+  components: { playerList },
 })
 export default class NewGame extends Vue {
   private socket: any = {};
   private created() {
-    this.socket = io("http://localhost:3000");
+    this.socket = io('https://spiralingdown.de/service');
   }
 
   private mounted() {
-    this.socket.on("testMessage", (data: any) => {
+    this.socket.on('testMessage', (data: any) => {
       console.log(data);
     });
   }
@@ -40,14 +40,14 @@ export default class NewGame extends Vue {
     return this.$store.state.players;
   }
   private addPlayer(newPlayer: Player) {
-    this.$store.dispatch("addPlayer", newPlayer);
+    this.$store.dispatch('addPlayer', newPlayer);
   }
   private deletePlayer(playerId: number) {
-    this.$store.dispatch("deletePlayer", playerId);
+    this.$store.dispatch('deletePlayer', playerId);
   }
   private startNewGame() {
     if (this.players.length > 0) {
-      this.$router.push({ path: "game" });
+      this.$router.push({ path: 'game' });
     }
   }
 }
