@@ -27,7 +27,7 @@ import io from "socket.io-client";
 export default class NewGame extends Vue {
   private socket: any = {};
   private created() {
-    this.socket = io("http://spiralingdown.de:3000");
+    this.socket = io("https://spiralingdown.de:3000");
   }
 
   private mounted() {
