@@ -16,7 +16,7 @@
     <table class="fullscreen">
       <tr v-for="(line, index) in matrix" :key="index">
         <td class="m-0 p-0" v-for="(n, index) in line" :key="index">
-          <tile :fieldNumber="n" :players="players"></tile>
+          <tile :fieldNumber="n" :ruleset1="ruleset1" :players="players"></tile>
         </td>
       </tr>
 

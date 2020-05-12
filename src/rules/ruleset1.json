@@ -51,8 +51,8 @@
     "rulerule": ""
   },
   "fieldId11": {
-    "name": "Pantimos",
-    "describtion": "Wähle eine Person, diese muss dich bis zur nächsten runde imitieren",
+    "name": "Karneval",
+    "describtion": "Alle Spieler teilen sich 11 Schlücke gerecht. Alle überschüssigen trinkst du.",
     "move": 0,
     "rulerule": ""
   },
@@ -148,7 +148,7 @@
     "rulerule": "Das Wort 'Trink' belohnt dich mit einem Schluck"
   },
   "fieldId33": {
-    "name": "Der Randall",
+    "name": "Der Randall  // Drehen",
     "describtion": "Für die nächsten 3 Runden: Weißt du einen Mitspieler auf einen Regelverstoß hin, wird die Strafe verdoppelt",
     "move": 0,
     "rulerule": ""
@@ -247,7 +247,7 @@
     "move": 0,
     "rulerule": ""
   },
-  "fieldId53": { "name": "Neuer Versuch", "describtion": "", "move": -2, "rulerule": "" },
+  "fieldId53": { "name": "So nah und doch so fern", "describtion": "", "move": -18, "rulerule": "" },
   "fieldId54": { "name": "sauf!", "describtion": "", "move": 0, "rulerule": "" },
   "fieldId55": {
     "name": "Der Schluckspecht",
@@ -284,7 +284,7 @@
     "rulerule": ""
   },
   "fieldId64": {
-    "name": "So nah und doch so fern",
+    "name": "Für den Pöbel",
     "describtion": "Trinke so viele Schlücke, wie Spieler hinter dir sind.",
     "move": 0,
     "rulerule": ""

@@ -22,8 +22,8 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 })
 export default class Game extends Vue {
   @Prop() private fieldNumber!: number;
+  @Prop() private ruleset1!: any;
 
-  private ruleset1 = require("@/rules/ruleset1.json");
   private rulesetJanschepers = require("@/rules/janschepers.json");
 
   private fieldId: string = "fieldId" + this.fieldNumber;
