@@ -46,7 +46,7 @@
   },
   "fieldId10": {
     "name": "Thema",
-    "describtion": "Wähle eine Kategorie. Im Uhrzeiger Sinn, nennt ein passendes Wort oder trinkt 5 Schlücke",
+    "describtion": "Wähle eine Kategorie. Im Uhrzeiger Sinn, nennt ein passendes Wort oder trinkt 3 Schlücke",
     "move": 0,
     "rulerule": ""
   },
@@ -118,7 +118,7 @@
   "fieldId26": { "name": "ALLE", "describtion": "Alle trinken", "move": 0, "rulerule": "" },
   "fieldId27": {
     "name": "Thema",
-    "describtion": "Wähle eine Kategorie. Im Uhrzeiger Sinn, nennt ein passendes Wort oder trinkt 5 Schlücke",
+    "describtion": "Wähle eine Kategorie. Im Uhrzeiger Sinn, nennt ein passendes Wort oder trinkt 3 Schlücke",
     "move": 0,
     "rulerule": ""
   },
@@ -279,7 +279,7 @@
   },
   "fieldId63": {
     "name": "Thema",
-    "describtion": "Wähle eine Kategorie. Im Uhrzeiger Sinn, nennt ein passendes Wort oder trinkt 5 Schlücke",
+    "describtion": "Wähle eine Kategorie. Im Uhrzeiger Sinn, nennt ein passendes Wort oder trinkt 3 Schlücke",
     "move": 0,
     "rulerule": ""
   },
