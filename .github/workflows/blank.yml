@@ -30,8 +30,8 @@ jobs:
           password: ${{ secrets.PW }}
           script: |
             cd /var/www/vhosts/spiralingdown.de/docker/spiralingdown/spiralingdownwebui
+            git pull
             docker stop ui
             docker rm ui
             docker build -t uiimage .
-            docker run -d -p 5000:5000 --name ui uiimage 
-
+            docker run -d -p 5000:5000 --name ui uiimage
