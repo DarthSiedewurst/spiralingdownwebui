@@ -1,15 +1,15 @@
-<template>
-  <b-container>
-    <h1>Trinkspiel</h1>
-    <b-row>
-      <b-col cols="8">
-        <playerList :players="players" @addPlayer="addPlayer" @deletePlayer="deletePlayer"></playerList>
-      </b-col>
-      <b-col class="m-auto">Ruleset</b-col>
-    </b-row>
 
-    <b-button type="button" @click="startNewGame">Starten!</b-button>
-  </b-container>
+  <template>
+    <b-container class="bg-grey">
+      <h1>Trinkspiel</h1>
+      <b-row>
+        <b-col cols="8">
+          <playerList :players="players" @addPlayer="addPlayer" @deletePlayer="deletePlayer"></playerList>
+        </b-col>
+        <b-col class="m-auto">Ruleset</b-col>
+      </b-row>
+      <b-button type="button" @click="startNewGame">Starten!</b-button>
+    </b-container>
 </template>
 
 <script lang="ts">
@@ -54,4 +54,8 @@ export default class NewGame extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+h1 {
+  font-family: "Courier New";
+}
+</style>
