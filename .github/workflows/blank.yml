@@ -24,7 +24,7 @@ jobs:
 
       - name: Shh Connection
         uses: appleboy/ssh-action@master
-          with:
+        with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.PW }}
