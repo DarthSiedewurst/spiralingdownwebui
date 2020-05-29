@@ -28,9 +28,10 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.PW }}
-          script: whoami
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          script: |
+            cd /var/www/vhosts/spiralingdown.de/docker/spiralingdown/spiralingdownwebui
+            docker stop ui
+            docker rm ui
+            docker build -t uiimage .
+            docker run -d -p 5000:5000 --name ui uiimage 
+
