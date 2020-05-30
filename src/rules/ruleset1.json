@@ -1,6 +1,6 @@
 {
   "name": "Marco",
-  "fieldId0": { "name": "Start", "describtion": "Ahahahahahahahaha...trink", "move": 0 },
+  "fieldId0": { "name": "Start", "describtion": "Ahahahahahahahaha...trink /n (Regeln sind aufgehoben)", "move": 0 },
   "fieldId1": {
     "name": "Eine 1...ersnthaft",
     "describtion": "Trinke 6 Schlücke oder gib einem Spieler deiner Wahl 1 Euro",
@@ -60,7 +60,7 @@
   "fieldId12": { "name": "Bye Bye", "describtion": "gehe 8 Felder zurück", "move": -8, "rulerule": "" },
   "fieldId13": {
     "name": "INVADE!",
-    "describtion": "Du eine Person deiner Wahl stoßen an. Trinkt gemeinsam 2",
+    "describtion": "Du und eine Person deiner Wahl stoßen an. Trinkt gemeinsam 2",
     "move": 0,
     "rulerule": ""
   },
@@ -149,8 +149,8 @@
     "rulerule": "Das Wort 'Trink' belohnt dich mit einem Schluck"
   },
   "fieldId33": {
-    "name": "Der Randall  // Drehen",
-    "describtion": "Für die nächsten 3 Runden: Weißt du einen Mitspieler auf einen Regelverstoß hin, wird die Strafe verdoppelt",
+    "name": "Drehen",
+    "describtion": "Du hast 6 Strafpunkte. Trinke oder drehe dich für jeden Strafpunkt einmal um dich selber",
     "move": 0,
     "rulerule": ""
   },
@@ -175,7 +175,7 @@
   },
   "fieldId38": {
     "name": "Touchy",
-    "describtion": "Berühre jeden Spieler einmal, oder trinke 3",
+    "describtion": "Berühre jeden Spieler in den nächsten 10 Sekunden einmal, oder trinke 3",
     "move": 0,
     "rulerule": ""
   },
