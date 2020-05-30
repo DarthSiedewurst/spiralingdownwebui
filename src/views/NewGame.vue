@@ -32,7 +32,7 @@ export default class NewGame extends Vue {
   private socket: any = {};
   private created() {
     let url = process.env.VUE_APP_WEBSERVICE_URL;
-    url = url.substring(0, url.length - 1);
+    url = url.replace(/;/g, "");
     this.socket = io(url);
   }
 
