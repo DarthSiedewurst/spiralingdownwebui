@@ -17,13 +17,13 @@
 
 <script lang="ts">
 // @ is an alias to /src
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from "vue-property-decorator";
 // @ts-ignore
-import Player from '@/models/player.ts';
-import playerList from '@/components/PlayerList.vue';
+import Player from "@/models/player.ts";
+import playerList from "@/components/PlayerList.vue";
 // @ts-ignore
-import io from 'socket.io-client';
-import importetRules from '@/rules';
+import io from "socket.io-client";
+import importetRules from "@/rules";
 
 @Component({
   components: { playerList },
@@ -31,12 +31,12 @@ import importetRules from '@/rules';
 export default class NewGame extends Vue {
   private socket: any = {};
   private created() {
-    this.socket = io('https://spiralingdown.de:3000');
+    this.socket = io("https://spiralingdown.de:3000");
     //this.socket = io("https://localhost:3000/");
   }
 
   private mounted() {
-    this.socket.on('testMessage', (data: any) => {
+    this.socket.on("testMessage", (data: any) => {
       console.log(data);
     });
     console.log(process.env.VUE_APP_TEST);
@@ -58,21 +58,21 @@ export default class NewGame extends Vue {
   }
 
   private set ruleset(ruleset: any) {
-    this.$store.commit('setRuleset', ruleset);
+    this.$store.commit("setRuleset", ruleset);
   }
 
   private get players(): Player[] {
     return this.$store.state.players;
   }
   private addPlayer(newPlayer: Player) {
-    this.$store.dispatch('addPlayer', newPlayer);
+    this.$store.dispatch("addPlayer", newPlayer);
   }
   private deletePlayer(playerId: number) {
-    this.$store.dispatch('deletePlayer', playerId);
+    this.$store.dispatch("deletePlayer", playerId);
   }
   private startNewGame() {
     if (this.players.length > 0 && Object.keys(this.ruleset).length > 0) {
-      this.$router.push({ path: 'game' });
+      this.$router.push({ path: "game" });
     }
   }
 }
@@ -80,7 +80,7 @@ export default class NewGame extends Vue {
 
 <style lang="scss" scoped>
 h1 {
-  font-family: 'Courier New';
+  font-family: "Courier New";
 }
 .newGameFrame {
   margin: 1vh;
