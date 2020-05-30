@@ -1,5 +1,5 @@
 <template>
-  <div class="playerKasten">
+  <div>
     <img :id="player.id" class="player" :class="player.color" src="@/assets/Black-Bishop.png" />
   </div>
 </template>
@@ -36,15 +36,9 @@ export default class Player extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.kasten {
-  background-color: black;
-  color: yellow;
-  margin: auto;
-}
-
 .player {
-  height: 20px;
-  width: 20px;
+  height: 4vh;
+  width: 1.5vw;
   position: absolute;
   transition: 0.5s linear;
 }

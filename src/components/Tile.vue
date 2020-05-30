@@ -1,6 +1,6 @@
 <template>
   <div
-    :style="{'background-image' : 'url(' + require('@/assets/tilebackground.png') + ')'}"
+    :style="{'background-image' : 'url(' + require('@/assets/tilebackground.jpg') + ')'}"
     class="tileContainer"
     :class="[{'borderBottom': borderBottom}, {'borderLeft' : borderLeft}, {'borderRight' : borderRight}]"
   >
@@ -20,14 +20,12 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 @Component({
   components: {}
 })
-export default class Game extends Vue {
+export default class Tile extends Vue {
   @Prop() private fieldNumber!: number;
-  @Prop() private ruleset1!: any;
-
-  private rulesetJanschepers = require("@/rules/janschepers.json");
+  @Prop() private ruleset!: any;
 
   private fieldId: string = "fieldId" + this.fieldNumber;
-  private rule = (this.ruleset1 as any)[this.fieldId].name;
+  private rule = (this.ruleset as any)[this.fieldId].name;
 
   private get borderBottom() {
     return this.borderBottomList.indexOf(this.fieldNumber) > -1 ? true : false;
@@ -91,8 +89,6 @@ export default class Game extends Vue {
     68,
     69
   ];
-
-  //private rule: string = ruleset1[this.fieldNumber];
 }
 </script>
 
@@ -103,7 +99,6 @@ export default class Game extends Vue {
 }
 .borderBottom {
   border-bottom: 0.3vh solid black;
-  //box-shadow: 0 10px 0px -1px black, 0 0 15px 5px lightgreen;
 }
 .borderLeft {
   border-left: 0.3vh solid black;
