@@ -7,12 +7,15 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     players: [],
-    ruleset: {}
+    ruleset: {},
   },
   mutations: {
     setPlayers(state: any, players: Player[]) {
       state.players = players;
-    }
+    },
+    setRuleset(state: any, ruleset: any) {
+      state.ruleset = ruleset;
+    },
   },
   actions: {
     addPlayer({ state, commit }, newPlayer: Player) {
@@ -30,7 +33,7 @@ export default new Vuex.Store({
     },
     newGame({ commit }) {
       commit('setPlayers', []);
-    }
+    },
   },
-  modules: {}
+  modules: {},
 });

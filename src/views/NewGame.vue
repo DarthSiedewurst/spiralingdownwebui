@@ -1,15 +1,18 @@
-
-  <template>
-    <b-container class="bg-grey">
-      <h1>Trinkspiel</h1>
-      <b-row>
-        <b-col cols="8">
-          <playerList :players="players" @addPlayer="addPlayer" @deletePlayer="deletePlayer"></playerList>
-        </b-col>
-        <b-col class="m-auto">Ruleset</b-col>
-      </b-row>
-      <b-button type="button" @click="startNewGame">Starten!</b-button>
-    </b-container>
+<template>
+  <b-container>
+    <h1>Spiraling Down</h1>
+    <b-row>
+      <b-col cols="8" class="newGameFrame">
+        <playerList :players="players" @addPlayer="addPlayer" @deletePlayer="deletePlayer"></playerList>
+      </b-col>
+      <b-col class="newGameFrame">
+        <b-form-group label="Rule Set" class="test">
+          <b-form-select v-model="ruleset" :options="rulesets"></b-form-select>
+        </b-form-group>
+      </b-col>
+    </b-row>
+    <b-button class="mt-3" type="button" @click="startNewGame">Starten!</b-button>
+  </b-container>
 </template>
 
 <script lang="ts">
@@ -20,6 +23,7 @@ import Player from "@/models/player.ts";
 import playerList from "@/components/PlayerList.vue";
 // @ts-ignore
 import io from "socket.io-client";
+import importetRules from "@/rules";
 
 @Component({
   components: { playerList }
@@ -37,6 +41,25 @@ export default class NewGame extends Vue {
     });
   }
 
+  private get rulesets() {
+    const rulSets = [];
+    for (const variable in importetRules) {
+      rulSets.push({
+        value: importetRules[variable],
+        text: importetRules[variable].name
+      });
+    }
+    return rulSets;
+  }
+
+  private get ruleset() {
+    return this.$store.state.ruleset;
+  }
+
+  private set ruleset(ruleset: any) {
+    this.$store.commit("setRuleset", ruleset);
+  }
+
   private get players(): Player[] {
     return this.$store.state.players;
   }
@@ -47,7 +70,7 @@ export default class NewGame extends Vue {
     this.$store.dispatch("deletePlayer", playerId);
   }
   private startNewGame() {
-    if (this.players.length > 0) {
+    if (this.players.length > 0 && Object.keys(this.ruleset).length > 0) {
       this.$router.push({ path: "game" });
     }
   }
@@ -57,5 +80,17 @@ export default class NewGame extends Vue {
 <style lang="scss" scoped>
 h1 {
   font-family: "Courier New";
+}
+.newGameFrame {
+  margin: 1vh;
+  padding: 2vh;
+  height: 38vh;
+  border-radius: 25px;
+  border: 0.3vh solid black;
+}
+.test {
+  position: relative;
+  top: 45%;
+  transform: translateY(-45%);
 }
 </style>
