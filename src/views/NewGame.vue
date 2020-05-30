@@ -31,8 +31,9 @@ import importetRules from "@/rules";
 export default class NewGame extends Vue {
   private socket: any = {};
   private created() {
-    this.socket = io("https://spiralingdown.de:3000");
-    //this.socket = io("https://localhost:3000/");
+    let url = process.env.VUE_APP_WEBSERVICE_URL;
+    url = url.substring(0, url.length - 1);
+    this.socket = io(url);
   }
 
   private mounted() {
