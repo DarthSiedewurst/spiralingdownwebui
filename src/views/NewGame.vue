@@ -1,18 +1,27 @@
 <template>
-  <b-container>
-    <h1>Spiraling Down</h1>
-    <b-row>
-      <b-col cols="8" class="newGameFrame">
-        <playerList :players="players" @addPlayer="addPlayer" @deletePlayer="deletePlayer"></playerList>
-      </b-col>
-      <b-col class="newGameFrame">
-        <b-form-group label="Rule Set" class="mt-3">
-          <b-form-select v-model="ruleset" :options="rulesets"></b-form-select>
-        </b-form-group>
-        <b-button class="footerButoon float-right" type="button" @click="startNewGame">Starten!</b-button>
-      </b-col>
-    </b-row>
-  </b-container>
+  <div class="background">
+    <div class="fullscreen">
+      <h1>Spiraling Down</h1>
+      <b-row>
+        <b-col
+          cols="8"
+          class="newGameFrame"
+          :style="{ 'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')' }"
+        >
+          <playerList :players="players" @addPlayer="addPlayer" @deletePlayer="deletePlayer"></playerList>
+        </b-col>
+        <b-col
+          class="newGameFrame"
+          :style="{ 'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')' }"
+        >
+          <b-form-group label="Rule Set" class="mt-3">
+            <b-form-select v-model="ruleset" :options="rulesets"></b-form-select>
+          </b-form-group>
+          <b-button class="footerButoon float-right" type="button" @click="startNewGame">Starten!</b-button>
+        </b-col>
+      </b-row>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -82,6 +91,16 @@ export default class NewGame extends Vue {
 <style lang="scss" scoped>
 h1 {
   font-family: "Courier New";
+}
+.fullscreen {
+  width: 90vw;
+  height: 90vh;
+  margin: auto;
+}
+.background {
+  background-color: darkgreen;
+  width: 100vw;
+  height: 100vh;
 }
 .newGameFrame {
   margin: 1vh;
