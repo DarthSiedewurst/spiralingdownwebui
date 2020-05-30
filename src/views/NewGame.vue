@@ -1,7 +1,7 @@
 <template>
-  <div class="background">
-    <div class="fullscreen">
-      <h1>Spiraling Down</h1>
+  <div class="background" :style="{ 'background-image': 'url(' + require('@/assets/darkgreen.jpg') + ')' }">
+    <div class="fullscreen text-center">
+      <h1 class="gameName m-auto"><strong>Spiraling Down</strong></h1>
       <b-row>
         <b-col
           cols="8"
@@ -89,16 +89,18 @@ export default class NewGame extends Vue {
 </script>
 
 <style lang="scss" scoped>
-h1 {
+.gameName {
   font-family: "Courier New";
+  color: #874000;
 }
 .fullscreen {
   width: 90vw;
   height: 90vh;
   margin: auto;
+  padding: 1vh;
 }
 .background {
-  background-color: darkgreen;
+  background-color: white;
   width: 100vw;
   height: 100vh;
 }
@@ -111,6 +113,6 @@ h1 {
   overflow: auto;
 }
 .footerButoon {
-  margin-top: 35vh;
+  margin-top: 74%;
 }
 </style>

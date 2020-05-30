@@ -25,7 +25,7 @@
       </ValidationObserver>
     </div>
 
-    <b-button class="mt-3" type="button" @click="addPlayer">Add Player</b-button>
+    <b-button class="mt-3 float-left" type="button" @click="addPlayer">Add Player</b-button>
   </div>
 </template>
 
