@@ -1,29 +1,31 @@
 <template>
   <div>
-    <b-row v-for="player in players" :key="player.id">
-      <b-col>
-        {{ player.name }}
-        <b-button @click="deletePlayer(player.id)" class="deleteButton" type="button">Löschen</b-button>
-      </b-col>
-    </b-row>
-    <ValidationObserver ref="valid">
-      <b-row>
+    <div class="overflow">
+      <b-row v-for="player in players" :key="player.id">
         <b-col>
-          <ValidationProvider rules="required" v-slot="{ errors }">
-            <b-input v-model="playerName"></b-input>
-            <span>{{ errors[0] }}</span>
-          </ValidationProvider>
-        </b-col>
-        <b-col>
-          <ValidationProvider rules="required" v-slot="{ errors }">
-            <b-form-select v-model="playerColor" :options="playerColors"></b-form-select>
-            <span>{{ errors[0] }}</span>
-          </ValidationProvider>
+          {{ player.name }}
+          <b-button @click="deletePlayer(player.id)" class="deleteButton" type="button">Löschen</b-button>
         </b-col>
       </b-row>
-    </ValidationObserver>
+      <ValidationObserver ref="valid">
+        <b-row v-if="addPlayerPissible">
+          <b-col>
+            <ValidationProvider rules="required" v-slot="{ errors }">
+              <b-input v-model="playerName"></b-input>
+              <span>{{ errors[0] }}</span>
+            </ValidationProvider>
+          </b-col>
+          <b-col>
+            <ValidationProvider rules="required" v-slot="{ errors }">
+              <b-form-select v-model="playerColor" :options="playerColors"></b-form-select>
+              <span>{{ errors[0] }}</span>
+            </ValidationProvider>
+          </b-col>
+        </b-row>
+      </ValidationObserver>
+    </div>
 
-    <b-button type="button" @click="addPlayer">Add Player</b-button>
+    <b-button class="mt-3" type="button" @click="addPlayer">Add Player</b-button>
   </div>
 </template>
 
@@ -34,7 +36,7 @@ import Player from "@/models/player";
 import { validate } from "vee-validate";
 
 @Component({
-  components: {}
+  components: {},
 })
 export default class PlayerList extends Vue {
   @Prop() private players!: Player[];
@@ -48,20 +50,20 @@ export default class PlayerList extends Vue {
       { value: "yellow", text: "Gelb" },
       { value: "black", text: "Schwarz" },
       { value: "dafuq", text: "Dafuq" },
-      { value: "purple", text: "Lila" }
+      { value: "purple", text: "Lila" },
     ];
 
-    this.players.forEach(element => {
+    this.players.forEach((element) => {
       if (
         colors
-          .map(e => {
+          .map((e) => {
             return e.value;
           })
           .indexOf(element.color) > -1
       ) {
         colors.splice(
           colors
-            .map(e => {
+            .map((e) => {
               return e.value;
             })
             .indexOf(element.color),
@@ -70,6 +72,10 @@ export default class PlayerList extends Vue {
       }
     });
     return colors;
+  }
+
+  private get addPlayerPissible() {
+    return this.players.length > 5 ? false : true;
   }
 
   private playerName = "";
@@ -88,7 +94,7 @@ export default class PlayerList extends Vue {
           name: this.playerName,
           activeTurn,
           tile: 0,
-          color: this.playerColor
+          color: this.playerColor,
         };
         this.$emit("addPlayer", newPlayer);
         this.playerName = "";
@@ -107,5 +113,10 @@ export default class PlayerList extends Vue {
 .deleteButton {
   float: right;
   background-color: darkred;
+}
+.overflow {
+  height: 60vh;
+  overflow: auto;
+  overflow-x: hidden;
 }
 </style>

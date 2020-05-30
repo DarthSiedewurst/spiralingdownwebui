@@ -6,12 +6,12 @@
         <playerList :players="players" @addPlayer="addPlayer" @deletePlayer="deletePlayer"></playerList>
       </b-col>
       <b-col class="newGameFrame">
-        <b-form-group label="Rule Set" class="test">
+        <b-form-group label="Rule Set" class="mt-3">
           <b-form-select v-model="ruleset" :options="rulesets"></b-form-select>
         </b-form-group>
+        <b-button class="footerButoon float-right" type="button" @click="startNewGame">Starten!</b-button>
       </b-col>
     </b-row>
-    <b-button class="mt-3" type="button" @click="startNewGame">Starten!</b-button>
   </b-container>
 </template>
 
@@ -86,13 +86,12 @@ h1 {
 .newGameFrame {
   margin: 1vh;
   padding: 2vh;
-  height: 38vh;
+  max-height: 80vh;
   border-radius: 25px;
   border: 0.3vh solid black;
+  overflow: auto;
 }
-.test {
-  position: relative;
-  top: 45%;
-  transform: translateY(-45%);
+.footerButoon {
+  margin-top: 35vh;
 }
 </style>
