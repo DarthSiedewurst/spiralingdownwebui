@@ -1,6 +1,6 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import Player from '@/models/player';
+import Vue from "vue";
+import Vuex from "vuex";
+import Player from "@/models/player";
 
 Vue.use(Vuex);
 
@@ -8,6 +8,8 @@ export default new Vuex.Store({
   state: {
     players: [],
     ruleset: {},
+    gameModeMultiplayer: true,
+    socket: {},
   },
   mutations: {
     setPlayers(state: any, players: Player[]) {
@@ -16,12 +18,18 @@ export default new Vuex.Store({
     setRuleset(state: any, ruleset: any) {
       state.ruleset = ruleset;
     },
+    gameModeMultiplayer(state: any, gameModeMultiplayer: boolean) {
+      state.gameModeMultiplayer = gameModeMultiplayer;
+    },
+    setSocket(state: any, socket: any) {
+      state.socket = socket;
+    },
   },
   actions: {
     addPlayer({ state, commit }, newPlayer: Player) {
       const newPlayers: Player[] = state.players;
       newPlayers.push(newPlayer);
-      commit('setPlayers', newPlayers);
+      commit("setPlayers", newPlayers);
     },
     deletePlayer({ state, commit }, playerId: number) {
       const newPlayers: Player[] = state.players;
@@ -29,10 +37,10 @@ export default new Vuex.Store({
       for (let i = 0; i < newPlayers.length; i++) {
         newPlayers[i].id = i;
       }
-      commit('setPlayers', newPlayers);
+      commit("setPlayers", newPlayers);
     },
     newGame({ commit }) {
-      commit('setPlayers', []);
+      commit("setPlayers", []);
     },
   },
   modules: {},

@@ -4,10 +4,15 @@
       <b-row v-for="player in players" :key="player.id">
         <b-col>
           {{ player.name }}
-          <b-button @click="deletePlayer(player.id)" class="deleteButton" type="button">Löschen</b-button>
+          <b-button
+            v-if="!gameModeMultiplayer"
+            @click="deletePlayer(player.id)"
+            class="deleteButton"
+            type="button"
+          >Löschen</b-button>
         </b-col>
       </b-row>
-      <ValidationObserver ref="valid">
+      <ValidationObserver ref="valid" v-if="!gameModeMultiplayer">
         <b-row v-if="addPlayerPissible">
           <b-col>
             <ValidationProvider rules="required" v-slot="{ errors }">
@@ -25,7 +30,12 @@
       </ValidationObserver>
     </div>
 
-    <b-button class="mt-3 float-left" type="button" @click="addPlayer">Add Player</b-button>
+    <b-button
+      v-if="!gameModeMultiplayer"
+      class="mt-3 float-left"
+      type="button"
+      @click="addPlayer"
+    >Add Player</b-button>
   </div>
 </template>
 
@@ -36,12 +46,11 @@ import Player from "@/models/player";
 import { validate } from "vee-validate";
 
 @Component({
-  components: {},
+  components: {}
 })
 export default class PlayerList extends Vue {
   @Prop() private players!: Player[];
-
-  private valid: any = "";
+  @Prop() private gameModeMultiplayer!: boolean;
 
   private get playerColors(): string[] {
     const colors: any[] = [
@@ -50,20 +59,20 @@ export default class PlayerList extends Vue {
       { value: "yellow", text: "Gelb" },
       { value: "black", text: "Schwarz" },
       { value: "dafuq", text: "Dafuq" },
-      { value: "purple", text: "Lila" },
+      { value: "purple", text: "Lila" }
     ];
 
-    this.players.forEach((element) => {
+    this.players.forEach(element => {
       if (
         colors
-          .map((e) => {
+          .map(e => {
             return e.value;
           })
           .indexOf(element.color) > -1
       ) {
         colors.splice(
           colors
-            .map((e) => {
+            .map(e => {
               return e.value;
             })
             .indexOf(element.color),
@@ -94,7 +103,7 @@ export default class PlayerList extends Vue {
           name: this.playerName,
           activeTurn,
           tile: 0,
-          color: this.playerColor,
+          color: this.playerColor
         };
         this.$emit("addPlayer", newPlayer);
         this.playerName = "";

@@ -7,5 +7,6 @@
 <style lang="scss">
 body {
   overscroll-behavior-y: contain;
+  font-family: "avenir" !important;
 }
 </style>

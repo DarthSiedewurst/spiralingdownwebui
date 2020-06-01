@@ -9,8 +9,7 @@
       no-close-on-backdrop
       ref="rule"
       @ok="handleOk"
-      >{{ ruledescribtion }}</b-modal
-    >
+    >{{ ruledescribtion }}</b-modal>
     <div v-for="(player, index) in players" :key="'player' + index">
       <player ref="player" :player="player"></player>
     </div>
@@ -54,7 +53,7 @@ import dice from "@/components/Dice.vue";
 import Player from "@/models/player.ts";
 
 @Component({
-  components: { tile, player, dice },
+  components: { tile, player, dice }
 })
 export default class Game extends Vue {
   private rulename = "";
@@ -71,9 +70,14 @@ export default class Game extends Vue {
     [26, 49, 64, 71, 70, 69, 58, 39, 12],
     [25, 48, 63, 62, 61, 60, 59, 40, 13],
     [24, 47, 46, 45, 44, 43, 42, 41, 14],
-    [23, 22, 21, 20, 19, 18, 17, 16, 15],
+    [23, 22, 21, 20, 19, 18, 17, 16, 15]
   ];
 
+  private mounted() {
+    this.players.forEach(element => {
+      (this.$refs.player as any)[element.id].movePlayer();
+    });
+  }
   private get ruleset() {
     return this.$store.state.ruleset;
   }
@@ -105,6 +109,7 @@ export default class Game extends Vue {
       this.diceable = true;
     }
   }
+
   private handleOk(bvModalEvt: any) {
     const fieldId = "fieldId" + this.players[this.activePlayer.id].tile;
     this.ruleMovement = (this.ruleset as any)[fieldId].move;
@@ -124,16 +129,20 @@ export default class Game extends Vue {
       this.players[0].activeTurn = true;
       this.activePlayer = this.players[0];
     }
-    document.getElementById("fieldId" + this.activePlayer.tile)!.getBoundingClientRect().left >
+    document
+      .getElementById("fieldId" + this.activePlayer.tile)!
+      .getBoundingClientRect().left >
     document.getElementById("fieldId4")!.getBoundingClientRect().left
       ? (this.right = true)
       : (this.right = false);
   }
 
   private async move(id: number) {
+    this.diceable = false;
+
     if (this.roll > 0) {
       for (let i = 0; i < this.roll; i++) {
-        await new Promise((resolve) => {
+        await new Promise(resolve => {
           setTimeout(() => {
             resolve(this.moveForward(id));
           }, 500);
@@ -141,7 +150,7 @@ export default class Game extends Vue {
       }
     } else {
       for (let i = 0; i < Math.abs(this.roll); i++) {
-        await new Promise((resolve) => {
+        await new Promise(resolve => {
           setTimeout(() => {
             resolve(this.moveBackward(id));
           }, 500);
@@ -149,13 +158,16 @@ export default class Game extends Vue {
       }
     }
     this.showRule(id);
+    this.diceable = true;
   }
 
   private moveForward(id: number) {
     if (this.players[id].tile < 72) {
       this.players[id].tile++;
       (this.$refs.player as any)[id].movePlayer();
-      document.getElementById("fieldId" + this.activePlayer.tile)!.getBoundingClientRect().left >
+      document
+        .getElementById("fieldId" + this.activePlayer.tile)!
+        .getBoundingClientRect().left >
       document.getElementById("fieldId4")!.getBoundingClientRect().left
         ? (this.right = true)
         : (this.right = false);
@@ -165,14 +177,18 @@ export default class Game extends Vue {
   private moveBackward(id: number) {
     this.players[id].tile--;
     (this.$refs.player as any)[id].movePlayer();
-    document.getElementById("fieldId" + this.activePlayer.tile)!.getBoundingClientRect().left >
+    document
+      .getElementById("fieldId" + this.activePlayer.tile)!
+      .getBoundingClientRect().left >
     document.getElementById("fieldId4")!.getBoundingClientRect().left
       ? (this.right = true)
       : (this.right = false);
   }
 
   private showRule(id: number) {
-    document.getElementById("fieldId" + this.activePlayer.tile)!.getBoundingClientRect().left > 750
+    document
+      .getElementById("fieldId" + this.activePlayer.tile)!
+      .getBoundingClientRect().left > 750
       ? (this.right = true)
       : (this.right = false);
     const fieldId = "fieldId" + this.players[id].tile;
@@ -193,7 +209,7 @@ export default class Game extends Vue {
 
 <style lang="scss" scoped>
 .background {
-  background-color: #cf9461;
+  background-color: #241710;
 }
 .player {
   margin: auto;
@@ -206,6 +222,9 @@ export default class Game extends Vue {
   box-shadow: 0 0 10px 10px darkgreen;
 }
 .newGameButton {
+  bottom: 0vh;
+  right: 1vw;
+  position: absolute;
   background-color: orange;
   color: black;
   font-size: 1vw;

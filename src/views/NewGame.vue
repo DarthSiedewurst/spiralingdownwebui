@@ -1,18 +1,36 @@
 <template>
-  <div class="background" :style="{ 'background-image': 'url(' + require('@/assets/darkgreen.jpg') + ')' }">
+  <div
+    class="background"
+    :style="{
+      'background-image': 'url(' + require('@/assets/darkgreen.jpg') + ')'
+    }"
+  >
     <div class="fullscreen text-center">
-      <h1 class="gameName m-auto"><strong>Spiraling Down</strong></h1>
+      <h1 class="gameName m-auto">
+        <strong>Spiraling Down</strong>
+      </h1>
       <b-row>
         <b-col
           cols="8"
           class="newGameFrame"
-          :style="{ 'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')' }"
+          :style="{
+            'background-image':
+              'url(' + require('@/assets/tilebackground.jpg') + ')'
+          }"
         >
-          <playerList :players="players" @addPlayer="addPlayer" @deletePlayer="deletePlayer"></playerList>
+          <playerList
+            :gameModeMultiplayer="gameModeMultiplayer"
+            :players="players"
+            @addPlayer="addPlayer"
+            @deletePlayer="deletePlayer"
+          ></playerList>
         </b-col>
         <b-col
           class="newGameFrame"
-          :style="{ 'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')' }"
+          :style="{
+            'background-image':
+              'url(' + require('@/assets/tilebackground.jpg') + ')'
+          }"
         >
           <b-form-group label="Rule Set" class="mt-3">
             <b-form-select v-model="ruleset" :options="rulesets"></b-form-select>
@@ -21,6 +39,7 @@
         </b-col>
       </b-row>
     </div>
+    <pre>{{invitationLink}}</pre>
   </div>
 </template>
 
@@ -31,25 +50,25 @@ import { Component, Vue } from "vue-property-decorator";
 import Player from "@/models/player.ts";
 import playerList from "@/components/PlayerList.vue";
 // @ts-ignore
-import io from "socket.io-client";
 import importetRules from "@/rules";
+import Socket from "../services/socket";
 
 @Component({
-  components: { playerList },
+  components: { playerList }
 })
 export default class NewGame extends Vue {
-  private socket: any = {};
-  private created() {
-    let url = process.env.VUE_APP_WEBSERVICE_URL;
-    url = url.replace(/;/g, "");
-    this.socket = io(url);
-  }
+  private socket = new Socket();
+  private invitationLink = "";
 
   private mounted() {
-    this.socket.on("testMessage", (data: any) => {
-      console.log(data);
-    });
-    console.log(process.env.VUE_APP_TEST);
+    let url = process.env.VUE_APP_WEBSERVICE_URL;
+    url = url.replace(/;/g, "");
+    url = url.replace(/:3000/g, "");
+    url = url + "?lobby=" + Socket.mySocket.id;
+    this.invitationLink = url;
+  }
+  private get gameModeMultiplayer() {
+    return this.$store.state.gameModeMultiplayer;
   }
 
   private get rulesets() {
@@ -57,7 +76,7 @@ export default class NewGame extends Vue {
     for (const variable in importetRules) {
       rulSets.push({
         value: importetRules[variable],
-        text: importetRules[variable].name,
+        text: importetRules[variable].name
       });
     }
     return rulSets;
@@ -90,7 +109,6 @@ export default class NewGame extends Vue {
 
 <style lang="scss" scoped>
 .gameName {
-  font-family: "Courier New";
   color: #874000;
 }
 .fullscreen {
@@ -103,6 +121,8 @@ export default class NewGame extends Vue {
   background-color: white;
   width: 100vw;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 .newGameFrame {
   margin: 1vh;
@@ -111,8 +131,12 @@ export default class NewGame extends Vue {
   border-radius: 25px;
   border: 0.3vh solid black;
   overflow: auto;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 .footerButoon {
-  margin-top: 74%;
+  bottom: 2vh;
+  right: 1vw;
+  position: absolute;
 }
 </style>

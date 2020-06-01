@@ -1,13 +1,19 @@
 <template>
   <div
-    :style="{'background-image' : 'url(' + require('@/assets/tilebackground.jpg') + ')'}"
+    :style="{
+      'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')'
+    }"
     class="tileContainer"
-    :class="[{'borderBottom': borderBottom}, {'borderLeft' : borderLeft}, {'borderRight' : borderRight}]"
+    :class="[
+      { borderBottom: borderBottom },
+      { borderLeft: borderLeft },
+      { borderRight: borderRight }
+    ]"
   >
     <div :id="fieldId" class="tile">
-      <span class="responsiveNumber">{{ fieldNumber }}</span>
+      <span class="responsiveNumber ml-2">{{ fieldNumber }}</span>
       <br />
-      <div class="responsiveText">
+      <div class="responsiveText ml-2">
         <strong>{{ rule }}</strong>
       </div>
     </div>
@@ -94,8 +100,7 @@ export default class Tile extends Vue {
 
 <style lang="scss" scoped>
 .tile {
-  width: 90%;
-  height: 90%;
+  color: black;
 }
 .borderBottom {
   border-bottom: 0.3vh solid black;
@@ -119,5 +124,7 @@ export default class Tile extends Vue {
   width: 11vw;
   height: 12.3vh;
   margin: 0px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 </style>

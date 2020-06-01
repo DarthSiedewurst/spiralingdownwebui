@@ -1,7 +1,7 @@
 export default class Player {
   id = 0;
   activeTurn = false;
-  name = '';
+  name = "";
   tile = 0;
-  color = '';
+  color = "";
 }
