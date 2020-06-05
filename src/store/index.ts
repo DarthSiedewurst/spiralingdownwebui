@@ -31,6 +31,10 @@ export default new Vuex.Store({
       const socket = new Socket();
       socket.addPlayerToSocket(newPlayer);
     },
+    async getPlayerFromSocket() {
+      const socket = new Socket();
+      socket.getPlayerFromSocket();
+    },
     addPlayer({ state, commit }, newPlayer: Player) {
       const newPlayers: Player[] = state.players;
       newPlayers.push(newPlayer);

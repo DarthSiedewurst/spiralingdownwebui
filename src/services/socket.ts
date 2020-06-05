@@ -30,10 +30,15 @@ export default class Socket extends Vue {
     });
   }
   public async addPlayerToSocket(newPlayer: Player) {
-    Socket.mySocket.emit("addPlayerToSocket", {
-      newPlayer,
-      lobby: Socket.lobby,
+    Socket.mySocket.emit("addPlayerToSocket", newPlayer);
+    await Socket.mySocket.on("playersUpdated", (newPlayers: any) => {
+      console.log("New Players from Server: " + newPlayers);
+      Socket.players = newPlayers;
+      Store.commit("setPlayers", newPlayers);
     });
+  }
+  public async getPlayerFromSocket() {
+    Socket.mySocket.emit("getPlayerFromSocket");
     await Socket.mySocket.on("playersUpdated", (newPlayers: any) => {
       console.log("New Players from Server: " + newPlayers);
       Socket.players = newPlayers;

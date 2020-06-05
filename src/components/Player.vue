@@ -64,4 +64,12 @@ export default class Player extends Vue {
   filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(56deg)
     brightness(100%) contrast(103%);
 }
+.blob {
+  filter: invert(83%) sepia(82%) saturate(5700%) hue-rotate(43deg)
+    brightness(97%) contrast(12%);
+}
+.puke {
+  filter: invert(43%) sepia(37%) saturate(810%) hue-rotate(12deg)
+    brightness(87%) contrast(88%);
+}
 </style>

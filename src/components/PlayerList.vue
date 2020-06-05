@@ -13,7 +13,7 @@
         </b-col>
       </b-row>
       <ValidationObserver ref="valid" v-if="!gameModeMultiplayer">
-        <b-row v-if="addPlayerPissible">
+        <b-row v-if="addPlayerPossible">
           <b-col>
             <ValidationProvider rules="required" v-slot="{ errors }">
               <b-input v-model="playerName"></b-input>
@@ -44,6 +44,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import Player from "@/models/player";
 import { validate } from "vee-validate";
+import CONSTANTS from "@/constants";
 
 @Component({
   components: {}
@@ -52,16 +53,10 @@ export default class PlayerList extends Vue {
   @Prop() private players!: Player[];
   @Prop() private gameModeMultiplayer!: boolean;
 
-  private get playerColors(): string[] {
-    const colors: any[] = [
-      { value: "orange", text: "Orange" },
-      { value: "green", text: "Grün" },
-      { value: "yellow", text: "Gelb" },
-      { value: "black", text: "Schwarz" },
-      { value: "dafuq", text: "Dafuq" },
-      { value: "purple", text: "Lila" }
-    ];
+  private colors = CONSTANTS.COLORS;
 
+  private get playerColors(): string[] {
+    const colors: any[] = [...this.colors];
     this.players.forEach(element => {
       if (
         colors
@@ -80,11 +75,13 @@ export default class PlayerList extends Vue {
         );
       }
     });
+    console.log("method colors: " + colors);
+    console.log("Constant colors: " + this.colors);
     return colors;
   }
 
-  private get addPlayerPissible() {
-    return this.players.length > 5 ? false : true;
+  private get addPlayerPossible() {
+    return this.players.length > 7 ? false : true;
   }
 
   private playerName = "";
@@ -93,7 +90,7 @@ export default class PlayerList extends Vue {
   private addPlayer() {
     (this.$refs.valid as any).validate().then((success: boolean) => {
       if (success) {
-        if (this.players.length > 5) {
+        if (this.players.length > 7) {
           return;
         }
         const id = this.players.length;

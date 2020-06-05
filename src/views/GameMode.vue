@@ -68,16 +68,18 @@
 import { Component, Vue } from "vue-property-decorator";
 import Player from "../models/player";
 import Socket from "../services/socket";
+import CONSTANTS from "@/constants";
 
 @Component({
   components: {}
 })
 export default class NewGame extends Vue {
+  private colors = CONSTANTS.COLORS;
   private playerName = "";
   private playerColor = "";
   private socket = new Socket();
 
-  private mounted() {
+  private async mounted() {
     console.log(process.env.VUE_APP_TEST);
 
     if (Socket.mySocket === null) {
@@ -85,7 +87,8 @@ export default class NewGame extends Vue {
     }
 
     if (this.$route.query.lobby) {
-      this.socket.joinLobby(this.$route.query.lobby as string);
+      await this.socket.joinLobby(this.$route.query.lobby as string);
+      await this.$store.dispatch("getPlayerFromSocket");
       (this.$refs["lobby"] as any).show();
     }
   }
@@ -95,14 +98,7 @@ export default class NewGame extends Vue {
   }
 
   private get playerColors(): string[] {
-    const colors: any[] = [
-      { value: "orange", text: "Orange" },
-      { value: "green", text: "Grün" },
-      { value: "yellow", text: "Gelb" },
-      { value: "black", text: "Schwarz" },
-      { value: "dafuq", text: "Dafuq" },
-      { value: "purple", text: "Lila" }
-    ];
+    const colors: any[] = [...this.colors];
 
     this.players.forEach(element => {
       if (
@@ -122,6 +118,7 @@ export default class NewGame extends Vue {
         );
       }
     });
+    console.log(colors);
     return colors;
   }
 
