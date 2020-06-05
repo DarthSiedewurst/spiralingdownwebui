@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import Player from "@/models/player";
+import Socket from "@/services/socket";
 
 Vue.use(Vuex);
 
@@ -26,6 +27,10 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    async addPlayerToSocket({ commit }, newPlayer: Player) {
+      const socket = new Socket();
+      socket.addPlayerToSocket(newPlayer);
+    },
     addPlayer({ state, commit }, newPlayer: Player) {
       const newPlayers: Player[] = state.players;
       newPlayers.push(newPlayer);

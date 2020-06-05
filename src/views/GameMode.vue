@@ -78,15 +78,15 @@ export default class NewGame extends Vue {
   private socket = new Socket();
 
   private mounted() {
+    console.log(process.env.VUE_APP_TEST);
+
     if (Socket.mySocket === null) {
       this.socket.setMySocket();
     }
 
     if (this.$route.query.lobby) {
-      console.log(this.$route.query.lobby);
       this.socket.joinLobby(this.$route.query.lobby as string);
       (this.$refs["lobby"] as any).show();
-      console.log(process.env.VUE_APP_TEST);
     }
   }
 
@@ -135,7 +135,7 @@ export default class NewGame extends Vue {
   private handleOk(bvModalEvt) {
     bvModalEvt.preventDefault();
 
-    (this.$refs.valid as any).validate().then((success: boolean) => {
+    (this.$refs.valid as any).validate().then(async (success: boolean) => {
       if (success) {
         const activeTurn = this.players.length === 0 ? true : false;
         const newPlayer: Player = {
@@ -145,13 +145,13 @@ export default class NewGame extends Vue {
           activeTurn: activeTurn,
           color: this.playerColor
         };
+        if (!this.$route.query.lobby) {
+          await this.socket.joinLobby(Socket.mySocket.id);
+        }
         (this.$refs["lobby"] as any).show();
-        this.$store.dispatch("addPlayer", newPlayer);
+        this.$store.dispatch("addPlayerToSocket", newPlayer);
         this.$store.commit("gameModeMultiplayer", true);
 
-        if (!this.$route.query.lobby) {
-          this.socket.joinLobby(Socket.mySocket.id);
-        }
         this.goToNewGame();
       }
     });
