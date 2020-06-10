@@ -111,7 +111,7 @@
   "fieldId23": { "name": "Gib aus", "describtion": "Verteile 5 Schlücke", "move": 0, "rulerule": "" },
   "fieldId24": {
     "name": "Blitzkrieg",
-    "describtion": "Die letzte Person, die salutiert, trinkt 2 Schlücke",
+    "describtion": "Die letzte Person, die die Hände in den Himmels streckt, trinkt 2 Schlücke",
     "move": 0,
     "rulerule": ""
   },
@@ -219,7 +219,7 @@
     "rulerule": ""
   },
   "fieldId48": {
-    "name": "Doppelt",
+    "name": "Double Trouble",
     "describtion": "Alle deine Schlücke sind verdoppelt, bis du wieder am Zug bist",
     "move": 0,
     "rulerule": ""

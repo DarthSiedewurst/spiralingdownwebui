@@ -88,7 +88,8 @@ export default class NewGame extends Vue {
 
     if (this.$route.query.lobby) {
       await this.socket.joinLobby(this.$route.query.lobby as string);
-      await this.$store.dispatch("getPlayerFromSocket");
+      this.socket.playersUpdated();
+      this.socket.rulesetUpdated();
       (this.$refs["lobby"] as any).show();
     }
   }
@@ -142,8 +143,11 @@ export default class NewGame extends Vue {
           activeTurn: activeTurn,
           color: this.playerColor
         };
+        this.$store.commit("setYourId", this.players.length);
         if (!this.$route.query.lobby) {
           await this.socket.joinLobby(Socket.mySocket.id);
+          this.socket.playersUpdated();
+          this.socket.rulesetUpdated();
         }
         (this.$refs["lobby"] as any).show();
         this.$store.dispatch("addPlayerToSocket", newPlayer);

@@ -32,10 +32,19 @@
               'url(' + require('@/assets/tilebackground.jpg') + ')'
           }"
         >
-          <b-form-group label="Rule Set" class="mt-3">
+          <b-form-group
+            label="Rule Set"
+            class="mt-3"
+            :disabled="gameModeMultiplayer && yourId != 0"
+          >
             <b-form-select v-model="ruleset" :options="rulesets"></b-form-select>
           </b-form-group>
-          <b-button class="footerButoon float-right" type="button" @click="startNewGame">Starten!</b-button>
+          <b-button
+            class="footerButoon float-right"
+            v-if="!gameModeMultiplayer || yourId === 0"
+            type="button"
+            @click="startNewGame"
+          >Starten!</b-button>
         </b-col>
       </b-row>
     </div>
@@ -71,15 +80,20 @@ export default class NewGame extends Vue {
     return this.$store.state.gameModeMultiplayer;
   }
 
+  private get yourId() {
+    return this.$store.state.yourId;
+  }
+
+  //Add new Rulesets here
   private get rulesets() {
-    const rulSets = [];
+    const ruleSets = [];
     for (const variable in importetRules) {
-      rulSets.push({
+      ruleSets.push({
         value: importetRules[variable],
         text: importetRules[variable].name
       });
     }
-    return rulSets;
+    return ruleSets;
   }
 
   private get ruleset() {
@@ -87,7 +101,7 @@ export default class NewGame extends Vue {
   }
 
   private set ruleset(ruleset: any) {
-    this.$store.commit("setRuleset", ruleset);
+    this.$store.dispatch("setRuleset", ruleset);
   }
 
   private get players(): Player[] {

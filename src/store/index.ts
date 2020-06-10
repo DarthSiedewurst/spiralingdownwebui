@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import Player from "@/models/player";
 import Socket from "@/services/socket";
+import Ruleset from "@/models/ruleset";
 
 Vue.use(Vuex);
 
@@ -11,6 +12,7 @@ export default new Vuex.Store({
     ruleset: {},
     gameModeMultiplayer: true,
     socket: {},
+    yourId: 0,
   },
   mutations: {
     setPlayers(state: any, players: Player[]) {
@@ -25,15 +27,15 @@ export default new Vuex.Store({
     setSocket(state: any, socket: any) {
       state.socket = socket;
     },
+    setYourId(state: any, yourId: number) {
+      state.yourId = yourId;
+    },
   },
   actions: {
+    //Player
     async addPlayerToSocket({ commit }, newPlayer: Player) {
       const socket = new Socket();
       socket.addPlayerToSocket(newPlayer);
-    },
-    async getPlayerFromSocket() {
-      const socket = new Socket();
-      socket.getPlayerFromSocket();
     },
     addPlayer({ state, commit }, newPlayer: Player) {
       const newPlayers: Player[] = state.players;
@@ -50,6 +52,20 @@ export default new Vuex.Store({
     },
     newGame({ commit }) {
       commit("setPlayers", []);
+    },
+    //Ruleset
+    setRuleset({ state, commit, dispatch }, ruleset: Ruleset) {
+      if (state.gameModeMultiplayer) {
+        dispatch("setRulesetToSocket", ruleset);
+      } else {
+        commit("setRuleset", ruleset);
+      }
+    },
+    async setRulesetToSocket({ commit }, ruleset: Ruleset) {
+      const socket = new Socket();
+      if (Socket.ruleset !== ruleset) {
+        socket.setRuleset(ruleset);
+      }
     },
   },
   modules: {},
