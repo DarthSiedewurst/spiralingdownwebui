@@ -33,5 +33,6 @@ jobs:
             git pull
             docker stop ui
             docker rm ui
+            docker rmi uiimage
             docker build -t uiimage .
-            docker run -d -p 5000:5000 --name ui uiimage
+            docker run -d --restart always -p 5000:5000 --name ui uiimage
