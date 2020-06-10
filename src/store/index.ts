@@ -61,11 +61,15 @@ export default new Vuex.Store({
         commit("setRuleset", ruleset);
       }
     },
-    async setRulesetToSocket({ commit }, ruleset: Ruleset) {
+    setRulesetToSocket({ commit }, ruleset: Ruleset) {
       const socket = new Socket();
       if (Socket.ruleset !== ruleset) {
         socket.setRuleset(ruleset);
       }
+    },
+    moveInSocket({ commit }, payload: any) {
+      const socket = new Socket();
+      socket.moveInSocket(payload);
     },
   },
   modules: {},

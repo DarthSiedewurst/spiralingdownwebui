@@ -51,6 +51,7 @@ import tile from "@/components/Tile.vue";
 import player from "@/components/Player.vue";
 import dice from "@/components/Dice.vue";
 import Player from "@/models/player.ts";
+import Socket from "../services/socket";
 
 @Component({
   components: { tile, player, dice }
@@ -61,6 +62,8 @@ export default class Game extends Vue {
   private rulerule = "";
   private ruleMovement = 0;
   private diceable = true;
+
+  private socket = new Socket();
 
   private matrix: any = [
     [0, 1, 2, 3, 4, 5, 6, 7, 8],
@@ -77,6 +80,14 @@ export default class Game extends Vue {
     this.players.forEach(element => {
       (this.$refs.player as any)[element.id].movePlayer();
     });
+    Socket.mySocket.on("diceWasRolled", payload => {
+      this.roll = payload.roll;
+      this.move(payload.playerId);
+      console.log(payload.playerId + " diced a " + payload.roll);
+    });
+  }
+  private get gameModeMultiplayer() {
+    return this.$store.state.gameModeMultiplayer;
   }
   private get ruleset() {
     return this.$store.state.ruleset;
@@ -105,7 +116,16 @@ export default class Game extends Vue {
       });
       this.roll = (this.$refs.dice as any).roll();
 
-      await this.move(id);
+      if (this.gameModeMultiplayer) {
+        await this.$store.dispatch("moveInSocket", {
+          roll: this.roll,
+          playerId: id,
+          players: this.players
+        });
+      } else {
+        await this.move(id);
+      }
+
       this.diceable = true;
     }
   }

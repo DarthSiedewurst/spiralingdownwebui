@@ -75,6 +75,10 @@ export default class NewGame extends Vue {
     url = url.replace(/:3000/g, "");
     url = url + "?lobby=" + Socket.mySocket.id;
     this.invitationLink = url;
+
+    Socket.mySocket.on("gameStarted", () => {
+      this.$router.push({ path: "game" });
+    });
   }
   private get gameModeMultiplayer() {
     return this.$store.state.gameModeMultiplayer;
@@ -115,7 +119,11 @@ export default class NewGame extends Vue {
   }
   private startNewGame() {
     if (this.players.length > 0 && Object.keys(this.ruleset).length > 0) {
-      this.$router.push({ path: "game" });
+      if (this.gameModeMultiplayer) {
+        Socket.mySocket.emit("startGame");
+      } else {
+        this.$router.push({ path: "game" });
+      }
     }
   }
 }

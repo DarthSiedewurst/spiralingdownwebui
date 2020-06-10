@@ -59,4 +59,8 @@ export default class Socket extends Vue {
       Store.commit("setRuleset", ruleset);
     });
   }
+  // Dice
+  public moveInSocket(payload: any) {
+    Socket.mySocket.emit("moveInSocket", payload);
+  }
 }
