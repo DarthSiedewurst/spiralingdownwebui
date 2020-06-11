@@ -33,7 +33,7 @@
           <b-row class="ruleUi">
             <div class="activeRule m-auto">{{ rulerule }}</div>
           </b-row>
-          <b-row class="newGameUi">
+          <b-row class="newGameUi" v-if="!gameModeMultiplayer">
             <b-col>
               <b-button @click="newGame" class="newGameButton float-right" type="button">Neues Spiel</b-button>
             </b-col>
@@ -85,9 +85,15 @@ export default class Game extends Vue {
       this.move(payload.playerId);
       console.log(payload.playerId + " diced a " + payload.roll);
     });
+    Socket.mySocket.on("okHasBeenClicked", () => {
+      this.okClicked();
+    });
   }
   private get gameModeMultiplayer() {
     return this.$store.state.gameModeMultiplayer;
+  }
+  private get yourId() {
+    return this.$store.state.yourId;
   }
   private get ruleset() {
     return this.$store.state.ruleset;
@@ -106,35 +112,51 @@ export default class Game extends Vue {
   private activePlayer = this.players[0];
 
   private async rollTheDie() {
-    if (this.diceable) {
-      this.diceable = false;
-      let id = 0;
-      this.players.forEach((element: any) => {
-        if (element.activeTurn) {
-          id = element.id;
-        }
-      });
-      this.roll = (this.$refs.dice as any).roll();
-
-      if (this.gameModeMultiplayer) {
-        await this.$store.dispatch("moveInSocket", {
-          roll: this.roll,
-          playerId: id,
-          players: this.players
+    if (!this.gameModeMultiplayer || this.yourId === this.activePlayer.id) {
+      if (this.diceable) {
+        this.diceable = false;
+        let id = 0;
+        this.players.forEach((element: any) => {
+          if (element.activeTurn) {
+            id = element.id;
+          }
         });
-      } else {
-        await this.move(id);
-      }
+        this.roll = (this.$refs.dice as any).roll();
 
-      this.diceable = true;
+        if (this.gameModeMultiplayer) {
+          await this.$store.dispatch("moveInSocket", {
+            roll: this.roll,
+            playerId: id,
+            players: this.players
+          });
+        } else {
+          await this.move(id);
+        }
+        this.diceable = true;
+      }
     }
   }
 
-  private handleOk(bvModalEvt: any) {
+  private handleOk(bvModalEvt) {
+    bvModalEvt.preventDefault();
+
+    if (this.gameModeMultiplayer) {
+      if (this.yourId === this.activePlayer.id) {
+        Socket.mySocket.emit("okClicked");
+      }
+    } else {
+      this.okClicked();
+    }
+  }
+
+  private okClicked() {
     const fieldId = "fieldId" + this.players[this.activePlayer.id].tile;
     this.ruleMovement = (this.ruleset as any)[fieldId].move;
 
     if (this.ruleMovement !== 0) {
+      this.$nextTick(() => {
+        (this.$refs["rule"] as any).hide();
+      });
       this.roll = this.ruleMovement;
       this.move(this.activePlayer.id);
       return;
@@ -155,6 +177,9 @@ export default class Game extends Vue {
     document.getElementById("fieldId4")!.getBoundingClientRect().left
       ? (this.right = true)
       : (this.right = false);
+    this.$nextTick(() => {
+      (this.$refs["rule"] as any).hide();
+    });
   }
 
   private async move(id: number) {

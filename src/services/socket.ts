@@ -6,7 +6,6 @@ import Store from "@/store/index.ts";
 
 export default class Socket extends Vue {
   static mySocket = null;
-  private static lobby = "";
   private static players: Player[] = [];
   static ruleset: Ruleset = new Ruleset();
 
@@ -24,7 +23,6 @@ export default class Socket extends Vue {
   }
   public joinLobby(lobby: string) {
     Socket.mySocket.emit("joinLobby", lobby);
-    Socket.lobby = lobby;
     Socket.mySocket.on("lobbyJoined", (data: any) => {
       console.log(data);
     });
