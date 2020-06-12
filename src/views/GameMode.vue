@@ -18,7 +18,8 @@
               'background-image':
                 'url(' + require('@/assets/tilebackground.jpg') + ')'
             }"
-          >Auf einem Gerät</b-button>
+            >Auf einem Gerät</b-button
+          >
           <b-button
             class="gameModeButton ml-3"
             @click="multiplayer"
@@ -26,7 +27,8 @@
               'background-image':
                 'url(' + require('@/assets/tilebackground.jpg') + ')'
             }"
-          >Lobby erstellen</b-button>
+            >Lobby erstellen</b-button
+          >
         </b-col>
       </b-row>
     </div>
@@ -53,7 +55,10 @@
           </b-col>
           <b-col>
             <ValidationProvider rules="required" v-slot="{ errors }">
-              <b-form-select v-model="playerColor" :options="playerColors"></b-form-select>
+              <b-form-select
+                v-model="playerColor"
+                :options="playerColors"
+              ></b-form-select>
               <span>{{ errors[0] }}</span>
             </ValidationProvider>
           </b-col>

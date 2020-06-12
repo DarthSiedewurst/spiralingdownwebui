@@ -5,8 +5,12 @@ const COLORS = [
   { value: "black", text: "Schwarz" },
   { value: "dafuq", text: "Dafuq" },
   { value: "purple", text: "Lila" },
-  { value: "blob", text: "Blob" },
-  { value: "puke", text: "Puke" },
+  { value: "blue", text: "Blau" },
+  { value: "aqua", text: "Aqua" },
+  { value: "pink", text: "Pink" },
+  { value: "brown", text: "Braun" },
+  { value: "red", text: "Rot" },
+  { value: "white", text: "Weiß" },
 ];
 
 export default {

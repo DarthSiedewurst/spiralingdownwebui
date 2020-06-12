@@ -10,7 +10,8 @@
       no-close-on-backdrop
       ref="rule"
       @ok="handleOk"
-    >{{ ruledescribtion }}</b-modal>
+      >{{ ruledescribtion }}</b-modal
+    >
     <div v-for="(player, index) in players" :key="'player' + index">
       <player ref="player" :player="player"></player>
     </div>
@@ -36,7 +37,12 @@
           </b-row>
           <b-row class="newGameUi" v-if="!gameModeMultiplayer">
             <b-col>
-              <b-button @click="newGame" class="newGameButton float-right" type="button">Neues Spiel</b-button>
+              <b-button
+                @click="newGame"
+                class="newGameButton float-right"
+                type="button"
+                >Neues Spiel</b-button
+              >
             </b-col>
           </b-row>
         </div>

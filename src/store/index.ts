@@ -12,7 +12,7 @@ export default new Vuex.Store({
     ruleset: {},
     gameModeMultiplayer: true,
     socket: {},
-    yourId: 0,
+    yourId: 0
   },
   mutations: {
     setPlayers(state: any, players: Player[]) {
@@ -29,7 +29,7 @@ export default new Vuex.Store({
     },
     setYourId(state: any, yourId: number) {
       state.yourId = yourId;
-    },
+    }
   },
   actions: {
     //Player
@@ -70,7 +70,7 @@ export default new Vuex.Store({
     moveInSocket({ commit }, payload: any) {
       const socket = new Socket();
       socket.moveInSocket(payload);
-    },
+    }
   },
-  modules: {},
+  modules: {}
 });

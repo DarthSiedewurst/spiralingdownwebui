@@ -2,7 +2,7 @@
   <div
     class="background"
     :style="{
-      'background-image': 'url(' + require('@/assets/darkgreen.jpg') + ')'
+      'background-image': 'url(' + require('@/assets/darkgreen.jpg') + ')',
     }"
   >
     <div class="fullscreen text-center">
@@ -14,8 +14,7 @@
           cols="8"
           class="newGameFrame"
           :style="{
-            'background-image':
-              'url(' + require('@/assets/tilebackground.jpg') + ')'
+            'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
           }"
         >
           <playerList
@@ -28,15 +27,10 @@
         <b-col
           class="newGameFrame"
           :style="{
-            'background-image':
-              'url(' + require('@/assets/tilebackground.jpg') + ')'
+            'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
           }"
         >
-          <b-form-group
-            label="Rule Set"
-            class="mt-3"
-            :disabled="gameModeMultiplayer && yourId != 0"
-          >
+          <b-form-group label="Rule Set" class="mt-3" :disabled="gameModeMultiplayer && yourId != 0">
             <b-form-select v-model="ruleset" :options="rulesets"></b-form-select>
           </b-form-group>
           <b-button
@@ -44,15 +38,17 @@
             v-if="!gameModeMultiplayer || yourId === 0"
             type="button"
             @click="startNewGame"
-          >Starten!</b-button>
+            >Starten!</b-button
+          >
         </b-col>
       </b-row>
     </div>
-    <pre>{{invitationLink}}</pre>
   </div>
 </template>
 
 <script lang="ts">
+/* eslint-disable no-useless-escape */
+
 // @ is an alias to /src
 import { Component, Vue } from "vue-property-decorator";
 // @ts-ignore
@@ -63,23 +59,17 @@ import importetRules from "@/rules";
 import Socket from "../services/socket";
 
 @Component({
-  components: { playerList }
+  components: { playerList },
 })
 export default class NewGame extends Vue {
   private socket = new Socket();
-  private invitationLink = "";
 
   private mounted() {
-    let url = process.env.VUE_APP_WEBSERVICE_URL;
-    url = url.replace(/;/g, "");
-    url = url.replace(/:3000/g, "");
-    url = url + "?lobby=" + Socket.mySocket.id;
-    this.invitationLink = url;
-
     Socket.mySocket.on("gameStarted", () => {
       this.$router.push({ path: "game" });
     });
   }
+
   private get gameModeMultiplayer() {
     return this.$store.state.gameModeMultiplayer;
   }
@@ -94,7 +84,7 @@ export default class NewGame extends Vue {
     for (const variable in importetRules) {
       ruleSets.push({
         value: importetRules[variable],
-        text: importetRules[variable].name
+        text: importetRules[variable].name,
       });
     }
     return ruleSets;
