@@ -105,8 +105,6 @@ export default class PlayerList extends Vue {
         );
       }
     });
-    console.log("method colors: " + colors);
-    console.log("Constant colors: " + this.colors);
     return colors;
   }
 
