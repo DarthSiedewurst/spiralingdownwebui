@@ -3,16 +3,17 @@ import Vuex from "vuex";
 import Player from "@/models/player";
 import Socket from "@/services/socket";
 import Ruleset from "@/models/ruleset";
+import importetRules from "@/rules";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     players: [],
-    ruleset: {},
+    ruleset: importetRules.SpiralingDown,
     gameModeMultiplayer: true,
     socket: {},
-    yourId: 0
+    yourId: 0,
   },
   mutations: {
     setPlayers(state: any, players: Player[]) {
@@ -29,7 +30,7 @@ export default new Vuex.Store({
     },
     setYourId(state: any, yourId: number) {
       state.yourId = yourId;
-    }
+    },
   },
   actions: {
     //Player
@@ -70,7 +71,7 @@ export default new Vuex.Store({
     moveInSocket({ commit }, payload: any) {
       const socket = new Socket();
       socket.moveInSocket(payload);
-    }
+    },
   },
-  modules: {}
+  modules: {},
 });

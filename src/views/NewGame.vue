@@ -78,7 +78,7 @@ export default class NewGame extends Vue {
     return this.$store.state.yourId;
   }
 
-  //Add new Rulesets here
+  //Add new Rulesets in importedRules
   private get rulesets() {
     const ruleSets = [];
     for (const variable in importetRules) {
