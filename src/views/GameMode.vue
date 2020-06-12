@@ -169,7 +169,7 @@ export default class NewGame extends Vue {
   background-color: white;
   width: 100vw;
   height: 100vh;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: 100% 100%;
 }
 .gameModeButton {

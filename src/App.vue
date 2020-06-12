@@ -7,6 +7,18 @@
 <style lang="scss">
 body {
   overscroll-behavior-y: contain;
-  font-family: "avenir" !important;
+  font-family: "San Francisco" !important;
+}
+.bierdeckel {
+  background-size: 100% 100% !important;
+  border-radius: 100% !important;
+  height: 14vh;
+  width: 14vh;
+  color: black !important;
+  font-size: 3vh !important;
+  font-weight: bold !important;
+}
+.bierdeckel:hover {
+  color: black;
 }
 </style>

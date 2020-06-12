@@ -34,7 +34,10 @@
             <b-form-select v-model="ruleset" :options="rulesets"></b-form-select>
           </b-form-group>
           <b-button
-            class="footerButoon float-right"
+            :style="{
+              'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
+            }"
+            class="bierdeckel mt-2 float-right footerButoon"
             v-if="!gameModeMultiplayer || yourId === 0"
             type="button"
             @click="startNewGame"
@@ -142,7 +145,7 @@ export default class NewGame extends Vue {
   max-height: 80vh;
   border-radius: 25px;
   border: 0.3vh solid black;
-  overflow: auto;
+  overflow: visible;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }

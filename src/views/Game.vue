@@ -184,7 +184,7 @@ export default class Game extends Vue {
     }
     if (this.gameModeMultiplayer) {
       if (this.yourId === this.activePlayer.id) {
-        window.navigator.vibrate(200);
+        window.navigator.vibrate(1000);
       }
     }
     document.getElementById("fieldId" + this.activePlayer.tile)!.getBoundingClientRect().left >

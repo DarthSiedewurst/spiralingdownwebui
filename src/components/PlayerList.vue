@@ -35,16 +35,33 @@
         </b-row>
       </ValidationObserver>
     </div>
+    <b-button
+      :style="{
+        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
+      }"
+      type="button"
+      class="bierdeckel mt-3 float-left"
+      v-if="gameModeMultiplayer"
+      @click="copyInvitationLink"
+      >Link kopieren</b-button
+    >
     <WhatsAppButton
-      class="mt-3 float-left"
+      class="share-button--circle mt-3 float-right"
+      btnText
       v-if="isMobile && gameModeMultiplayer"
       :shareUrl="invitationLink"
     ></WhatsAppButton>
-    <b-button type="button" class="mt-3 float-left" v-if="gameModeMultiplayer" @click="copyInvitationLink"
-      >Einladungslink kopieren</b-button
-    >
 
-    <b-button v-if="!gameModeMultiplayer" class="mt-3 float-left" type="button" @click="addPlayer">Add Player</b-button>
+    <b-button
+      :style="{
+        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
+      }"
+      class="bierdeckel mt-2 float-left"
+      v-if="!gameModeMultiplayer"
+      type="button"
+      @click="addPlayer"
+      >Add Player</b-button
+    >
   </div>
 </template>
 
