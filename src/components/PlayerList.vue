@@ -1,28 +1,37 @@
 <template>
   <div>
     <div class="overflow">
-      <b-row v-for="player in players" :key="player.id">
-        <b-col>
+      <b-row v-for="player in players" :key="player.id" class="player">
+        <b-col cols="5">
           {{ player.name }}
-          <b-button v-if="!gameModeMultiplayer" @click="deletePlayer(player.id)" class="deleteButton" type="button"
+        </b-col>
+        <b-col cols="4">{{ mappedPlayers(player.color) }}</b-col>
+        <b-col cols="2">
+          <b-button
+            v-if="!gameModeMultiplayer"
+            @click="deletePlayer(player.id)"
+            :size="deleteSize"
+            class="deleteButton"
+            type="button"
             >Löschen</b-button
           >
         </b-col>
       </b-row>
       <ValidationObserver ref="valid" v-if="!gameModeMultiplayer">
         <b-row v-if="addPlayerPossible">
-          <b-col>
+          <b-col cols="5">
             <ValidationProvider rules="required" v-slot="{ errors }">
               <b-input v-model="playerName"></b-input>
-              <span>{{ errors[0] }}</span>
+              <span class="playerValidation">{{ errors[0] }}</span>
             </ValidationProvider>
           </b-col>
-          <b-col>
+          <b-col cols="4">
             <ValidationProvider rules="required" v-slot="{ errors }">
               <b-form-select v-model="playerColor" :options="playerColors"></b-form-select>
-              <span>{{ errors[0] }}</span>
+              <span class="playerValidation">{{ errors[0] }}</span>
             </ValidationProvider>
           </b-col>
+          <b-col cols="2"></b-col>
         </b-row>
       </ValidationObserver>
     </div>
@@ -62,6 +71,18 @@ export default class PlayerList extends Vue {
   private invitationLink = "";
   private isMobile = false;
 
+  private deleteSize = "";
+
+  private mappedPlayers(playerColor: string) {
+    let mappedColor = "not found";
+    this.colors.forEach((color) => {
+      if (playerColor === color.value) {
+        mappedColor = color.text;
+      }
+    });
+    return mappedColor;
+  }
+
   private mounted() {
     let url = process.env.VUE_APP_WEBSERVICE_URL;
     url = url.replace(/;/g, "");
@@ -79,6 +100,7 @@ export default class PlayerList extends Vue {
       )
     ) {
       this.isMobile = true;
+      this.deleteSize = "sm";
     }
   }
   private copyInvitationLink() {
@@ -105,8 +127,6 @@ export default class PlayerList extends Vue {
         );
       }
     });
-    console.log("method colors: " + colors);
-    console.log("Constant colors: " + this.colors);
     return colors;
   }
 
@@ -147,12 +167,17 @@ export default class PlayerList extends Vue {
 
 <style lang="scss" scoped>
 .deleteButton {
-  float: right;
   background-color: darkred;
 }
 .overflow {
   height: 60vh;
   overflow: auto;
   overflow-x: hidden;
+}
+.player {
+  font-size: 2vw;
+}
+.playerValidation {
+  font-size: 1vw;
 }
 </style>

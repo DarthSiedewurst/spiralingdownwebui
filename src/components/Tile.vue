@@ -1,14 +1,10 @@
 <template>
   <div
     :style="{
-      'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')'
+      'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
     }"
     class="tileContainer"
-    :class="[
-      { borderBottom: borderBottom },
-      { borderLeft: borderLeft },
-      { borderRight: borderRight }
-    ]"
+    :class="[{ borderBottom: borderBottom }, { borderLeft: borderLeft }, { borderRight: borderRight }]"
   >
     <div :id="fieldId" class="tile">
       <span class="responsiveNumber ml-2">{{ fieldNumber }}</span>
@@ -24,7 +20,7 @@
 // @ is an alias to /src
 import { Component, Prop, Vue } from "vue-property-decorator";
 @Component({
-  components: {}
+  components: {},
 })
 export default class Tile extends Vue {
   @Prop() private fieldNumber!: number;
@@ -78,41 +74,30 @@ export default class Tile extends Vue {
     70,
     71,
     66,
-    67
+    67,
   ];
   private borderLeftList: number[] = [47, 48, 49, 50, 51, 63, 64, 65, 71];
-  private borderRightList: number[] = [
-    36,
-    37,
-    38,
-    39,
-    40,
-    41,
-    56,
-    57,
-    58,
-    59,
-    68,
-    69
-  ];
+  private borderRightList: number[] = [36, 37, 38, 39, 40, 41, 56, 57, 58, 59, 68, 69];
 }
 </script>
 
 <style lang="scss" scoped>
 .tile {
   color: black;
+  line-height: 1;
 }
 .borderBottom {
-  border-bottom: 0.3vh solid black;
+  border-bottom: 0.5vh solid black;
 }
 .borderLeft {
-  border-left: 0.3vh solid black;
+  border-left: 0.4vh solid black;
 }
 
 .borderRight {
-  border-right: 0.3vh solid black;
+  border-right: 0.4vh solid black;
 }
 .responsiveText {
+  margin-top: 2vh;
   font-size: 1vw;
 }
 .responsiveNumber {

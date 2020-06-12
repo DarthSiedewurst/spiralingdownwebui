@@ -31,7 +31,6 @@ export default class Socket extends Vue {
   public async addPlayerToSocket(newPlayer: Player) {
     Socket.mySocket.emit("addPlayerToSocket", newPlayer);
     await Socket.mySocket.on("playersUpdated", (newPlayers: any) => {
-      console.log("New Players from Server: " + newPlayers);
       Socket.players = newPlayers;
       Store.commit("setPlayers", newPlayers);
     });
@@ -41,7 +40,6 @@ export default class Socket extends Vue {
   }
   public playersUpdated() {
     Socket.mySocket.on("playersUpdated", (newPlayers: any) => {
-      console.log("New Players from Server: " + newPlayers);
       Socket.players = newPlayers;
       Store.commit("setPlayers", newPlayers);
     });
@@ -52,7 +50,6 @@ export default class Socket extends Vue {
   }
   public rulesetUpdated() {
     Socket.mySocket.on("rulesetUpdated", (ruleset: Ruleset) => {
-      console.log("Rules have been changed to: " + ruleset);
       Socket.ruleset = ruleset;
       Store.commit("setRuleset", ruleset);
     });

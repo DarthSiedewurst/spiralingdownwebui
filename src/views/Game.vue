@@ -25,7 +25,9 @@
       <div :class="[isRight ? 'floatLeft' : 'floatRight', 'overlay']">
         <div>
           <b-row class="overlayCenter">
-            <h1 class="player m-auto">{{ activePlayer.name }} ist am zug</h1>
+            <h1 class="player m-auto">
+              <span :class="[isActive ? 'active' : '']">{{ activePlayer.name }}</span> ist am zug
+            </h1>
           </b-row>
           <b-row>
             <div class="m-auto" @click="rollTheDie">
@@ -37,12 +39,7 @@
           </b-row>
           <b-row class="newGameUi" v-if="!gameModeMultiplayer">
             <b-col>
-              <b-button
-                @click="newGame"
-                class="newGameButton float-right"
-                type="button"
-                >Neues Spiel</b-button
-              >
+              <b-button @click="newGame" class="newGameButton float-right" type="button">Neues Spiel</b-button>
             </b-col>
           </b-row>
         </div>
@@ -61,7 +58,7 @@ import Player from "@/models/player.ts";
 import Socket from "../services/socket";
 
 @Component({
-  components: { tile, player, dice }
+  components: { tile, player, dice },
 })
 export default class Game extends Vue {
   private rulename = "";
@@ -80,17 +77,16 @@ export default class Game extends Vue {
     [26, 49, 64, 71, 70, 69, 58, 39, 12],
     [25, 48, 63, 62, 61, 60, 59, 40, 13],
     [24, 47, 46, 45, 44, 43, 42, 41, 14],
-    [23, 22, 21, 20, 19, 18, 17, 16, 15]
+    [23, 22, 21, 20, 19, 18, 17, 16, 15],
   ];
 
   private mounted() {
-    this.players.forEach(element => {
+    this.players.forEach((element) => {
       (this.$refs.player as any)[element.id].movePlayer();
     });
-    Socket.mySocket.on("diceWasRolled", payload => {
+    Socket.mySocket.on("diceWasRolled", (payload) => {
       this.roll = payload.roll;
       this.move(payload.playerId);
-      console.log(payload.playerId + " diced a " + payload.roll);
     });
     Socket.mySocket.on("okHasBeenClicked", () => {
       this.okClicked();
@@ -108,6 +104,14 @@ export default class Game extends Vue {
 
   private get isRight() {
     return this.right;
+  }
+
+  private get isActive() {
+    let active = false;
+    if (this.gameModeMultiplayer) {
+      active = this.yourId === this.activePlayer.id ? true : false;
+    }
+    return active;
   }
 
   private right = false;
@@ -134,7 +138,7 @@ export default class Game extends Vue {
           await this.$store.dispatch("moveInSocket", {
             roll: this.roll,
             playerId: id,
-            players: this.players
+            players: this.players,
           });
         } else {
           await this.move(id);
@@ -178,9 +182,12 @@ export default class Game extends Vue {
       this.players[0].activeTurn = true;
       this.activePlayer = this.players[0];
     }
-    document
-      .getElementById("fieldId" + this.activePlayer.tile)!
-      .getBoundingClientRect().left >
+    if (this.gameModeMultiplayer) {
+      if (this.yourId === this.activePlayer.id) {
+        window.navigator.vibrate(200);
+      }
+    }
+    document.getElementById("fieldId" + this.activePlayer.tile)!.getBoundingClientRect().left >
     document.getElementById("fieldId4")!.getBoundingClientRect().left
       ? (this.right = true)
       : (this.right = false);
@@ -194,7 +201,7 @@ export default class Game extends Vue {
 
     if (this.roll > 0) {
       for (let i = 0; i < this.roll; i++) {
-        await new Promise(resolve => {
+        await new Promise((resolve) => {
           setTimeout(() => {
             resolve(this.moveForward(id));
           }, 500);
@@ -202,7 +209,7 @@ export default class Game extends Vue {
       }
     } else {
       for (let i = 0; i < Math.abs(this.roll); i++) {
-        await new Promise(resolve => {
+        await new Promise((resolve) => {
           setTimeout(() => {
             resolve(this.moveBackward(id));
           }, 500);
@@ -217,9 +224,7 @@ export default class Game extends Vue {
     if (this.players[id].tile < 72) {
       this.players[id].tile++;
       (this.$refs.player as any)[id].movePlayer();
-      document
-        .getElementById("fieldId" + this.activePlayer.tile)!
-        .getBoundingClientRect().left >
+      document.getElementById("fieldId" + this.activePlayer.tile)!.getBoundingClientRect().left >
       document.getElementById("fieldId4")!.getBoundingClientRect().left
         ? (this.right = true)
         : (this.right = false);
@@ -229,18 +234,14 @@ export default class Game extends Vue {
   private moveBackward(id: number) {
     this.players[id].tile--;
     (this.$refs.player as any)[id].movePlayer();
-    document
-      .getElementById("fieldId" + this.activePlayer.tile)!
-      .getBoundingClientRect().left >
+    document.getElementById("fieldId" + this.activePlayer.tile)!.getBoundingClientRect().left >
     document.getElementById("fieldId4")!.getBoundingClientRect().left
       ? (this.right = true)
       : (this.right = false);
   }
 
   private showRule(id: number) {
-    document
-      .getElementById("fieldId" + this.activePlayer.tile)!
-      .getBoundingClientRect().left > 750
+    document.getElementById("fieldId" + this.activePlayer.tile)!.getBoundingClientRect().left > 750
       ? (this.right = true)
       : (this.right = false);
     const fieldId = "fieldId" + this.players[id].tile;
@@ -261,7 +262,7 @@ export default class Game extends Vue {
 
 <style lang="scss" scoped>
 .background {
-  background-color: #241710;
+  background-color: black;
 }
 .player {
   margin: auto;
@@ -271,7 +272,7 @@ export default class Game extends Vue {
 .fullscreen {
   margin: auto;
   margin-top: 1vh;
-  box-shadow: 0 0 10px 10px darkgreen;
+  box-shadow: 0 0 10px 10px black;
 }
 .newGameButton {
   bottom: 0vh;
@@ -298,7 +299,7 @@ export default class Game extends Vue {
   z-index: 100;
   background-color: #becbd2;
   text-align: center;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 .floatLeft {
   right: 70%;
@@ -324,5 +325,8 @@ export default class Game extends Vue {
   height: 40vh;
   margin-left: 0;
   margin-right: 0;
+}
+.active {
+  color: red;
 }
 </style>
