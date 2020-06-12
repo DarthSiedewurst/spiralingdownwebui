@@ -5,7 +5,7 @@
         <b-col cols="5">
           {{ player.name }}
         </b-col>
-        <b-col cols="4">{{ player.color }}</b-col>
+        <b-col cols="4">{{ mappedPlayers(player.color) }}</b-col>
         <b-col cols="2">
           <b-button
             v-if="!gameModeMultiplayer"
@@ -22,13 +22,13 @@
           <b-col cols="5">
             <ValidationProvider rules="required" v-slot="{ errors }">
               <b-input v-model="playerName"></b-input>
-              <span class="player">{{ errors[0] }}</span>
+              <span class="playerValidation">{{ errors[0] }}</span>
             </ValidationProvider>
           </b-col>
           <b-col cols="4">
             <ValidationProvider rules="required" v-slot="{ errors }">
               <b-form-select v-model="playerColor" :options="playerColors"></b-form-select>
-              <span class="player">{{ errors[0] }}</span>
+              <span class="playerValidation">{{ errors[0] }}</span>
             </ValidationProvider>
           </b-col>
           <b-col cols="2"></b-col>
@@ -72,6 +72,16 @@ export default class PlayerList extends Vue {
   private isMobile = false;
 
   private deleteSize = "";
+
+  private mappedPlayers(playerColor: string) {
+    let mappedColor = "not found";
+    this.colors.forEach((color) => {
+      if (playerColor === color.value) {
+        mappedColor = color.text;
+      }
+    });
+    return mappedColor;
+  }
 
   private mounted() {
     let url = process.env.VUE_APP_WEBSERVICE_URL;
@@ -166,5 +176,8 @@ export default class PlayerList extends Vue {
 }
 .player {
   font-size: 2vw;
+}
+.playerValidation {
+  font-size: 1vw;
 }
 </style>
