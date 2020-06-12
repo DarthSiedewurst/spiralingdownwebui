@@ -5,6 +5,7 @@
       hide-backdrop
       centered
       ok-only
+      hide-header-close
       no-close-on-esc
       no-close-on-backdrop
       ref="rule"

@@ -15,15 +15,6 @@ import IPlayer from "@/models/player.ts";
 export default class Player extends Vue {
   @Prop() private player!: IPlayer;
 
-  private mounted() {
-    const activeTile = document
-      .getElementById(String(this.player.tile))!
-      .getBoundingClientRect();
-    const activePlayer = document.getElementById(String(this.player.id))!.style;
-    activePlayer.left = 25 * this.player.id + activeTile.right - 145 + "px";
-    activePlayer.top = activeTile.top + "px";
-  }
-
   private movePlayer() {
     const activeTile = document
       .getElementById("fieldId" + this.player.tile)!
