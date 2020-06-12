@@ -25,7 +25,9 @@
       <div :class="[isRight ? 'floatLeft' : 'floatRight', 'overlay']">
         <div>
           <b-row class="overlayCenter">
-            <h1 class="player m-auto">{{ activePlayer.name }} ist am zug</h1>
+            <h1 class="player m-auto">
+              <span :class="[isActive ? 'active' : '']">{{ activePlayer.name }}</span> ist am zug
+            </h1>
           </b-row>
           <b-row>
             <div class="m-auto" @click="rollTheDie">
@@ -104,6 +106,14 @@ export default class Game extends Vue {
     return this.right;
   }
 
+  private get isActive() {
+    let active = false;
+    if (this.gameModeMultiplayer) {
+      active = this.yourId === this.activePlayer.id ? true : false;
+    }
+    return active;
+  }
+
   private right = false;
 
   private get players(): Player[] {
@@ -171,6 +181,11 @@ export default class Game extends Vue {
     } else {
       this.players[0].activeTurn = true;
       this.activePlayer = this.players[0];
+    }
+    if (this.gameModeMultiplayer) {
+      if (this.yourId === this.activePlayer.id) {
+        window.navigator.vibrate(200);
+      }
     }
     document.getElementById("fieldId" + this.activePlayer.tile)!.getBoundingClientRect().left >
     document.getElementById("fieldId4")!.getBoundingClientRect().left
@@ -247,7 +262,7 @@ export default class Game extends Vue {
 
 <style lang="scss" scoped>
 .background {
-  background-color: #241710;
+  background-color: black;
 }
 .player {
   margin: auto;
@@ -257,7 +272,7 @@ export default class Game extends Vue {
 .fullscreen {
   margin: auto;
   margin-top: 1vh;
-  box-shadow: 0 0 10px 10px darkgreen;
+  box-shadow: 0 0 10px 10px black;
 }
 .newGameButton {
   bottom: 0vh;
@@ -284,7 +299,7 @@ export default class Game extends Vue {
   z-index: 100;
   background-color: #becbd2;
   text-align: center;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 .floatLeft {
   right: 70%;
@@ -310,5 +325,8 @@ export default class Game extends Vue {
   height: 40vh;
   margin-left: 0;
   margin-right: 0;
+}
+.active {
+  color: red;
 }
 </style>

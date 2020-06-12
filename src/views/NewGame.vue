@@ -2,7 +2,7 @@
   <div
     class="background"
     :style="{
-      'background-image': 'url(' + require('@/assets/darkgreen.jpg') + ')',
+      'background-image': 'url(' + require('@/assets/marmor.jpg') + ')',
     }"
   >
     <div class="fullscreen text-center">
@@ -121,7 +121,7 @@ export default class NewGame extends Vue {
 
 <style lang="scss" scoped>
 .gameName {
-  color: #874000;
+  color: black;
 }
 .fullscreen {
   width: 90vw;
