@@ -99,7 +99,7 @@ export default class PlayerList extends Vue {
     let url = process.env.VUE_APP_WEBSERVICE_URL;
     url = url.replace(/;/g, "");
     url = url.replace(/:3000/g, "");
-    url = url + ":8080?lobby=" + Socket.mySocket.id;
+    url = url + "?lobby=" + Socket.mySocket.id;
     this.invitationLink = url;
 
     // device detection
