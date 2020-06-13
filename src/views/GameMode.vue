@@ -80,10 +80,21 @@ export default class NewGame extends Vue {
 
     if (this.$route.query.lobby) {
       await this.socket.joinLobby(this.$route.query.lobby as string);
-      this.socket.playersUpdated();
-      this.socket.rulesetUpdated();
+      this.playersUpdated();
+      this.rulesetUpdated();
       (this.$refs["lobby"] as any).show();
     }
+  }
+  private playersUpdated() {
+    Socket.mySocket.on("playersUpdated", (newPlayers: any) => {
+      this.$store.commit("setPlayers", newPlayers);
+    });
+  }
+  public rulesetUpdated() {
+    Socket.mySocket.on("rulesetUpdated", (ruleset: Ruleset) => {
+      Socket.ruleset = ruleset;
+      this.$store.commit("setRuleset", ruleset);
+    });
   }
 
   private get players() {
@@ -137,11 +148,13 @@ export default class NewGame extends Vue {
         this.$store.commit("setYourId", this.players.length);
         if (!this.$route.query.lobby) {
           await this.socket.joinLobby(Socket.mySocket.id);
-          this.socket.playersUpdated();
-          this.socket.rulesetUpdated();
+          await this.playersUpdated();
+          await this.rulesetUpdated();
+          Socket.mySocket.emit("getPlayerFromSocket");
         }
         (this.$refs["lobby"] as any).show();
-        this.$store.dispatch("addPlayerToSocket", newPlayer);
+
+        Socket.mySocket.emit("addPlayerToSocket", newPlayer);
         this.$store.commit("gameModeMultiplayer", true);
 
         this.goToNewGame();

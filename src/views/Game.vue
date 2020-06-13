@@ -66,6 +66,7 @@ export default class Game extends Vue {
   private rulerule = "";
   private ruleMovement = 0;
   private diceable = true;
+  private newPlayers: Player[] = [];
 
   private socket = new Socket();
 
@@ -80,13 +81,14 @@ export default class Game extends Vue {
     [23, 22, 21, 20, 19, 18, 17, 16, 15],
   ];
 
-  private mounted() {
+  private async mounted() {
     this.players.forEach((element) => {
       (this.$refs.player as any)[element.id].movePlayer();
     });
-    Socket.mySocket.on("diceWasRolled", (payload) => {
+    Socket.mySocket.on("diceWasRolled", async (payload) => {
       this.roll = payload.roll;
-      this.move(payload.playerId);
+      this.newPlayers = payload.players;
+      await this.move(payload.playerId);
     });
     Socket.mySocket.on("okHasBeenClicked", () => {
       this.okClicked();
@@ -135,7 +137,7 @@ export default class Game extends Vue {
         this.roll = (this.$refs.dice as any).roll();
 
         if (this.gameModeMultiplayer) {
-          await this.$store.dispatch("moveInSocket", {
+          await Socket.mySocket.emit("moveInSocket", {
             roll: this.roll,
             playerId: id,
             players: this.players,
@@ -148,12 +150,12 @@ export default class Game extends Vue {
     }
   }
 
-  private handleOk(bvModalEvt) {
+  private async handleOk(bvModalEvt) {
     bvModalEvt.preventDefault();
 
     if (this.gameModeMultiplayer) {
       if (this.yourId === this.activePlayer.id) {
-        Socket.mySocket.emit("okClicked");
+        await Socket.mySocket.emit("okClicked");
       }
     } else {
       this.okClicked();
@@ -229,6 +231,7 @@ export default class Game extends Vue {
         ? (this.right = true)
         : (this.right = false);
     }
+    return;
   }
 
   private moveBackward(id: number) {
@@ -238,6 +241,7 @@ export default class Game extends Vue {
     document.getElementById("fieldId4")!.getBoundingClientRect().left
       ? (this.right = true)
       : (this.right = false);
+    return;
   }
 
   private showRule(id: number) {

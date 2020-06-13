@@ -34,10 +34,6 @@ export default new Vuex.Store({
   },
   actions: {
     //Player
-    async addPlayerToSocket({ commit }, newPlayer: Player) {
-      const socket = new Socket();
-      socket.addPlayerToSocket(newPlayer);
-    },
     addPlayer({ state, commit }, newPlayer: Player) {
       const newPlayers: Player[] = state.players;
       newPlayers.push(newPlayer);
@@ -67,10 +63,6 @@ export default new Vuex.Store({
       if (Socket.ruleset !== ruleset) {
         socket.setRuleset(ruleset);
       }
-    },
-    moveInSocket({ commit }, payload: any) {
-      const socket = new Socket();
-      socket.moveInSocket(payload);
     },
   },
   modules: {},
