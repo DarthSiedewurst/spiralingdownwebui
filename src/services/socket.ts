@@ -7,6 +7,7 @@ import Store from "@/store/index.ts";
 export default class Socket extends Vue {
   static mySocket = null;
   static ruleset: Ruleset = new Ruleset();
+  static lobby = null;
 
   public setMySocket() {
     let url = process.env.VUE_APP_WEBSERVICE_URL;
@@ -16,11 +17,12 @@ export default class Socket extends Vue {
   public joinLobby(lobby: string) {
     Socket.mySocket.emit("joinLobby", lobby);
     Socket.mySocket.on("lobbyJoined", (data: any) => {
+      Socket.lobby = lobby;
       console.log(data);
     });
   }
   //Ruleset
   public setRuleset(ruleset: Ruleset) {
-    Socket.mySocket.emit("setRulesetToSocket", ruleset);
+    Socket.mySocket.emit("setRulesetToSocket", { ruleset, lobby: Socket.lobby });
   }
 }

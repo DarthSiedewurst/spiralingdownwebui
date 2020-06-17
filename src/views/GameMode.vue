@@ -153,15 +153,23 @@ export default class NewGame extends Vue {
           color: this.playerColor
         };
         this.$store.commit("setYourId", this.players.length);
+
+        const lobby = !this.$route.query.lobby
+          ? Socket.mySocket.id
+          : (this.$route.query.lobby as string);
+
         if (!this.$route.query.lobby) {
           await this.socket.joinLobby(Socket.mySocket.id);
           await this.playersUpdated();
           await this.rulesetUpdated();
-          Socket.mySocket.emit("getPlayerFromSocket");
+          Socket.mySocket.emit("getPlayerFromSocket", lobby);
         }
         (this.$refs["lobby"] as any).show();
 
-        Socket.mySocket.emit("addPlayerToSocket", newPlayer);
+        Socket.mySocket.emit("addPlayerToSocket", {
+          newPlayer,
+          lobby
+        });
         this.$store.commit("gameModeMultiplayer", true);
 
         this.goToNewGame();
