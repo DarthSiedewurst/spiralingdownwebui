@@ -2,7 +2,7 @@ export default class MusicService {
   static gonzales = new Audio(require("../assets/gonzales.mp3"));
 
   public playMusic() {
-    MusicService.gonzales.volume = 0.1;
+    MusicService.gonzales.volume = 0.2;
     MusicService.gonzales.play();
     MusicService.gonzales.loop = true;
   }

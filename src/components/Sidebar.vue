@@ -58,8 +58,7 @@ export default class Sidebar extends Vue {
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
-          MusicService.gonzales.volume = 0.1;
-          console.log("music spielt");
+          MusicService.gonzales.volume = 0.2;
         })
         .catch((e) => {
           console.log(e);
