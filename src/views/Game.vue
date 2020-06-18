@@ -56,6 +56,7 @@ import player from "@/components/Player.vue";
 import dice from "@/components/Dice.vue";
 import Player from "@/models/player.ts";
 import Socket from "../services/socket";
+import constants from "../constants";
 
 @Component({
   components: { tile, player, dice }
@@ -83,7 +84,7 @@ export default class Game extends Vue {
 
   private async mounted() {
     this.players.forEach(element => {
-      (this.$refs.player as any)[element.id].movePlayer();
+      (this.$refs.player as any)[element.id].movePlayerAutonom(0);
     });
     Socket.mySocket.on("diceWasRolled", async payload => {
       this.players = payload.players;
@@ -102,7 +103,7 @@ export default class Game extends Vue {
               lobby: Socket.lobby
             })
           );
-        }, 500 * (this.roll + 2));
+        }, 50 * (Math.abs(this.roll) + 2));
       });
     });
     Socket.mySocket.on("okHasBeenClicked", () => {
@@ -266,67 +267,37 @@ export default class Game extends Vue {
   private async move(id: number) {
     this.diceable = false;
 
-    if (this.roll > 0) {
-      for (let i = 0; i < this.roll; i++) {
-        await new Promise(resolve => {
-          setTimeout(() => {
-            resolve(this.moveForward(id));
-          }, 500);
-        });
-      }
-    } else {
-      for (let i = 0; i < Math.abs(this.roll); i++) {
-        await new Promise(resolve => {
-          setTimeout(() => {
-            resolve(this.moveBackward(id));
-          }, 500);
-        });
-      }
-    }
+    await this.$store.dispatch("move", { id, roll: this.roll });
 
-    this.showRule(id);
+    await new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.showRule(id));
+      }, 50 * (Math.abs(this.roll) + 2));
+    });
 
     this.diceable = true;
   }
 
-  private moveForward(id: number) {
-    if (this.players[id].tile < 72) {
-      this.players[id].tile++;
-      (this.$refs.player as any)[id].movePlayer();
-      document
-        .getElementById("fieldId" + this.activePlayer.tile)!
-        .getBoundingClientRect().left >
-      document.getElementById("fieldId4")!.getBoundingClientRect().left
-        ? (this.right = true)
-        : (this.right = false);
-    }
-
-    return;
-  }
-
-  private moveBackward(id: number) {
-    this.players[id].tile--;
-    (this.$refs.player as any)[id].movePlayer();
+  private showRule(id: number) {
     document
       .getElementById("fieldId" + this.activePlayer.tile)!
       .getBoundingClientRect().left >
     document.getElementById("fieldId4")!.getBoundingClientRect().left
       ? (this.right = true)
       : (this.right = false);
-    return;
-  }
-
-  private showRule(id: number) {
-    document
-      .getElementById("fieldId" + this.activePlayer.tile)!
-      .getBoundingClientRect().left > 750
-      ? (this.right = true)
-      : (this.right = false);
     const fieldId = "fieldId" + this.players[id].tile;
     this.rulename = (this.ruleset as any)[fieldId].name;
     this.ruledescribtion = (this.ruleset as any)[fieldId].describtion;
     if ((this.ruleset as any)[fieldId].rulerule !== "") {
-      this.rulerule = (this.ruleset as any)[fieldId].rulerule;
+      if ((this.ruleset as any)[fieldId].rulerule === "Random") {
+        const random = Math.floor(Math.random() * constants.RULERULES.length);
+        this.rulerule = constants.RULERULES[random];
+        this.ruledescribtion = constants.RULERULES[random];
+      } else if ((this.ruleset as any)[fieldId].rulerule === "-") {
+        this.rulerule = "";
+      } else {
+        this.rulerule = (this.ruleset as any)[fieldId].rulerule;
+      }
     }
     (this.$refs["rule"] as any).show();
   }

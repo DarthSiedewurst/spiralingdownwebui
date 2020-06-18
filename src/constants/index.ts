@@ -12,7 +12,18 @@ const COLORS = [
   { value: "red", text: "Rot" },
   { value: "white", text: "Weiß" },
 ];
+const RULERULES = [
+  "Die Wörter Ja und Nein werden mit einem Schluck honoriert",
+  "Der Linke Nachbar trinkt mit (nicht kumulativ)",
+  "Das Wort 'Trink' belohnt dich mit einem Schluck",
+  "Du darfst keine Gegenstände mehr von anderen Personen annehmen",
+  "Bevor du würfelst, musst du das Spiel preisen",
+  "Sie sind Adlige. Sie dürfen sich nurnoch vornehm ansprechen",
+  "Es darf nur mit der schwachen Hand getrunken werden",
+  "Benehmt euch! Keine Kraftausdrücke mehr",
+];
 
 export default {
   COLORS: COLORS,
+  RULERULES: RULERULES,
 };

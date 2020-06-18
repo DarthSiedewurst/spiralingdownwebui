@@ -48,7 +48,7 @@ export default class Dice extends Vue {
   private roll() {
     const elDiceOne = document.getElementById("dice1")!;
     // sets dice variables
-    const diceOne = Math.floor(Math.random() * 6 + 1);
+    const diceOne = Math.floor(Math.random() * 6) + 1;
 
     //Dice reset and display
 

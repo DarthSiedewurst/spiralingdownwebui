@@ -57,13 +57,22 @@ export default class Player extends Vue {
   private async moveAutonom(newVal: IPlayer, oldVal: IPlayer) {
     const newTile = newVal.tile;
     let oldTile = oldVal.tile;
+    console.log("old: " + oldTile + ", " + "new: " + newTile);
 
-    if (oldTile !== newTile) {
+    if (oldTile < newTile) {
       for (oldTile; oldTile <= newTile; oldTile++) {
         await new Promise(resolve => {
           setTimeout(() => {
             resolve(this.movePlayerAutonom(oldTile));
-          }, 500);
+          }, 50);
+        });
+      }
+    } else if (oldTile > newTile) {
+      for (oldTile; oldTile >= newTile; oldTile--) {
+        await new Promise(resolve => {
+          setTimeout(() => {
+            resolve(this.movePlayerAutonom(oldTile));
+          }, 50);
         });
       }
     }
@@ -72,27 +81,6 @@ export default class Player extends Vue {
   private movePlayerAutonom(tile: number) {
     const activeTile = document
       .getElementById("fieldId" + tile)!
-      .getBoundingClientRect();
-    const activePlayer = document.getElementById(String(this.player.id))!.style;
-
-    if (this.player.id < 4) {
-      activePlayer.left =
-        this.vwToPx(3) * this.player.id + activeTile.left + "px";
-      activePlayer.top = activeTile.top + "px";
-    } else if (this.player.id < 8) {
-      activePlayer.left =
-        this.vwToPx(3) * (this.player.id - 4) + activeTile.left + "px";
-      activePlayer.top = this.vhToPx(3) + activeTile.top + "px";
-    } else if (this.player.id < 12) {
-      activePlayer.left =
-        this.vwToPx(3) * (this.player.id - 8) + activeTile.left + "px";
-      activePlayer.top = this.vhToPx(6) + activeTile.top + "px";
-    }
-  }
-
-  private movePlayer() {
-    const activeTile = document
-      .getElementById("fieldId" + this.player.tile)!
       .getBoundingClientRect();
     const activePlayer = document.getElementById(String(this.player.id))!.style;
 

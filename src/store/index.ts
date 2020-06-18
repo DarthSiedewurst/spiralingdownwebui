@@ -33,6 +33,12 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    //Dice
+    move({ state, commit }, movement: any) {
+      const newPlayers: Player[] = JSON.parse(JSON.stringify(state.players));
+      newPlayers[movement.id].tile += movement.roll;
+      commit("setPlayers", newPlayers);
+    },
     //Player
     addPlayer({ state, commit }, newPlayer: Player) {
       const newPlayers: Player[] = state.players;
