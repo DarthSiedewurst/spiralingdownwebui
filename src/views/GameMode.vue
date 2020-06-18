@@ -30,10 +30,12 @@
         </b-col>
       </b-row>
       <b-row>
-        <b-col>
-          <b-button class="mt-5" type="button" @click="addToHomescreen">
-            Add to Homescreen
+        <b-col v-if="deferredPrompt" class="mt-5 installAppButton">
+          <b-icon-arrow-right-short></b-icon-arrow-right-short>
+          <b-button type="button" @click="addToHomescreen" variant="warning">
+            App installieren!
           </b-button>
+          <b-icon-arrow-left-short></b-icon-arrow-left-short>
         </b-col>
       </b-row>
     </div>
@@ -220,6 +222,9 @@ export default class NewGame extends Vue {
   height: 100vh;
   background-repeat: repeat;
   background-size: 100% 100%;
+}
+.installAppButton {
+  font-size: 4vw;
 }
 .gameModeButton {
   width: 30vw;
