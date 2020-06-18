@@ -29,6 +29,13 @@
           >
         </b-col>
       </b-row>
+      <b-row>
+        <b-col>
+          <b-button class="mt-5" type="button" @click="addToHomescreen">
+            Add to Homescreen
+          </b-button>
+        </b-col>
+      </b-row>
     </div>
     <b-modal hide-backdrop centered no-close-on-esc no-close-on-backdrop @ok="handleOk" ok-only ref="lobby">
       <b-row>
@@ -71,8 +78,18 @@ export default class NewGame extends Vue {
   private playerName = "";
   private playerColor = "";
   private socket = new Socket();
+  private deferredPrompt: any = null;
 
   private async mounted() {
+    window.addEventListener("beforeinstallprompt", (e) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      this.deferredPrompt = e;
+      console.log(e);
+      // Update UI notify the user they can install the PWA
+      //showInstallPromotion();
+    });
     console.log(process.env.VUE_APP_TEST);
 
     if (Socket.mySocket === null) {
@@ -86,6 +103,18 @@ export default class NewGame extends Vue {
       (this.$refs["lobby"] as any).show();
     }
   }
+
+  private addToHomescreen(e) {
+    this.deferredPrompt.prompt();
+    this.deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === "accepted") {
+        console.log("User accepted the install prompt");
+      } else {
+        console.log("User dismissed the install prompt");
+      }
+    });
+  }
+
   private playersUpdated() {
     Socket.mySocket.on("playersUpdated", (newPlayers: any) => {
       this.$store.commit("setPlayers", newPlayers);
