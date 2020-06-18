@@ -29,7 +29,15 @@
           >
         </b-col>
       </b-row>
+      <b-row class="mt-5">
+        <b-div>
+          <b-button v-if="deferredPrompt" @onClick="promptInstall">
+            Add to home screen
+          </b-button>
+        </b-div>
+      </b-row>
     </div>
+
     <b-modal hide-backdrop centered no-close-on-esc no-close-on-backdrop @ok="handleOk" ok-only ref="lobby">
       <b-row>
         <b-col>Name</b-col>
@@ -62,6 +70,7 @@ import Player from "../models/player";
 import Socket from "../services/socket";
 import CONSTANTS from "@/constants";
 import Ruleset from "../models/ruleset";
+import { BeforeInstallPromptEvent } from "vue-pwa-install";
 
 @Component({
   components: {},
@@ -171,6 +180,36 @@ export default class NewGame extends Vue {
 
   private goToNewGame() {
     this.$router.push({ path: "newGame" });
+  }
+
+  //pwa install
+
+  deferredPrompt: BeforeInstallPromptEvent | any;
+
+  promptInstall() {
+    // Show the prompt:
+    this.deferredPrompt.prompt();
+
+    // Wait for the user to respond to the prompt:
+    this.deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === "accepted") {
+        console.log("User accepted the install prompt");
+      } else {
+        console.log("User dismissed the install prompt");
+      }
+
+      this.deferredPrompt = null;
+    });
+  }
+
+  created() {
+    this.$on("canInstall", (event: BeforeInstallPromptEvent) => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt:
+      event.preventDefault();
+
+      // Stash the event so it can be triggered later:
+      this.deferredPrompt = event;
+    });
   }
 }
 </script>
