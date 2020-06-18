@@ -9,6 +9,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    settings: { vibration: true, music: true, sound: true },
     players: [],
     ruleset: importetRules.SpiralingDown,
     gameModeMultiplayer: true,
@@ -16,6 +17,10 @@ export default new Vuex.Store({
     yourId: 0,
   },
   mutations: {
+    setSettings(state: any, settings: any) {
+      const newSettings = { ...state.settings, ...settings };
+      state.settings = newSettings;
+    },
     setPlayers(state: any, players: Player[]) {
       state.players = players;
     },
