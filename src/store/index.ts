@@ -37,6 +37,9 @@ export default new Vuex.Store({
     move({ state, commit }, movement: any) {
       const newPlayers: Player[] = JSON.parse(JSON.stringify(state.players));
       newPlayers[movement.id].tile += movement.roll;
+      if (newPlayers[movement.id].tile > 72) {
+        newPlayers[movement.id].tile = 72;
+      }
       commit("setPlayers", newPlayers);
     },
     //Player
