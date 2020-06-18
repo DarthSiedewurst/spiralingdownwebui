@@ -3,7 +3,7 @@ module.exports = {
   // ...other vue-cli plugin options...
   pwa: {
     name: "Spiraling Down",
-    themeColor: "##a19f9e",
+    themeColor: "#a19f9e",
     msTileColor: "#e8e8e8",
     appleMobileWebAppCapable: "yes",
     appleMobileWebAppStatusBarStyle: "black",

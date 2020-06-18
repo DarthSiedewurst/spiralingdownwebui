@@ -14,6 +14,7 @@
       no-header-close
       width="40vw"
       header-class="sidebarHeader"
+      sidebar-class="sidebarAll"
     >
       <b-container class="sidebarContent">
         <b-row>
@@ -44,22 +45,47 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
+import MusicService from "@/services/musicService";
 
 @Component({
   components: {},
 })
 export default class Sidebar extends Vue {
+  private mounted() {
+    const playPromise = MusicService.gonzales.play();
+
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          MusicService.gonzales.volume = 0.1;
+          console.log("music spielt");
+        })
+        .catch((e) => {
+          console.log(e);
+          this.music = false;
+        });
+    }
+  }
   private get vibration() {
     return this.$store.state.settings.vibration;
   }
   private set vibration(vibration: boolean) {
+    if (vibration) {
+      window.navigator.vibrate(1000);
+    }
     this.commitToStore({ vibration });
   }
   private get music() {
     return this.$store.state.settings.music;
   }
   private set music(music: boolean) {
+    const musicService = new MusicService();
+    if (music) {
+      musicService.playMusic();
+    } else {
+      musicService.stopMusic();
+    }
     this.commitToStore({ music });
   }
   private get sound() {
@@ -75,6 +101,10 @@ export default class Sidebar extends Vue {
 }
 </script>
 <style scoped>
+>>> .sidebarAll {
+  background-size: 100% 100%;
+  background: url("~@/assets/marmor.jpg");
+}
 .sidebarMenu {
   position: fixed;
   right: 1vw;
@@ -96,7 +126,7 @@ export default class Sidebar extends Vue {
   display: none;
 }
 .drinkbox + label {
-  background: url("~@/assets/bier-leer.jpg");
+  background: url("~@/assets/bier-leer.png");
   height: 20vh;
   width: 10vw;
   display: inline-block;
@@ -107,7 +137,7 @@ export default class Sidebar extends Vue {
 }
 
 .drinkbox:checked + label {
-  background: url("~@/assets/bier-voll.jpg");
+  background: url("~@/assets/bier-voll.png");
   height: 20vh;
   width: 10vw;
   display: inline-block;
