@@ -70,7 +70,6 @@ import Player from "../models/player";
 import Socket from "../services/socket";
 import CONSTANTS from "@/constants";
 import Ruleset from "../models/ruleset";
-import { BeforeInstallPromptEvent } from "vue-pwa-install";
 
 @Component({
   components: {},
@@ -90,7 +89,6 @@ export default class NewGame extends Vue {
       this.deferredPrompt = e;
       console.log(e);
       // Update UI notify the user they can install the PWA
-      //showInstallPromotion();
     });
     console.log(process.env.VUE_APP_TEST);
 
