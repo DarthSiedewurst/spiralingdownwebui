@@ -58,7 +58,7 @@ export default class Dice extends Vue {
         elDiceOne.classList.add("show-" + i);
       }
     }
-    return 6;
+    return diceOne;
   }
 }
 </script>
