@@ -4,6 +4,7 @@ export default class MusicService {
   public playMusic() {
     MusicService.gonzales.volume = 0.1;
     MusicService.gonzales.play();
+    MusicService.gonzales.loop = true;
   }
   public stopMusic() {
     MusicService.gonzales.pause();
