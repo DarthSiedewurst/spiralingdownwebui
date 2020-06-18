@@ -103,7 +103,7 @@ export default class Game extends Vue {
               lobby: Socket.lobby
             })
           );
-        }, 50 * (Math.abs(this.roll) + 2));
+        }, 500 * (Math.abs(this.roll) + 2));
       });
     });
     Socket.mySocket.on("okHasBeenClicked", () => {
@@ -272,7 +272,7 @@ export default class Game extends Vue {
     await new Promise(resolve => {
       setTimeout(() => {
         resolve(this.showRule(id));
-      }, 50 * (Math.abs(this.roll) + 2));
+      }, 500 * (Math.abs(this.roll) + 2));
     });
 
     this.diceable = true;

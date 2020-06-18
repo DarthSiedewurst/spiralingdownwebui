@@ -64,7 +64,7 @@ export default class Player extends Vue {
         await new Promise(resolve => {
           setTimeout(() => {
             resolve(this.movePlayerAutonom(oldTile));
-          }, 50);
+          }, 500);
         });
       }
     } else if (oldTile > newTile) {
@@ -72,7 +72,7 @@ export default class Player extends Vue {
         await new Promise(resolve => {
           setTimeout(() => {
             resolve(this.movePlayerAutonom(oldTile));
-          }, 50);
+          }, 500);
         });
       }
     }
