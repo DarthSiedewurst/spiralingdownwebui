@@ -30,7 +30,7 @@
         </b-col>
       </b-row>
       <b-row>
-        <b-col v-if="deferredPrompt" class="mt-5 installAppButton">
+        <b-col v-if="deferredPrompt !== null" class="mt-5 installAppButton">
           <b-icon-arrow-right-short></b-icon-arrow-right-short>
           <b-button type="button" @click="addToHomescreen" variant="warning">
             App installieren!
