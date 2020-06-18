@@ -136,7 +136,7 @@ export default class Sidebar extends Vue {
   transition: 0.5s;
 }
 .drinkboxUnchecked {
-  background: url("~@/assets/bier-leer.png");
+  background: url("~@/assets/logo.png");
   height: 20vh;
   width: 10vw;
   display: inline-block;
