@@ -111,6 +111,7 @@ export default class Sidebar extends Vue {
   background: transparent !important;
   border: none !important;
   z-index: 1000;
+  font-size: 6vh;
 }
 >>> .sidebarHeader {
   font-size: 5vw !important;
