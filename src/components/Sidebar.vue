@@ -133,17 +133,21 @@ export default class Sidebar extends Vue {
   background-size: 100% 100%;
   overflow: hidden;
 
-  transition: 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
 }
 .drinkboxUnchecked {
-  background: url("~@/assets/logo.png");
+  background: url("~@/assets/bier-leer.png");
   height: 20vh;
   width: 10vw;
   display: inline-block;
   background-size: 100% 100%;
   overflow: hidden;
 
-  transition: 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
 }
 .drinkboxText {
   margin-top: 10vh;
