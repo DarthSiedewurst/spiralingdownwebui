@@ -20,14 +20,14 @@
         <b-row>
           <b-col>
             <input class="drinkbox" type="checkbox" v-model="vibration" id="myCheckbox1"/>
-            <label :class="[vibration ? 'drinkboxUnchecked' : 'drinkboxChecked']" for="myCheckbox1"></label
+            <label :class="[vibration ? 'drinkboxChecked' : 'drinkboxUnchecked']" for="myCheckbox1"></label
           ></b-col>
           <b-col class="drinkboxText"> <b-icon-phone class="sidebarIcon"></b-icon-phone>Vibration </b-col>
         </b-row>
         <b-row>
           <b-col>
             <input class="drinkbox" type="checkbox" v-model="music" id="myCheckbox2"/>
-            <label :class="[music ? 'drinkboxUnchecked' : 'drinkboxChecked']" for="myCheckbox2"></label
+            <label :class="[music ? 'drinkboxChecked' : 'drinkboxUnchecked']" for="myCheckbox2"></label
           ></b-col>
           <b-col class="drinkboxText">
             <b-icon-music-note-beamed class="sidebarIcon"></b-icon-music-note-beamed>Musik
@@ -36,7 +36,7 @@
         <b-row>
           <b-col>
             <input class="drinkbox" type="checkbox" v-model="sound" id="myCheckbox3"/>
-            <label :class="[sound ? 'drinkboxUnchecked' : 'drinkboxChecked']" for="myCheckbox3"></label
+            <label :class="[sound ? 'drinkboxChecked' : 'drinkboxUnchecked']" for="myCheckbox3"></label
           ></b-col>
           <b-col class="drinkboxText"> <b-icon-volume-up class="sidebarIcon"></b-icon-volume-up>Sound </b-col>
         </b-row>
@@ -126,7 +126,7 @@ export default class Sidebar extends Vue {
   display: none;
 }
 .drinkboxChecked {
-  background: url("~@/assets/bier-leer.png");
+  background: url("~@/assets/bier-voll.png");
   height: 20vh;
   width: 10vw;
   display: inline-block;
@@ -136,17 +136,6 @@ export default class Sidebar extends Vue {
   transition: 0.5s;
 }
 .drinkboxUnchecked {
-  background: url("~@/assets/bier-voll.png");
-  height: 20vh;
-  width: 10vw;
-  display: inline-block;
-  background-size: 100% 100%;
-  overflow: hidden;
-
-  transition: 0.5s;
-}
-
-/* .drinkbox + label {
   background: url("~@/assets/bier-leer.png");
   height: 20vh;
   width: 10vw;
@@ -156,17 +145,6 @@ export default class Sidebar extends Vue {
 
   transition: 0.5s;
 }
-
-.drinkbox:checked + label {
-  background: url("~@/assets/bier-voll.png");
-  height: 20vh;
-  width: 10vw;
-  display: inline-block;
-  background-size: 100% 100%;
-  overflow: hidden;
-
-  transition: 0.5s;
-} */
 .drinkboxText {
   margin-top: 10vh;
 }
