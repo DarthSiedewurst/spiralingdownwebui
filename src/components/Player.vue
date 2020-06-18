@@ -8,11 +8,11 @@
 /* eslint-disable no-useless-escape */
 
 // @ is an alias to /src
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import IPlayer from "@/models/player.ts";
 
 @Component({
-  components: {},
+  components: {}
 })
 export default class Player extends Vue {
   @Prop() private player!: IPlayer;
@@ -53,18 +53,60 @@ export default class Player extends Vue {
     return result;
   }
 
-  private movePlayer() {
-    const activeTile = document.getElementById("fieldId" + this.player.tile)!.getBoundingClientRect();
+  @Watch("player")
+  private async moveAutonom(newVal: IPlayer, oldVal: IPlayer) {
+    const newTile = newVal.tile;
+    let oldTile = oldVal.tile;
+
+    if (oldTile !== newTile) {
+      for (oldTile; oldTile <= newTile; oldTile++) {
+        await new Promise(resolve => {
+          setTimeout(() => {
+            resolve(this.movePlayerAutonom(oldTile));
+          }, 500);
+        });
+      }
+    }
+  }
+
+  private movePlayerAutonom(tile: number) {
+    const activeTile = document
+      .getElementById("fieldId" + tile)!
+      .getBoundingClientRect();
     const activePlayer = document.getElementById(String(this.player.id))!.style;
 
     if (this.player.id < 4) {
-      activePlayer.left = this.vwToPx(3) * this.player.id + activeTile.left + "px";
+      activePlayer.left =
+        this.vwToPx(3) * this.player.id + activeTile.left + "px";
       activePlayer.top = activeTile.top + "px";
     } else if (this.player.id < 8) {
-      activePlayer.left = this.vwToPx(3) * (this.player.id - 4) + activeTile.left + "px";
+      activePlayer.left =
+        this.vwToPx(3) * (this.player.id - 4) + activeTile.left + "px";
       activePlayer.top = this.vhToPx(3) + activeTile.top + "px";
     } else if (this.player.id < 12) {
-      activePlayer.left = this.vwToPx(3) * (this.player.id - 8) + activeTile.left + "px";
+      activePlayer.left =
+        this.vwToPx(3) * (this.player.id - 8) + activeTile.left + "px";
+      activePlayer.top = this.vhToPx(6) + activeTile.top + "px";
+    }
+  }
+
+  private movePlayer() {
+    const activeTile = document
+      .getElementById("fieldId" + this.player.tile)!
+      .getBoundingClientRect();
+    const activePlayer = document.getElementById(String(this.player.id))!.style;
+
+    if (this.player.id < 4) {
+      activePlayer.left =
+        this.vwToPx(3) * this.player.id + activeTile.left + "px";
+      activePlayer.top = activeTile.top + "px";
+    } else if (this.player.id < 8) {
+      activePlayer.left =
+        this.vwToPx(3) * (this.player.id - 4) + activeTile.left + "px";
+      activePlayer.top = this.vhToPx(3) + activeTile.top + "px";
+    } else if (this.player.id < 12) {
+      activePlayer.left =
+        this.vwToPx(3) * (this.player.id - 8) + activeTile.left + "px";
       activePlayer.top = this.vhToPx(6) + activeTile.top + "px";
     }
   }
@@ -79,39 +121,51 @@ export default class Player extends Vue {
   transition: 0.5s linear;
 }
 .yellow {
-  filter: invert(79%) sepia(9%) saturate(6653%) hue-rotate(3deg) brightness(100%) contrast(103%);
+  filter: invert(79%) sepia(9%) saturate(6653%) hue-rotate(3deg)
+    brightness(100%) contrast(103%);
 }
 .orange {
-  filter: invert(9%) sepia(80%) saturate(2000%) hue-rotate(349deg) brightness(98%) contrast(118%);
+  filter: invert(9%) sepia(80%) saturate(2000%) hue-rotate(349deg)
+    brightness(98%) contrast(118%);
 }
 .green {
-  filter: invert(0%) sepia(50%) saturate(4000%) hue-rotate(118deg) brightness(80%) contrast(90%);
+  filter: invert(0%) sepia(50%) saturate(4000%) hue-rotate(118deg)
+    brightness(80%) contrast(90%);
 }
 .purple {
-  filter: invert(0%) sepia(50%) saturate(5000%) hue-rotate(245deg) brightness(50%) contrast(120%);
+  filter: invert(0%) sepia(50%) saturate(5000%) hue-rotate(245deg)
+    brightness(50%) contrast(120%);
 }
 .black {
-  filter: invert(10%) sepia(10%) saturate(100%) hue-rotate(0deg) brightness(10%) contrast(120%);
+  filter: invert(10%) sepia(10%) saturate(100%) hue-rotate(0deg) brightness(10%)
+    contrast(120%);
 }
 .dafuq {
-  filter: invert(100%) sepia(0%) saturate(300000%) hue-rotate(360deg) brightness(60%) contrast(200%);
+  filter: invert(100%) sepia(0%) saturate(300000%) hue-rotate(360deg)
+    brightness(60%) contrast(200%);
 }
 .blue {
-  filter: invert(0%) sepia(50%) saturate(5000%) hue-rotate(200deg) brightness(60%) contrast(200%);
+  filter: invert(0%) sepia(50%) saturate(5000%) hue-rotate(200deg)
+    brightness(60%) contrast(200%);
 }
 .aqua {
-  filter: invert(10%) sepia(50%) saturate(3000%) hue-rotate(190deg) brightness(110%) contrast(300%);
+  filter: invert(10%) sepia(50%) saturate(3000%) hue-rotate(190deg)
+    brightness(110%) contrast(300%);
 }
 .pink {
-  filter: invert(0%) sepia(50%) saturate(2000%) hue-rotate(300deg) brightness(120%) contrast(80%);
+  filter: invert(0%) sepia(50%) saturate(2000%) hue-rotate(300deg)
+    brightness(120%) contrast(80%);
 }
 .brown {
-  filter: invert(14%) sepia(80%) saturate(500%) hue-rotate(0deg) brightness(50%) contrast(120%);
+  filter: invert(14%) sepia(80%) saturate(500%) hue-rotate(0deg) brightness(50%)
+    contrast(120%);
 }
 .red {
-  filter: invert(10%) sepia(50%) saturate(600%) hue-rotate(303deg) brightness(60%) contrast(200%);
+  filter: invert(10%) sepia(50%) saturate(600%) hue-rotate(303deg)
+    brightness(60%) contrast(200%);
 }
 .white {
-  filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%) contrast(200%);
+  filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%)
+    contrast(200%);
 }
 </style>

@@ -94,10 +94,16 @@ export default class Game extends Vue {
         }
       });
       this.roll = payload.roll;
-      this.$nextTick(() => {
-        (this.$refs.player as any)[id].movePlayer();
+      await new Promise(resolve => {
+        setTimeout(() => {
+          resolve(
+            Socket.mySocket.emit("showRuleInSocket", {
+              id,
+              lobby: Socket.lobby
+            })
+          );
+        }, 500 * (this.roll + 2));
       });
-      Socket.mySocket.emit("showRuleInSocket", { id, lobby: Socket.lobby });
     });
     Socket.mySocket.on("okHasBeenClicked", () => {
       this.okClicked();
