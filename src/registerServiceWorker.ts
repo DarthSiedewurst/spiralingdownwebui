@@ -19,7 +19,6 @@ if (process.env.NODE_ENV === "production") {
       console.log("New content is downloading.");
     },
     updated() {
-      window.alert("Neuer Kontent verfügbar. Spiralingdown neu öffnen, um ihn zu erhalten.");
       console.log("New content is available; please refresh.");
     },
     offline() {
