@@ -37,6 +37,7 @@
         </b-col>
       </b-row>
     </div>
+
     <b-modal hide-backdrop centered no-close-on-esc no-close-on-backdrop @ok="handleOk" ok-only ref="lobby">
       <b-row>
         <b-col>Name</b-col>
@@ -69,6 +70,7 @@ import Player from "../models/player";
 import Socket from "../services/socket";
 import CONSTANTS from "@/constants";
 import Ruleset from "../models/ruleset";
+import { BeforeInstallPromptEvent } from "vue-pwa-install";
 
 @Component({
   components: {},

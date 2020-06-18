@@ -17,7 +17,7 @@ Vue.component("ValidationProvider", ValidationProvider);
 Vue.component("ValidationObserver", ValidationObserver);
 extend("required", {
   ...required,
-  message: "Feld wird benötigt"
+  message: "Feld wird benötigt",
 });
 
 Vue.config.productionTip = false;
@@ -25,5 +25,5 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");
