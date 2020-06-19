@@ -2,319 +2,319 @@
   "name": "Spiraling Down",
   "fieldId0": {
     "name": "Start",
-    "describtion": "Ahahahahahahahaha...trink (Regeln sind aufgehoben)",
+    "description": "Ahahahahahahahaha...trink (Regeln sind aufgehoben)",
     "move": 0,
     "rulerule": "-"
   },
   "fieldId1": {
     "name": "Eine 1...ersnthaft",
-    "describtion": "Trinke 6 Schlücke oder gib einem Spieler deiner Wahl 1 Euro",
+    "description": "Trinke 6 Schlücke oder gib einem Spieler deiner Wahl 1 Euro",
     "move": 0,
     "rulerule": ""
   },
   "fieldId2": {
     "name": "Trinkt gemeinsam",
-    "describtion": "Du und deine beiden Nebensitzer trinken einen Schluck",
+    "description": "Du und deine beiden Nebensitzer trinken einen Schluck",
     "move": 0,
     "rulerule": ""
   },
   "fieldId3": {
     "name": "Gehe zurück",
-    "describtion": "ein Feld zurück",
+    "description": "ein Feld zurück",
     "move": -1,
     "rulerule": ""
   },
   "fieldId4": {
     "name": "Doppelte Runde",
-    "describtion": "Bis du wieder dran bist, werden deine Schlücke verdoppelt",
+    "description": "Bis du wieder dran bist, werden deine Schlücke verdoppelt",
     "move": 0,
     "rulerule": ""
   },
   "fieldId5": {
     "name": "Verteile",
-    "describtion": "Heut ist Weihnachtsmorgen, verteile 2 Schlücke",
+    "description": "Heut ist Weihnachtsmorgen, verteile 2 Schlücke",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId6": { "name": "Lucky Shot", "describtion": "Gehe auf Feld 30", "move": 24, "rulerule": "" },
+  "fieldId6": { "name": "Lucky Shot", "description": "Gehe auf Feld 30", "move": 24, "rulerule": "" },
   "fieldId7": {
     "name": "Du darfst trinken",
-    "describtion": "ENDLICH darfst du wieder trinken",
+    "description": "ENDLICH darfst du wieder trinken",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId8": { "name": "Trink!", "describtion": "Trinke, was du gewürfelt hast", "move": 0, "rulerule": "" },
+  "fieldId8": { "name": "Trink!", "description": "Trinke, was du gewürfelt hast", "move": 0, "rulerule": "" },
   "fieldId9": {
     "name": "Regel",
-    "describtion": "",
+    "description": "",
     "move": 0,
     "rulerule": "Random"
   },
   "fieldId10": {
     "name": "Thema",
-    "describtion": "Wähle eine Kategorie. Im Uhrzeiger Sinn, nennt ein passendes Wort oder trinkt 3 Schlücke",
+    "description": "Wähle eine Kategorie. Im Uhrzeiger Sinn, nennt ein passendes Wort oder trinkt 3 Schlücke",
     "move": 0,
     "rulerule": ""
   },
   "fieldId11": {
     "name": "Karneval",
-    "describtion": "Alle Spieler teilen sich 11 Schlücke gerecht. Alle überschüssigen trinkst du.",
+    "description": "Alle Spieler teilen sich 11 Schlücke gerecht. Alle überschüssigen trinkst du.",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId12": { "name": "Bye Bye", "describtion": "gehe 8 Felder zurück", "move": -8, "rulerule": "" },
+  "fieldId12": { "name": "Bye Bye", "description": "gehe 8 Felder zurück", "move": -8, "rulerule": "" },
   "fieldId13": {
     "name": "INVADE!",
-    "describtion": "Du und eine Person deiner Wahl stoßen an. Trinkt gemeinsam 2",
+    "description": "Du und eine Person deiner Wahl stoßen an. Trinkt gemeinsam 2",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId14": { "name": "Auf und davon", "describtion": "Beweg dich", "move": 4, "rulerule": "" },
+  "fieldId14": { "name": "Auf und davon", "description": "Beweg dich", "move": 4, "rulerule": "" },
   "fieldId15": {
     "name": "Ab geht's alle Trinken",
-    "describtion": "Erklärt sich von selbst",
+    "description": "Erklärt sich von selbst",
     "move": 0,
     "rulerule": ""
   },
   "fieldId16": {
     "name": "Münzwurf",
-    "describtion": "Kopf, du trinkst 2, Zahl alle anderen 1",
+    "description": "Kopf, du trinkst 2, Zahl alle anderen 1",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId17": { "name": "Und Tschüss", "describtion": "Ciao, wir sehen uns auf Feld 4", "move": -13, "rulerule": "" },
+  "fieldId17": { "name": "Und Tschüss", "description": "Ciao, wir sehen uns auf Feld 4", "move": -13, "rulerule": "" },
   "fieldId18": {
     "name": "Da haben wir wieder mal Glück gehabt",
-    "describtion": "Lehn dich zurück und genehmige dir einen Entspannungsschluck",
+    "description": "Lehn dich zurück und genehmige dir einen Entspannungsschluck",
     "move": 0,
     "rulerule": ""
   },
   "fieldId19": {
     "name": "DSDS",
-    "describtion": "Singe einen Song deiner Wahl. Die Person, die ihn errät verteilt 3 Schlücke",
+    "description": "Singe einen Song deiner Wahl. Die Person, die ihn errät verteilt 3 Schlücke",
     "move": 0,
     "rulerule": ""
   },
   "fieldId20": {
     "name": "Regel",
-    "describtion": "",
+    "description": "",
     "move": 0,
     "rulerule": "Random"
   },
   "fieldId21": {
     "name": "BlackJack",
-    "describtion": "Sage vorher an, was der folgende Spieler würfelt. Hast du recht, verteile 6. Liegst du falsch, trinke 2",
+    "description": "Sage vorher an, was der folgende Spieler würfelt. Hast du recht, verteile 6. Liegst du falsch, trinke 2",
     "move": 0,
     "rulerule": ""
   },
   "fieldId22": {
     "name": "Schmitt poppt die Tochter vom Captain",
-    "describtion": "Die letzte Person die Sex hatte, trinkt 3 Schlücke",
+    "description": "Die letzte Person die Sex hatte, trinkt 3 Schlücke",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId23": { "name": "Gib aus", "describtion": "Verteile 5 Schlücke", "move": 0, "rulerule": "" },
+  "fieldId23": { "name": "Gib aus", "description": "Verteile 5 Schlücke", "move": 0, "rulerule": "" },
   "fieldId24": {
     "name": "Blitzkrieg",
-    "describtion": "Die letzte Person, die die Hände in den Himmels streckt, trinkt 2 Schlücke",
+    "description": "Die letzte Person, die die Hände in den Himmels streckt, trinkt 2 Schlücke",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId25": { "name": "Geh zurück, du wirst es mögen", "describtion": "", "move": -2, "rulerule": "" },
-  "fieldId26": { "name": "ALLE", "describtion": "Alle trinken", "move": 0, "rulerule": "" },
+  "fieldId25": { "name": "Geh zurück, du wirst es mögen", "description": "", "move": -2, "rulerule": "" },
+  "fieldId26": { "name": "ALLE", "description": "Alle trinken", "move": 0, "rulerule": "" },
   "fieldId27": {
     "name": "Thema",
-    "describtion": "Wähle eine Kategorie. Im Uhrzeiger Sinn, nennt ein passendes Wort oder trinkt 3 Schlücke",
+    "description": "Wähle eine Kategorie. Im Uhrzeiger Sinn, nennt ein passendes Wort oder trinkt 3 Schlücke",
     "move": 0,
     "rulerule": ""
   },
   "fieldId28": {
     "name": "Geimpft",
-    "describtion": "Bis zu deinem nächsten Zug, musst du nicht trinken",
+    "description": "Bis zu deinem nächsten Zug, musst du nicht trinken",
     "move": 0,
     "rulerule": ""
   },
   "fieldId29": {
     "name": "Bye, Bye meine Liebe des Lebens",
-    "describtion": "doch wir beide werden uns wieder sehen",
+    "description": "doch wir beide werden uns wieder sehen",
     "move": -14,
     "rulerule": ""
   },
   "fieldId30": {
     "name": "Kennst du deine Mitspieler?",
-    "describtion": "Schließe die Augen. Wer von deinen Mitspielern zeigt auf dich? Für jeden Fehler schlürfst du 2",
+    "description": "Schließe die Augen. Wer von deinen Mitspielern zeigt auf dich? Für jeden Fehler schlürfst du 2",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId31": { "name": "Arschloch", "describtion": "Verteile an jeden 1-3 Schlücke", "move": 0, "rulerule": "" },
+  "fieldId31": { "name": "Arschloch", "description": "Verteile an jeden 1-3 Schlücke", "move": 0, "rulerule": "" },
   "fieldId32": {
     "name": "Regel",
-    "describtion": "",
+    "description": "",
     "move": 0,
     "rulerule": "Random"
   },
   "fieldId33": {
     "name": "Drehen",
-    "describtion": "Du hast 6 Strafpunkte. Trinke oder drehe dich für jeden Strafpunkt einmal um dich selber",
+    "description": "Du hast 6 Strafpunkte. Trinke oder drehe dich für jeden Strafpunkt einmal um dich selber",
     "move": 0,
     "rulerule": ""
   },
   "fieldId34": {
     "name": "Der Kavalier",
-    "describtion": "Verteile 3 oder trinke selber 1",
+    "description": "Verteile 3 oder trinke selber 1",
     "move": 0,
     "rulerule": ""
   },
   "fieldId35": {
     "name": "Fußpilz",
-    "describtion": "Trinke einen auf dem Weg, gehe 2 Felder vor",
+    "description": "Trinke einen auf dem Weg, gehe 2 Felder vor",
     "move": 2,
     "rulerule": ""
   },
-  "fieldId36": { "name": "Halbzeit", "describtion": "Nicht für dich", "move": -36, "rulerule": "" },
+  "fieldId36": { "name": "Halbzeit", "description": "Nicht für dich", "move": -36, "rulerule": "" },
   "fieldId37": {
     "name": "Postbote",
-    "describtion": "Bis zu deinem nächsten Zug, verteilst du jeden Schluck, den du trinken müsstest",
+    "description": "Bis zu deinem nächsten Zug, verteilst du jeden Schluck, den du trinken müsstest",
     "move": 0,
     "rulerule": ""
   },
   "fieldId38": {
     "name": "Touchy",
-    "describtion": "Berühre jeden Spieler in den nächsten 10 Sekunden einmal, oder trinke 3",
+    "description": "Berühre jeden Spieler in den nächsten 10 Sekunden einmal, oder trinke 3",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId39": { "name": "Sauf!", "describtion": "Trink einen", "move": 0, "rulerule": "" },
-  "fieldId40": { "name": "Sauf nochmal!", "describtion": "Trinke einen", "move": 0, "rulerule": "" },
-  "fieldId41": { "name": "Verteile", "describtion": "Verteile, was du gewürfelt hast", "move": 0, "rulerule": "" },
+  "fieldId39": { "name": "Sauf!", "description": "Trink einen", "move": 0, "rulerule": "" },
+  "fieldId40": { "name": "Sauf nochmal!", "description": "Trinke einen", "move": 0, "rulerule": "" },
+  "fieldId41": { "name": "Verteile", "description": "Verteile, was du gewürfelt hast", "move": 0, "rulerule": "" },
   "fieldId42": {
     "name": "Die Antwort auf alles",
-    "describtion": "Teile dein unnützes Wissen. Jeder, der deinen unnützen Fakt nicht kannte, trinkt 2",
+    "description": "Teile dein unnützes Wissen. Jeder, der deinen unnützen Fakt nicht kannte, trinkt 2",
     "move": 0,
     "rulerule": ""
   },
   "fieldId43": {
     "name": "Sieg und Niederlage",
-    "describtion": "Der Erste und der Letzte trinken",
+    "description": "Der Erste und der Letzte trinken",
     "move": 0,
     "rulerule": ""
   },
   "fieldId44": {
     "name": "Tausche mit dem letzten",
-    "describtion": "Glück gehabt, noch nicht implementiert",
+    "description": "Glück gehabt, noch nicht implementiert",
     "move": 0,
     "rulerule": ""
   },
   "fieldId45": {
     "name": "Rulebreaker",
-    "describtion": "Regel aufgehoben",
+    "description": "Regel aufgehoben",
     "move": 0,
     "rulerule": "-"
   },
   "fieldId46": {
     "name": "Reaktion",
-    "describtion": "Klatscht in die Hände. Die letzte Person trinkt 2",
+    "description": "Klatscht in die Hände. Die letzte Person trinkt 2",
     "move": 0,
     "rulerule": ""
   },
   "fieldId47": {
     "name": "4711",
-    "describtion": "Bestimme die wohlriechendste Person und trinke mit ihr",
+    "description": "Bestimme die wohlriechendste Person und trinke mit ihr",
     "move": 0,
     "rulerule": ""
   },
   "fieldId48": {
     "name": "Double Trouble",
-    "describtion": "Alle deine Schlücke sind verdoppelt, bis du wieder am Zug bist",
+    "description": "Alle deine Schlücke sind verdoppelt, bis du wieder am Zug bist",
     "move": 0,
     "rulerule": ""
   },
   "fieldId49": {
     "name": "6 aus 49",
-    "describtion": "Bist du der erste, der das Feld erreicht, Verteile 4 Siegerschlücke. Bist du es nicht, trinke 2",
+    "description": "Bist du der erste, der das Feld erreicht, Verteile 4 Siegerschlücke. Bist du es nicht, trinke 2",
     "move": 0,
     "rulerule": ""
   },
   "fieldId50": {
     "name": "Bachelor",
-    "describtion": "Küsse deinen rechten Mitspieler, oder trinke 4",
+    "description": "Küsse deinen rechten Mitspieler, oder trinke 4",
     "move": 0,
     "rulerule": ""
   },
   "fieldId51": {
     "name": "Ruler of Three",
-    "describtion": "Zeigt alle gleichzeitig eine Zahl zwischen 1 und 3. Für jeden, der die gleiche Zahl wie du zeigt, trinkst du 2",
+    "description": "Zeigt alle gleichzeitig eine Zahl zwischen 1 und 3. Für jeden, der die gleiche Zahl wie du zeigt, trinkst du 2",
     "move": 0,
     "rulerule": ""
   },
   "fieldId52": {
     "name": "Steht auf",
-    "describtion": "Du darfst erst wieder sitzen, wenn dein Getränk leer ist",
+    "description": "Du darfst erst wieder sitzen, wenn dein Getränk leer ist",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId53": { "name": "So nah und doch so fern", "describtion": "", "move": -19, "rulerule": "" },
-  "fieldId54": { "name": "sauf!", "describtion": "", "move": 0, "rulerule": "" },
+  "fieldId53": { "name": "So nah und doch so fern", "description": "", "move": -19, "rulerule": "" },
+  "fieldId54": { "name": "sauf!", "description": "", "move": 0, "rulerule": "" },
   "fieldId55": {
     "name": "Der Schluckspecht",
-    "describtion": "Bestimme, die Person, die am meisten getrunken hat. Diese darf 3 Schlücke verteilen",
+    "description": "Bestimme, die Person, die am meisten getrunken hat. Diese darf 3 Schlücke verteilen",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId56": { "name": "Verschnaufpause", "describtion": "-", "move": 0, "rulerule": "" },
+  "fieldId56": { "name": "Verschnaufpause", "description": "-", "move": 0, "rulerule": "" },
   "fieldId57": {
     "name": "Arschkarte",
-    "describtion": "Jeder darf dir 1-2 Schlücke verteilen",
+    "description": "Jeder darf dir 1-2 Schlücke verteilen",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId58": { "name": "Mein Linker, linker Platz...", "describtion": "...trinkt", "move": 0, "rulerule": "" },
-  "fieldId59": { "name": "Teleport", "describtion": "", "move": -19, "rulerule": "" },
+  "fieldId58": { "name": "Mein Linker, linker Platz...", "description": "...trinkt", "move": 0, "rulerule": "" },
+  "fieldId59": { "name": "Teleport", "description": "", "move": -19, "rulerule": "" },
   "fieldId60": {
     "name": "Regel",
-    "describtion": "",
+    "description": "",
     "move": 0,
     "rulerule": "Random"
   },
-  "fieldId61": { "name": "Quersumme", "describtion": "Trink 7", "move": 0, "rulerule": "" },
+  "fieldId61": { "name": "Quersumme", "description": "Trink 7", "move": 0, "rulerule": "" },
   "fieldId62": {
     "name": "Zahltag",
-    "describtion": "Hast du auf dem Feld Blackjack gewonnen hast, trinken alle anderen 4. Ansonsten trinkst du sie selber",
+    "description": "Hast du auf dem Feld Blackjack gewonnen hast, trinken alle anderen 4. Ansonsten trinkst du sie selber",
     "move": 0,
     "rulerule": ""
   },
   "fieldId63": {
     "name": "Thema",
-    "describtion": "Wähle eine Kategorie. Im Uhrzeiger Sinn, nennt ein passendes Wort oder trinkt 3 Schlücke",
+    "description": "Wähle eine Kategorie. Im Uhrzeiger Sinn, nennt ein passendes Wort oder trinkt 3 Schlücke",
     "move": 0,
     "rulerule": ""
   },
   "fieldId64": {
     "name": "Für den Pöbel",
-    "describtion": "Trinke so viele Schlücke, wie Spieler hinter dir sind.",
+    "description": "Trinke so viele Schlücke, wie Spieler hinter dir sind.",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId65": { "name": "Verteilen", "describtion": "Verteile 3", "move": 0, "rulerule": "" },
+  "fieldId65": { "name": "Verteilen", "description": "Verteile 3", "move": 0, "rulerule": "" },
   "fieldId66": {
     "name": "Pakt mit dem Teufel",
-    "describtion": "Bis du wieder dran bist, sind deine Schlücke um 1 reduziert, aber du darfst nicht sprechen",
+    "description": "Bis du wieder dran bist, sind deine Schlücke um 1 reduziert, aber du darfst nicht sprechen",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId67": { "name": "Nice try", "describtion": "", "move": -4, "rulerule": "" },
+  "fieldId67": { "name": "Nice try", "description": "", "move": -4, "rulerule": "" },
   "fieldId68": {
     "name": "Endspurt",
-    "describtion": "Sammel deine Kräfte indem du 4 trinkst",
+    "description": "Sammel deine Kräfte indem du 4 trinkst",
     "move": 0,
     "rulerule": ""
   },
   "fieldId69": {
     "name": "Hihihi 69",
-    "describtion": "Wähle einen Partner. Ihr stellt eine Kamasutrastellung eurer Wahl nach, oder trinkt beide 7",
+    "description": "Wähle einen Partner. Ihr stellt eine Kamasutrastellung eurer Wahl nach, oder trinkt beide 7",
     "move": 0,
     "rulerule": ""
   },
-  "fieldId70": { "name": "Close enough", "describtion": "Bitter", "move": -70, "rulerule": "" },
-  "fieldId71": { "name": "SIEG", "describtion": "SIEG", "move": 0, "rulerule": "" }
+  "fieldId70": { "name": "Close enough", "description": "Bitter", "move": -70, "rulerule": "" },
+  "fieldId71": { "name": "SIEG", "description": "SIEG", "move": 0, "rulerule": "" }
 }

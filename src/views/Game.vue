@@ -11,7 +11,7 @@
       ref="rule"
       @ok="handleOk"
       static
-      >{{ ruledescribtion }}</b-modal
+      >{{ ruledescription }}</b-modal
     >
     <div v-for="(player, index) in players" :key="'player' + index">
       <player ref="player" :player="player" @overlayRight="overlayRight"></player>
@@ -67,7 +67,7 @@ import constants from "../constants";
 })
 export default class Game extends Vue {
   private rulename = "";
-  private ruledescribtion = "";
+  private ruledescription = "";
   private rulerule = "";
   private ruleMovement = 0;
   private diceable = true;
@@ -294,14 +294,14 @@ export default class Game extends Vue {
     const fieldId = "fieldId" + this.players[id].tile;
 
     this.rulename = this.ruleset[fieldId].name;
-    this.ruledescribtion = this.ruleset[fieldId].describtion;
-    this.ruledescribtion = this.ruledescribtion.replace(/{playerName}/g, this.activePlayer.name);
+    this.ruledescription = this.ruleset[fieldId].description;
+    this.ruledescription = this.ruledescription.replace(/{playerName}/g, this.activePlayer.name);
 
     if (this.ruleset[fieldId].rulerule !== "") {
       if (this.ruleset[fieldId].rulerule === "Random") {
         const random = Math.floor(Math.random() * constants.RULERULES.length);
         this.rulerule = constants.RULERULES[random];
-        this.ruledescribtion = constants.RULERULES[random];
+        this.ruledescription = constants.RULERULES[random];
       } else if (this.ruleset[fieldId].rulerule === "-") {
         this.rulerule = "";
       } else {
