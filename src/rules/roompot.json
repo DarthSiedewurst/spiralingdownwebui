@@ -1,436 +1,435 @@
 {
-    "name": "roompot-edition",
-    "fieldId0": {
-      "name": "Start",
-      "describtion": "",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId1": {
-      "name": "Ein Bein",
-      "describtion": "Auf einem Bein kann man nicht stehen. Trinke einen Schluck!",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId2": {
-      "name": "Marathon!",
-      "describtion": "Eine 2? Keine Sorge, das ist ein Marathon und kein Sprint. Trinke trotzdem einen Schluck",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId3": {
-      "name": "Krokette an der Decke",
-      "describtion": "Eine Fleischkrokette befindet sich an der Decke über deinem Kopf. Eine unmittelbare Gefahr für dich und deine direkten Sitznachbarn. Um die Gefahr zu bannen trinkt jeder zwei Schlücke. ",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId4": {
-      "name": "Gerade Laufen",
-      "describtion": "Ihr scheint noch gerade laufen zu können. Jeder, der in dieser Runde eine gerade Zahl würfelt, trinkt zwei Schlücke",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId5": {
-      "name": "Nicht genügend Hack!",
-      "describtion": "Scheint als gäbe es nicht genügend Hack. Suche einen Schuldigen, der zwei Schlücke trinkt",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId6": {
-      "name": "Nicht so hastig!",
-      "describtion": "du hast den Trichter im Auto vergessen, gehe auf Start und hol den Trichter!",
-      "move": -6,
-      "rulerule": ""
-    },
-    "fieldId7": {
-      "name": "Entgiftung",
-      "describtion": "Dein rechter Sitznachbar wurde ertappt, wie er Wasser getrunken hat. Sein Körper muss mit Alkohol gereinigt werden. Er trinkt drei!",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId8": {
-      "name": "Gut frittiert ist halb gegessen",
-      "describtion": "Der Topf mit Öl wird erhitzt. Trinkt alle einen, während ihr wartet, bis das Fett seine Betriebstemperatur erreicht hat",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId9": {
-      "name": "Anfängerfehler",
-      "describtion": "Jeder, der kein alkoholhaltiges Beigetränk führt, ext unverzüglich sein Glas. Unverschämtheit. Ein leeres Beigetränk ist mindestens genauso Unverschämt. Exe in dem Fall ebenfalls",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId10": {
-      "name": "Um zehn noch stehn?",
-      "describtion": "Wird zeit, dass du Gas gibst. Trinke zwei und gehe drei",
-      "move": 3,
-      "rulerule": ""
-    },
-    "fieldId11": {
-      "name": "Ehret den Park",
-      "describtion": "Die Schönheit der Unterkunft ist vor jedem Trinken mit den Worten 'Ehret den Park!' zu würdigen. Um das zu üben gehe vier",
-      "move": 4,
-      "rulerule": "Vor dem Trinken ist die Unterkunft mit den Worten 'Ehret den Park!' würdigen."
-    },
-    "fieldId12": {
-      "name": "Teamwork!",
-      "describtion": "Teamwork makes the dream work. Bla bla bla... suche dir einen Partner, der ebenfalls dieselbe Menge trinkt, wenn Schlücke an dich Verteilt werden",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId13": {
-      "name": "Der Parkwächter hat ein Auge auf dich geworfen. Trinke zwei Schlücke, um keine Aufmerksamkeit zu erregen",
-      "describtion": "Der Parkwächter hat ein Auge auf dich geworfen. Trinke zwei Schlücke, um keine Aufmerksamkeit zu erregen",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId14": {
-      "name": "Danke Coach!",
-      "describtion": "Verteile (Anzahl Spieler * drei) Schlücke. Wer sich nicht mit den Worten 'Danke Coach!' erkenntlich zeigt, dessen Schlücke werden verdoppelt",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId15": {
-      "name": "Morgensport",
-      "describtion": "Sport macht gemeinsam einfach am meisten Spaß. Alle trinken zwei!",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId16": {
-      "name": "Verhandlungssache",
-      "describtion": "Bestimmt mithilfe eines Mehrheitsvotums einen Spieler, der zwei Schlücke trinkt. Im Zweifelsfall zählt deine Stimme doppelt.",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId17": {
-      "name": "Themenpark",
-      "describtion": "Wähle eine Kategorie. Jeder Spieler nennt im Uhrzeigersinn einen Begriff dieser Kategorie. Schafft es ein Spieler nicht, trinkt dieser zwei",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId18": {
-      "name": "Hack",
-      "describtion": "Das Hack ist Servierfertig und verleiht dir neue Kraft. Deine nächsten Schlücke werden annuliert",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId19": {
-      "name": "Ja Mr. QwesdjionMAsta",
-      "describtion": "Du bist nun der Questionmaster! Jeder der eine deiner Fragen beantwortet, muss seine Antwort der Höflichkeit halber mit den Worten 'Ja Mr. Questionmaster' beenden",
-      "move": 0,
-      "rulerule": "Antworten auf die Fragen von $Spieler sind mit 'Ja Mr. Questionmaster' zu beenden"
-    },
-    "fieldId20": {
-      "name": "Verhandlungsbereitschaft",
-      "describtion": "Deine Verhandlungsbereitschaft kommt dich teuer zu stehen. Trinke fünf Schlücke",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId21": {
-      "name": "Rhymes",
-      "describtion": "Wähle ein Wort und findet im Uhrzeigersinn passende Reime. Der erste Spieler, der keinen Reim nennen kann, trinkt zwei",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId22": {
-      "name": "Themenpark",
-      "describtion": "Wähle eine Kategorie. Jeder Spieler nennt im Uhrzeigersinn einen Begriff dieser Kategorie. Schafft es ein Spieler nicht, trinkt dieser zwei",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId23": {
-      "name": "Volle Kanne",
-      "describtion": "Die Kaffeekanne wurde frisch mit Wein befüllt. Mache den Anfang und trinke vier",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId24": {
-      "name": "Gehobene Gesellschaft",
-      "describtion": "Ihr befindet euch in gehobener Gesellschaft. Sprecht euch nur noch in der höflichen 'Sie'-Form an",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId25": {
-      "name": "No Kauti",
-      "describtion": "Die Kaution ist in Gefahr, aber wenn alle an einem Strang ziehen und zwei trinken, wird das schon gut gehen",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId26": {
-      "name": "Die Büchse der Putzfrau",
-      "describtion": "Du hast die Trinkgeldbüchse der Putzfrau entwendet. Unethisch, aber der Kapitalismus bringt dich voran",
-      "move": 5,
-      "rulerule": ""
-    },
-    "fieldId27": {
-      "name": "Reinen Vla einschenken",
-      "describtion": "Du schenkst deinen Freunden Vla ein. Aber anstelle von Vla verteilst du sechs Schlücke.",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId28": {
-      "name": "Ich hab noch nie",
-      "describtion": "Spielt eine Runde 'Ich hab noch nie'",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId29": {
-      "name": "Ey DJ mach nochmal Polka",
-      "describtion": "Aber statt Polka spielt er was von Meduza. Du bist jetzt Medusa. Wer dir in deine Augen schaut, der trinkt",
-      "move": 0,
-      "rulerule": "$Spieler ist Medusa. Wer ihm in die Augen sieht, der trinkt"
-    },
-    "fieldId30": {
-      "name": "Rührei",
-      "describtion": "Es gibt ungesalzenes Rührei. Nehme für zusätzlichen Genuss zwei Schlücke von deinem Beigetränk. Solltest du keins haben, exe dein Hauptgetränk.",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId31": {
-      "name": "Das Archiv vervollständigen",
-      "describtion": "Möglicherweise sind die Archive unvollständig. Vervollständigt sie mit einem Gruppenselfie",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId32": {
-      "name": "nehmt es von den Reichen",
-      "describtion": "Wer ein Apple I-Phone hat, der trinkt drei",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId33": {
-      "name": "Hirschragout",
-      "describtion": "Ein Hirschgeweih-Wanddekorationsutensil ist abhanden gekommen, verteile drei Schlücke an den Verdächtigen. Die Kaution steht auf dem Spiel!",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId34": {
-      "name": "Wie echte Kerle regeln",
-      "describtion": "Wähle deinen Kontrahenten weise. Ihr spielt eine Runde Stein-Schere-Papier und der verlierer trinkt zwei",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId35": {
-      "name": "Countdown",
-      "describtion": "Du wirst ausgezählt. Exe dein Glas, um deine Spieltaiglichkeit zu unterstreichen",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId36": {
-      "name": "Lovoo",
-      "describtion": "Mithilfe der App konntest du diverse Partner finden. Wähle einen Partner, der ebenfalls dieselbe Menge trinkt, wenn Schlücke an dich Verteilt werden",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId37": {
-      "name": "Der Bus ist abgefahren",
-      "describtion": "Nur du spielst eine Runde 'Busfahrer'. Dein linker Sitznachbar ist dein Fahrer",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId38": {
-      "name": "Verbrannte Zunge",
-      "describtion": "Du hast dir die Zunge an einer Fleischkrokette verbrannt. Trinke zwei um deine Zunge zu kühlen",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId39": {
-      "name": "Trade-Deal",
-      "describtion": "Durch die Zwangsversteigerung der Immobilien eines Monopoly-Kontrahenten konntest du gewinne Erwirtschaften. Verteile sie in Form von sechs Schlücken an bedürftige",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId40": {
-      "name": "Wo ist das Ei?",
-      "describtion": "Dein Straußenei ist abhanden gekommen, gehe zurück und suche es",
-      "move": -10,
-      "rulerule": ""
-    },
-    "fieldId41": {
-      "name": "Wo ist die Fußmatte?",
-      "describtion": "Die originale Fußmatte des Parks ist abhanden gekommen. Verteile drei Schlücke an den Verdächtigen. Die Kaution steht auf dem Spiel!",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId42": {
-      "name": "Scherbe im Fuß",
-      "describtion": "Du bist in eine Scherbe getreten. Desinfiziere von Innen mit zwei Schlücken",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId43": {
-      "name": "Flussufer",
-      "describtion": "Du ruhst dich an 'The River' aus",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId44": {
-      "name": "Ja Mr. QwesdjionMAsta",
-      "describtion": "Du bist nun der Questionmaster! Jeder der eine deiner Fragen beantwortet, muss seine Antwort der Höflichkeit halber mit den Worten 'Ja Mr. Questionmaster' beenden",
-      "move": 0,
-      "rulerule": "Antworten auf die Fragen von $Spieler sind mit 'Ja Mr. Questionmaster' zu beenden"
-    },
-    "fieldId45": {
-      "name": "Versace-Gürtel",
-      "describtion": "Du wirst vom Versace-Gürtel des Parkinhabers geblendet und wirst selbst zu Medusa",
-      "move": 0,
-      "rulerule": "$Spieler ist Medusa. Wer ihm in die Augen sieht, der trinkt"
-    },
-    "fieldId46": {
-      "name": "Pur Hitmix",
-      "describtion": "Du hast einen ausgezeichneten Musikgeschmack. Starte den Pur Hitmix und trinke einen Schluck.",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId47": {
-      "name": "Frikandel",
-      "describtion": "Die Frikandeln sind seitlich aufgeplatzt und somit servierfertig. Deine nächsten Schlücke werden annuliert",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId48": {
-      "name": "Rhymes",
-      "describtion": "Wähle ein Wort und findet im Uhrzeigersinn passende Reime. Der erste Spieler, der keinen Reim nennen kann, trinkt zwei",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId49": {
-      "name": "Country roads take me home",
-      "describtion": "gehe auf Start",
-      "move": -49,
-      "rulerule": ""
-    },
-    "fieldId50": {
-      "name": "Die Toilette",
-      "describtion": "Das stille Örtchen eignet sich für ein kurzes Päusschen. Ruh dich aus!",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId51": {
-      "name": "Ach du heilige Krokette",
-      "describtion": "Eine Fleischkrokette ist in deiner Hand explodiert. Trinke zwei, um die schmerzen zu lindern.",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId52": {
-      "name": "Glas-Weit-Schießen",
-      "describtion": "Du hast beim Glas-Weit-Schießen den ersten Platz belegt. Verteile fünf Schlücke",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId53": {
-      "name": "The River",
-      "describtion": "Du bist in 'The River' gefallen und musst dich an das Ufer 10 Felder zurück retten",
-      "move": -10,
-      "rulerule": ""
-    },
-    "fieldId54": {
-      "name": "Countdown",
-      "describtion": "Du wirst ausgezählt. Exe dein Glas, um deine Spieltauglichkeit zu unterstreichen",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId55": {
-      "name": "Endstation",
-      "describtion": "Nur du spielst eine Runde 'Busfahrer'. Dein linker Sitznachbar ist dein Fahrer",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId56": {
-      "name": "Abendspaziergang",
-      "describtion": "Beim Abendspaziergang fällst du in 'The River'",
-      "move": -3,
-      "rulerule": ""
-    },
-    "fieldId57": {
-      "name": "Vorkasse",
-      "describtion": "Du signalisierst mit Nachdruck deine Verhandlungsbereitschaft, indem du mit zwei Schlücken in Vorkasse gehst",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId58": {
-      "name": "Olbertz-Jenga&#169",
-      "describtion": "Das Olbertz-Jenga&#169 ist eingestürzt. Gehe zurück, aber lass dich nicht entmutigen",
-      "move": -10,
-      "rulerule": ""
-    },
-    "fieldId59": {
-      "name": "Purple",
-      "describtion": "Auf ein Ass sagst du höher, doch es folgt ein zweites Ass. Hinterfrage deine Handlung kritisch indem du vier trinkst",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId60": {
-      "name": "Kroketten",
-      "describtion": "Die Fleischkroketten sind servierfertig. Deine nächsten Schlücke werden annuliert",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId61": {
-      "name": "sharing is caring",
-      "describtion": "Trinkt alle einen Schluck",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId62": {
-        "name": "Themenpark",
-        "describtion": "Wähle eine Kategorie. Jeder Spieler nennt im Uhrzeigersinn einen Begriff dieser Kategorie. Schafft es ein Spieler nicht, trinkt dieser zwei",
-        "move": 0,
-        "rulerule": ""
-    },
-    "fieldId63": {
-      "name": "Fitnesskotzer",
-      "describtion": "Ein kleiner Fitnesskotzer hat noch niemandem geschadet. Begib dich voller Stolz auf die Toilette",
-      "move": -13,
-      "rulerule": ""
-    },
-    "fieldId64": {
-      "name": "Ausgezählt",
-      "describtion": "Du wurdest beim Monopoly ausgezählt. Das können wir nicht tolerieren, gehe eins zurück",
-      "move": -1,
-      "rulerule": ""
-    },
-    "fieldId65": {
-      "name": "Kein Geschirr",
-      "describtion": "Das ganze Geschirr ist dreckig, trinke zwei in der Hoffnung, dass es sich von selbst spült",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId66": {
-      "name": "Rhymes",
-      "describtion": "Wähle ein Wort und findet im Uhrzeigersinn passende Reime. Der erste Spieler, der keinen Reim nennen kann, trinkt zwei",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId67": {
-      "name": "Oh Oh",
-      "describtion": "Du taumelst...",
-      "move": 1,
-      "rulerule": ""
-    },
-    "fieldId68": {
-      "name": "Hupsi",
-      "describtion": "Wie ungeschickt, gehe zwei vor",
-      "move": 2,
-      "rulerule": ""
-    },
-    "fieldId69": {
-      "name": "Zielgerade",
-      "describtion": "Alle Spieler mit geradem Alter trinken",
-      "move": 0,
-      "rulerule": ""
-    },
-    "fieldId70": {
-      "name": "Nein wir unterschreiben gar nichts!",
-      "describtion": "Klirrr, eine Wodka Flasche geht bei der Räumung des Parks zu Bruch. Gehe auf die Toilette und ruh dich aus",
-      "move": -20,
-      "rulerule": ""
-    },
-    "fieldId71": {
-      "name": "SIEG",
-      "describtion": "Das Spiel hast du zwar gewonnen, die Kaution bekommst du trotzdem nicht zurück",
-      "move": 0,
-      "rulerule": ""
-    }
+  "name": "roompot-edition",
+  "fieldId0": {
+    "name": "Start",
+    "describtion": "",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId1": {
+    "name": "Ein Bein",
+    "describtion": "Auf einem Bein kann man nicht stehen. Trinke einen Schluck!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId2": {
+    "name": "Marathon!",
+    "describtion": "Eine 2? Keine Sorge, das ist ein Marathon und kein Sprint. Trinke trotzdem einen Schluck",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId3": {
+    "name": "Krokette an der Decke",
+    "describtion": "Eine Fleischkrokette befindet sich an der Decke über deinem Kopf. Eine unmittelbare Gefahr für dich und deine direkten Sitznachbarn. Um die Gefahr zu bannen trinkt jeder zwei Schlücke. ",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId4": {
+    "name": "Gerade Laufen",
+    "describtion": "Ihr scheint noch gerade laufen zu können. Jeder, der in dieser Runde eine gerade Zahl würfelt, trinkt zwei Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId5": {
+    "name": "Nicht genügend Hack!",
+    "describtion": "Scheint als gäbe es nicht genügend Hack. Suche einen Schuldigen, der zwei Schlücke trinkt",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId6": {
+    "name": "Nicht so hastig!",
+    "describtion": "du hast den Trichter im Auto vergessen, gehe auf Start und hol den Trichter!",
+    "move": -6,
+    "rulerule": ""
+  },
+  "fieldId7": {
+    "name": "Entgiftung",
+    "describtion": "Dein rechter Sitznachbar wurde ertappt, wie er Wasser getrunken hat. Sein Körper muss mit Alkohol gereinigt werden. Er trinkt drei!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId8": {
+    "name": "Gut frittiert ist halb gegessen",
+    "describtion": "Der Topf mit Öl wird erhitzt. Trinkt alle einen, während ihr wartet, bis das Fett seine Betriebstemperatur erreicht hat",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId9": {
+    "name": "Anfängerfehler",
+    "describtion": "Jeder, der kein alkoholhaltiges Beigetränk führt, ext unverzüglich sein Glas. Unverschämtheit. Ein leeres Beigetränk ist mindestens genauso Unverschämt. Exe in dem Fall ebenfalls",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId10": {
+    "name": "Um zehn noch stehn?",
+    "describtion": "Wird zeit, dass du Gas gibst. Trinke zwei und gehe drei",
+    "move": 3,
+    "rulerule": ""
+  },
+  "fieldId11": {
+    "name": "Ehret den Park",
+    "describtion": "Die Schönheit der Unterkunft ist vor jedem Trinken mit den Worten 'Ehret den Park!' zu würdigen. Um das zu üben gehe vier",
+    "move": 4,
+    "rulerule": "Vor dem Trinken ist die Unterkunft mit den Worten 'Ehret den Park!' würdigen."
+  },
+  "fieldId12": {
+    "name": "Teamwork!",
+    "describtion": "Teamwork makes the dream work. Bla bla bla... suche dir einen Partner, der ebenfalls dieselbe Menge trinkt, wenn Schlücke an dich Verteilt werden. Es existiert immer nur ein Team",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId13": {
+    "name": "Der Parkwächter",
+    "describtion": "Der Parkwächter hat ein Auge auf dich geworfen. Trinke zwei Schlücke, um keine Aufmerksamkeit zu erregen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId14": {
+    "name": "Danke Coach!",
+    "describtion": "Verteile doppelt so viele Schlücke, wie es Spieler gibt. Wer sich nicht mit den Worten 'Danke Coach!' erkenntlich zeigt, dessen Schlücke werden verdoppelt",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId15": {
+    "name": "Morgensport",
+    "describtion": "Sport macht gemeinsam einfach am meisten Spaß. Alle trinken zwei!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId16": {
+    "name": "Verhandlungssache",
+    "describtion": "Bestimmt mithilfe eines Mehrheitsvotums einen Spieler, der zwei Schlücke trinkt. Im Zweifelsfall zählt deine Stimme doppelt.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId17": {
+    "name": "Themenpark",
+    "describtion": "Wähle eine Kategorie. Jeder Spieler nennt im Uhrzeigersinn einen Begriff dieser Kategorie. Schafft es ein Spieler nicht, trinkt dieser zwei",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId18": {
+    "name": "Hack",
+    "describtion": "Das Hack ist Servierfertig und verleiht dir neue Kraft. Deine nächsten Schlücke werden annuliert",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId19": {
+    "name": "Ja Mr. QwesdjionMAsta",
+    "describtion": "Du bist nun der Questionmaster! Jeder der eine deiner Fragen beantwortet, muss seine Antwort der Höflichkeit halber mit den Worten 'Ja Mr. Questionmaster' beenden",
+    "move": 0,
+    "rulerule": "Antworten auf die Fragen von $Spieler sind mit 'Ja Mr. Questionmaster' zu beenden"
+  },
+  "fieldId20": {
+    "name": "Verhandlungsbereitschaft",
+    "describtion": "Deine Verhandlungsbereitschaft kommt dich teuer zu stehen. Trinke fünf Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId21": {
+    "name": "Rhymes",
+    "describtion": "Wähle ein Wort und findet im Uhrzeigersinn passende Reime. Der erste Spieler, der keinen Reim nennen kann, trinkt zwei",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId22": {
+    "name": "Themenpark",
+    "describtion": "Wähle eine Kategorie. Jeder Spieler nennt im Uhrzeigersinn einen Begriff dieser Kategorie. Schafft es ein Spieler nicht, trinkt dieser zwei",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId23": {
+    "name": "Volle Kanne",
+    "describtion": "Die Kaffeekanne wurde frisch mit Wein befüllt. Mache den Anfang und trinke vier",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId24": {
+    "name": "Gehobene Gesellschaft",
+    "describtion": "Sie befinden sich in gehobener Gesellschaft. Sprechen Sie sich nur noch in der höflichen 'Sie'-Form an",
+    "move": 0,
+    "rulerule": "Sie befinden sich in gehobener Gesellschaft. Sprechen Sie sich nur noch in der höflichen 'Sie'-Form an"
+  },
+  "fieldId25": {
+    "name": "No Kauti",
+    "describtion": "Die Kaution ist in Gefahr, aber wenn alle an einem Strang ziehen und zwei trinken, wird das schon gut gehen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId26": {
+    "name": "Die Büchse der Putzfrau",
+    "describtion": "Du hast die Trinkgeldbüchse der Putzfrau entwendet. Unethisch, aber der Kapitalismus bringt dich voran",
+    "move": 5,
+    "rulerule": ""
+  },
+  "fieldId27": {
+    "name": "Reinen Vla einschenken",
+    "describtion": "Du schenkst deinen Freunden Vla ein. Aber anstelle von Vla verteilst du sechs Schlücke.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId28": {
+    "name": "Ich hab noch nie",
+    "describtion": "Spielt eine Runde 'Ich hab noch nie'",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId29": {
+    "name": "Ey DJ mach nochmal Polka",
+    "describtion": "Aber statt Polka spielt er was von Meduza. Du bist jetzt Medusa. Wer dir in deine Augen schaut, der trinkt",
+    "move": 0,
+    "rulerule": "$Spieler ist Medusa. Wer ihm in die Augen sieht, der trinkt"
+  },
+  "fieldId30": {
+    "name": "Rührei",
+    "describtion": "Es gibt ungesalzenes Rührei. Nehme für zusätzlichen Genuss zwei Schlücke von deinem Beigetränk. Solltest du keins haben, exe dein Hauptgetränk.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId31": {
+    "name": "Das Archiv vervollständigen",
+    "describtion": "Möglicherweise sind die Archive unvollständig. Vervollständigt sie mit einem Gruppenselfie",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId32": {
+    "name": "nehmt es von den Reichen",
+    "describtion": "Wer ein Apple I-Phone hat, der trinkt drei",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId33": {
+    "name": "Hirschragout",
+    "describtion": "Ein Hirschgeweih-Wanddekorationsutensil ist abhanden gekommen, verteile drei Schlücke an den Verdächtigen. Die Kaution steht auf dem Spiel!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId34": {
+    "name": "Wie echte Kerle regeln",
+    "describtion": "Wähle deinen Kontrahenten weise. Ihr spielt eine Runde Stein-Schere-Papier und der verlierer trinkt zwei",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId35": {
+    "name": "Countdown",
+    "describtion": "Du wirst ausgezählt. Exe dein Glas, um deine Spieltaiglichkeit zu unterstreichen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId36": {
+    "name": "Lovoo",
+    "describtion": "Mithilfe der App konntest du diverse Partner finden. Wähle einen Partner, der ebenfalls dieselbe Menge trinkt, wenn Schlücke an dich Verteilt werden. Es existiert immer nur ein Pärchen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId37": {
+    "name": "Der Bus ist abgefahren",
+    "describtion": "Nur du spielst eine Runde 'Busfahrer'. Dein linker Sitznachbar ist dein Fahrer. Sollten keine Karten vorhanden sein, trinke vorsichtshalber 7 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId38": {
+    "name": "Verbrannte Zunge",
+    "describtion": "Du hast dir die Zunge an einer Fleischkrokette verbrannt. Trinke zwei um deine Zunge zu kühlen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId39": {
+    "name": "Trade-Deal",
+    "describtion": "Durch die Zwangsversteigerung der Immobilien eines Monopoly-Kontrahenten konntest du gewinne Erwirtschaften. Verteile sie in Form von sechs Schlücken an bedürftige",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId40": {
+    "name": "Wo ist das Ei?",
+    "describtion": "Dein Straußenei ist abhanden gekommen, gehe zurück und suche es",
+    "move": -10,
+    "rulerule": ""
+  },
+  "fieldId41": {
+    "name": "Wo ist die Fußmatte?",
+    "describtion": "Die originale Fußmatte des Parks ist abhanden gekommen. Verteile drei Schlücke an den Verdächtigen. Die Kaution steht auf dem Spiel!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId42": {
+    "name": "Scherbe im Fuß",
+    "describtion": "Du bist in eine Scherbe getreten. Desinfiziere von Innen mit zwei Schlücken",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId43": {
+    "name": "Flussufer",
+    "describtion": "Du ruhst dich an 'The River' aus",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId44": {
+    "name": "Ja Mr. QwesdjionMAsta",
+    "describtion": "Du bist nun der Questionmaster! Jeder der eine deiner Fragen beantwortet, muss seine Antwort der Höflichkeit halber mit den Worten 'Ja Mr. Questionmaster' beenden",
+    "move": 0,
+    "rulerule": "Antworten auf die Fragen von $Spieler sind mit 'Ja Mr. Questionmaster' zu beenden"
+  },
+  "fieldId45": {
+    "name": "Versace-Gürtel",
+    "describtion": "Du wirst vom Versace-Gürtel des Parkinhabers geblendet und wirst selbst zu Medusa",
+    "move": 0,
+    "rulerule": "$Spieler ist Medusa. Wer ihm in die Augen sieht, der trinkt"
+  },
+  "fieldId46": {
+    "name": "Pur Hitmix",
+    "describtion": "Du hast einen ausgezeichneten Musikgeschmack. Starte den Pur Hitmix und trinke einen Schluck.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId47": {
+    "name": "Frikandel",
+    "describtion": "Die Frikandeln sind seitlich aufgeplatzt und somit servierfertig. Deine nächsten Schlücke werden annuliert",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId48": {
+    "name": "Rhymes",
+    "describtion": "Wähle ein Wort und findet im Uhrzeigersinn passende Reime. Der erste Spieler, der keinen Reim nennen kann, trinkt zwei",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId49": {
+    "name": "Country roads take me home",
+    "describtion": "gehe auf Start",
+    "move": -49,
+    "rulerule": ""
+  },
+  "fieldId50": {
+    "name": "Die Toilette",
+    "describtion": "Das stille Örtchen eignet sich für ein kurzes Päusschen. Ruh dich aus!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId51": {
+    "name": "Ach du heilige Krokette",
+    "describtion": "Eine Fleischkrokette ist in deiner Hand explodiert. Trinke zwei, um die schmerzen zu lindern.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId52": {
+    "name": "Glas-Weit-Schießen",
+    "describtion": "Du hast beim Glas-Weit-Schießen den ersten Platz belegt. Verteile fünf Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId53": {
+    "name": "The River",
+    "describtion": "Du bist in 'The River' gefallen und musst dich an das Ufer 10 Felder zurück retten",
+    "move": -10,
+    "rulerule": ""
+  },
+  "fieldId54": {
+    "name": "Countdown",
+    "describtion": "Du wirst ausgezählt. Exe dein Glas, um deine Spieltauglichkeit zu unterstreichen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId55": {
+    "name": "Endstation",
+    "describtion": "Nur du spielst eine Runde 'Busfahrer'. Dein linker Sitznachbar ist dein Fahrer. Sollten keine Karten vorhanden sein, trinke vorsichtshalber 7 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId56": {
+    "name": "Abendspaziergang",
+    "describtion": "Beim Abendspaziergang fällst du in 'The River'",
+    "move": -3,
+    "rulerule": ""
+  },
+  "fieldId57": {
+    "name": "Vorkasse",
+    "describtion": "Du signalisierst mit Nachdruck deine Verhandlungsbereitschaft, indem du mit zwei Schlücken in Vorkasse gehst",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId58": {
+    "name": "Olbertz-Jenga",
+    "describtion": "Das Olbertz-Jenga ist eingestürzt. Gehe zurück, aber lass dich nicht entmutigen",
+    "move": -10,
+    "rulerule": ""
+  },
+  "fieldId59": {
+    "name": "Purple",
+    "describtion": "Auf ein Ass sagst du höher, doch es folgt ein zweites Ass. Hinterfrage deine Handlung kritisch indem du vier trinkst",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId60": {
+    "name": "Kroketten",
+    "describtion": "Die Fleischkroketten sind servierfertig. Deine nächsten Schlücke werden annuliert",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId61": {
+    "name": "sharing is caring",
+    "describtion": "Trinkt alle einen Schluck",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId62": {
+    "name": "Themenpark",
+    "describtion": "Wähle eine Kategorie. Jeder Spieler nennt im Uhrzeigersinn einen Begriff dieser Kategorie. Schafft es ein Spieler nicht, trinkt dieser zwei",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId63": {
+    "name": "Fitnesskotzer",
+    "describtion": "Ein kleiner Fitnesskotzer hat noch niemandem geschadet. Begib dich voller Stolz auf die Toilette",
+    "move": -13,
+    "rulerule": ""
+  },
+  "fieldId64": {
+    "name": "Ausgezählt",
+    "describtion": "Du wurdest beim Monopoly ausgezählt. Das können wir nicht tolerieren, gehe eins zurück",
+    "move": -1,
+    "rulerule": ""
+  },
+  "fieldId65": {
+    "name": "Kein Geschirr",
+    "describtion": "Das ganze Geschirr ist dreckig, trinke zwei in der Hoffnung, dass es sich von selbst spült",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId66": {
+    "name": "Rhymes",
+    "describtion": "Wähle ein Wort und findet im Uhrzeigersinn passende Reime. Der erste Spieler, der keinen Reim nennen kann, trinkt zwei",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId67": {
+    "name": "Oh Oh",
+    "describtion": "Du taumelst...",
+    "move": 1,
+    "rulerule": ""
+  },
+  "fieldId68": {
+    "name": "Hupsi",
+    "describtion": "Wie ungeschickt, gehe zwei vor",
+    "move": 2,
+    "rulerule": ""
+  },
+  "fieldId69": {
+    "name": "Zielgerade",
+    "describtion": "Alle Spieler mit geradem Alter trinken",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId70": {
+    "name": "Nein wir unterschreiben gar nichts!",
+    "describtion": "Klirrr, eine Wodka Flasche geht bei der Räumung des Parks zu Bruch. Gehe auf die Toilette und ruh dich aus",
+    "move": -20,
+    "rulerule": ""
+  },
+  "fieldId71": {
+    "name": "SIEG",
+    "describtion": "Das Spiel hast du zwar gewonnen, die Kaution bekommst du trotzdem nicht zurück",
+    "move": 0,
+    "rulerule": ""
   }
-  
+}
