@@ -134,6 +134,7 @@ export default class Game extends Vue {
           window.navigator.vibrate(1000);
         }
       }
+      this.diceable = true;
     });
     Socket.mySocket.on("popUpUpdated", (popUpOpen) => {
       this.popUpOpen = popUpOpen;
@@ -208,8 +209,8 @@ export default class Game extends Vue {
           });
         } else {
           await this.move(id);
+          this.diceable = true;
         }
-        this.diceable = true;
       }
     }
   }

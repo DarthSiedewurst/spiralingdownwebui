@@ -38,7 +38,7 @@
         'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
       }"
       type="button"
-      class="bierdeckel mt-3 float-left"
+      class="bierdeckel mt-2 float-left"
       v-if="gameModeMultiplayer"
       @click="copyInvitationLink"
       >Link kopieren</b-button
