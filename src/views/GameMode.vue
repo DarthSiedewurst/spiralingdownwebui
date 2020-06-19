@@ -17,16 +17,14 @@
             :style="{
               'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
             }"
-            >Auf einem Gerät</b-button
-          >
+          >Auf einem Gerät</b-button>
           <b-button
             class="gameModeButton ml-3"
             @click="multiplayer"
             :style="{
               'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
             }"
-            >Online Lobby erstellen</b-button
-          >
+          >Online Lobby erstellen</b-button>
         </b-col>
       </b-row>
       <b-row>
@@ -38,7 +36,15 @@
       </b-row>
     </div>
 
-    <b-modal hide-backdrop centered no-close-on-esc no-close-on-backdrop @ok="handleOk" ok-only ref="lobby">
+    <b-modal
+      hide-backdrop
+      centered
+      no-close-on-esc
+      no-close-on-backdrop
+      @ok="handleOk"
+      ok-only
+      ref="lobby"
+    >
       <b-row>
         <b-col>Name</b-col>
         <b-col>Farbe</b-col>
@@ -72,7 +78,7 @@ import CONSTANTS from "@/constants";
 import Ruleset from "../models/ruleset";
 
 @Component({
-  components: {},
+  components: {}
 })
 export default class NewGame extends Vue {
   private colors = CONSTANTS.COLORS;
@@ -82,7 +88,7 @@ export default class NewGame extends Vue {
   private deferredPrompt: any = null;
 
   private async mounted() {
-    window.addEventListener("beforeinstallprompt", (e) => {
+    window.addEventListener("beforeinstallprompt", e => {
       // Prevent the mini-infobar from appearing on mobile
       e.preventDefault();
       // Stash the event so it can be triggered later.
@@ -106,7 +112,7 @@ export default class NewGame extends Vue {
 
   private addToHomescreen(e) {
     this.deferredPrompt.prompt();
-    this.deferredPrompt.userChoice.then((choiceResult) => {
+    this.deferredPrompt.userChoice.then(choiceResult => {
       if (choiceResult.outcome === "accepted") {
         console.log("User accepted the install prompt");
       } else {
@@ -135,17 +141,17 @@ export default class NewGame extends Vue {
     // Todo any
     const colors: any[] = [...this.colors];
 
-    this.players.forEach((element) => {
+    this.players.forEach(element => {
       if (
         colors
-          .map((e) => {
+          .map(e => {
             return e.value;
           })
           .indexOf(element.color) > -1
       ) {
         colors.splice(
           colors
-            .map((e) => {
+            .map(e => {
               return e.value;
             })
             .indexOf(element.color),
@@ -174,11 +180,14 @@ export default class NewGame extends Vue {
           name: this.playerName,
           tile: 0,
           activeTurn: activeTurn,
-          color: this.playerColor,
+          color: this.playerColor
         };
+        console.log("new Player: " + JSON.stringify(newPlayer));
         this.$store.commit("setYourId", this.players.length);
 
-        const lobby = !this.$route.query.lobby ? Socket.mySocket.id : (this.$route.query.lobby as string);
+        const lobby = !this.$route.query.lobby
+          ? Socket.mySocket.id
+          : (this.$route.query.lobby as string);
 
         if (!this.$route.query.lobby) {
           await this.socket.joinLobby(Socket.mySocket.id);
@@ -190,7 +199,7 @@ export default class NewGame extends Vue {
 
         Socket.mySocket.emit("addPlayerToSocket", {
           newPlayer,
-          lobby,
+          lobby
         });
         this.$store.commit("gameModeMultiplayer", true);
 
