@@ -98,6 +98,7 @@ export default class Sidebar extends Vue {
     this.commitToStore({ sound });
   }
 
+  // wanted any
   private commitToStore(settings: any) {
     this.$store.commit("setSettings", settings);
   }

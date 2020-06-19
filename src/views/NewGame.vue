@@ -2,7 +2,7 @@
   <div
     class="background"
     :style="{
-      'background-image': 'url(' + require('@/assets/marmor.jpg') + ')',
+      'background-image': 'url(' + require('@/assets/marmor.jpg') + ')'
     }"
   >
     <div class="fullscreen text-center">
@@ -14,7 +14,8 @@
           cols="8"
           class="newGameFrame"
           :style="{
-            'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
+            'background-image':
+              'url(' + require('@/assets/tilebackground.jpg') + ')'
           }"
         >
           <playerList
@@ -27,7 +28,8 @@
         <b-col
           class="newGameFrame"
           :style="{
-            'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
+            'background-image':
+              'url(' + require('@/assets/tilebackground.jpg') + ')'
           }"
         >
           <b-form-group
@@ -39,7 +41,8 @@
           </b-form-group>
           <b-button
             :style="{
-              'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
+              'background-image':
+                'url(' + require('@/assets/bierdeckel.jpg') + ')'
             }"
             class="bierdeckel mt-2 float-right footerButoon"
             v-if="!gameModeMultiplayer || yourId === 0"
@@ -63,6 +66,7 @@ import playerList from "@/components/PlayerList.vue";
 // @ts-ignore
 import importetRules from "@/rules";
 import Socket from "../services/socket";
+import Ruleset from "../models/ruleset";
 
 @Component({
   components: { playerList }
@@ -100,7 +104,7 @@ export default class NewGame extends Vue {
     return this.$store.state.ruleset;
   }
 
-  private set ruleset(ruleset: any) {
+  private set ruleset(ruleset: Ruleset) {
     this.$store.dispatch("setRuleset", ruleset);
   }
 

@@ -16,13 +16,16 @@ export default class Socket extends Vue {
   }
   public joinLobby(lobby: string) {
     Socket.mySocket.emit("joinLobby", lobby);
-    Socket.mySocket.on("lobbyJoined", (data: any) => {
+    Socket.mySocket.on("lobbyJoined", (data: string) => {
       Socket.lobby = lobby;
       console.log(data);
     });
   }
   //Ruleset
   public setRuleset(ruleset: Ruleset) {
-    Socket.mySocket.emit("setRulesetToSocket", { ruleset, lobby: Socket.lobby });
+    Socket.mySocket.emit("setRulesetToSocket", {
+      ruleset,
+      lobby: Socket.lobby,
+    });
   }
 }

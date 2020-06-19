@@ -10,7 +10,7 @@ import { Component, Vue } from "vue-property-decorator";
 import Sidebar from "@/components/Sidebar.vue";
 
 @Component({
-  components: { Sidebar },
+  components: { Sidebar }
 })
 export default class App extends Vue {}
 </script>

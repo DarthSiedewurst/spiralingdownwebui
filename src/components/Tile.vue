@@ -26,17 +26,18 @@
 // @ is an alias to /src
 import { Component, Prop, Vue } from "vue-property-decorator";
 import Player from "../models/player";
+import Ruleset from "../models/ruleset";
 @Component({
   components: {}
 })
 export default class Tile extends Vue {
   @Prop() private fieldNumber!: number;
-  @Prop() private ruleset!: any;
+  @Prop() private ruleset!: Ruleset;
   @Prop() private players!: Player[];
   @Prop() private roll!: number;
 
   private fieldId: string = "fieldId" + this.fieldNumber;
-  private rule = (this.ruleset as any)[this.fieldId].name;
+  private rule = this.ruleset[this.fieldId].name;
 
   private get highlightStyle() {
     const rolled = Math.abs(this.roll / 2) + 1 + "s";
@@ -57,7 +58,7 @@ export default class Tile extends Vue {
     let filterOn = false;
     this.players.forEach(player => {
       if (this.fieldNumber === player.tile) {
-        filterOn = (this.ruleset as any)[this.fieldId].move > 0;
+        filterOn = this.ruleset[this.fieldId].move > 0;
       }
     });
     return filterOn;
@@ -66,7 +67,7 @@ export default class Tile extends Vue {
     let filterOn = false;
     this.players.forEach(player => {
       if (this.fieldNumber === player.tile) {
-        filterOn = (this.ruleset as any)[this.fieldId].move < 0;
+        filterOn = this.ruleset[this.fieldId].move < 0;
       }
     });
     return filterOn;
@@ -75,8 +76,7 @@ export default class Tile extends Vue {
     let filterOn = false;
     this.players.forEach(player => {
       if (this.fieldNumber === player.tile) {
-        filterOn =
-          (this.ruleset as any)[this.fieldId].rulerule !== "" ? true : false;
+        filterOn = this.ruleset[this.fieldId].rulerule !== "" ? true : false;
       }
     });
     return filterOn;

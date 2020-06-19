@@ -26,7 +26,12 @@
         <div>
           <b-row class="overlayCenter">
             <h1 class="player m-auto">
-              <span :class="[isActive ? 'active' : '']">{{ activePlayer.name }}</span> ist am zug
+              <span :class="[isActive ? 'active' : '']">
+                {{
+                activePlayer.name
+                }}
+              </span>
+              ist am zug
             </h1>
           </b-row>
           <b-row>
@@ -71,7 +76,7 @@ export default class Game extends Vue {
 
   private socket = new Socket();
 
-  private matrix: any = [
+  private matrix: number[][] = [
     [0, 1, 2, 3, 4, 5, 6, 7, 8],
     [29, 30, 31, 32, 33, 34, 35, 36, 9],
     [28, 51, 52, 53, 54, 55, 56, 37, 10],
@@ -89,7 +94,7 @@ export default class Game extends Vue {
     Socket.mySocket.on("diceWasRolled", async payload => {
       this.players = payload.players;
       let id = 0;
-      this.players.forEach((element: any) => {
+      this.players.forEach((element: Player) => {
         if (element.activeTurn) {
           id = element.id;
         }
@@ -117,7 +122,7 @@ export default class Game extends Vue {
     });
     Socket.mySocket.on("nextTurn", players => {
       let id = 0;
-      players.forEach((element: any) => {
+      players.forEach((element: Player) => {
         if (element.activeTurn) {
           id = element.id;
         }
@@ -189,7 +194,7 @@ export default class Game extends Vue {
       if (this.diceable) {
         this.diceable = false;
         let id = 0;
-        this.players.forEach((element: any) => {
+        this.players.forEach((element: Player) => {
           if (element.activeTurn) {
             id = element.id;
           }
@@ -224,7 +229,7 @@ export default class Game extends Vue {
 
   private async okClicked() {
     const fieldId = "fieldId" + this.players[this.activePlayer.id].tile;
-    this.ruleMovement = (this.ruleset as any)[fieldId].move;
+    this.ruleMovement = this.ruleset[fieldId].move;
 
     console.log("rulemovement: " + this.ruleMovement);
 
@@ -291,22 +296,22 @@ export default class Game extends Vue {
   private showRule(id: number) {
     const fieldId = "fieldId" + this.players[id].tile;
 
-    this.rulename = (this.ruleset as any)[fieldId].name;
-    this.ruledescribtion = (this.ruleset as any)[fieldId].describtion;
+    this.rulename = this.ruleset[fieldId].name;
+    this.ruledescribtion = this.ruleset[fieldId].describtion;
     this.ruledescribtion = this.ruledescribtion.replace(
       /{playerName}/g,
       this.activePlayer.name
     );
 
-    if ((this.ruleset as any)[fieldId].rulerule !== "") {
-      if ((this.ruleset as any)[fieldId].rulerule === "Random") {
+    if (this.ruleset[fieldId].rulerule !== "") {
+      if (this.ruleset[fieldId].rulerule === "Random") {
         const random = Math.floor(Math.random() * constants.RULERULES.length);
         this.rulerule = constants.RULERULES[random];
         this.ruledescribtion = constants.RULERULES[random];
-      } else if ((this.ruleset as any)[fieldId].rulerule === "-") {
+      } else if (this.ruleset[fieldId].rulerule === "-") {
         this.rulerule = "";
       } else {
-        this.rulerule = (this.ruleset as any)[fieldId].rulerule;
+        this.rulerule = this.ruleset[fieldId].rulerule;
       }
       this.rulerule = this.rulerule.replace(
         /{playerName}/g,

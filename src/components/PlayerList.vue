@@ -34,7 +34,7 @@
     </div>
     <b-button
       :style="{
-        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
+        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')'
       }"
       type="button"
       class="bierdeckel mt-3 float-left"
@@ -50,7 +50,7 @@
 
     <b-button
       :style="{
-        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
+        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')'
       }"
       class="bierdeckel mt-2 float-left"
       v-if="!gameModeMultiplayer"
@@ -120,6 +120,7 @@ export default class PlayerList extends Vue {
   }
 
   private get playerColors(): string[] {
+    // Todo any
     const colors: any[] = [...this.colors];
     this.players.forEach(element => {
       if (

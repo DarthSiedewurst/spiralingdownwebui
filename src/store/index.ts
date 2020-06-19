@@ -3,42 +3,37 @@ import Vuex from "vuex";
 import Player from "@/models/player";
 import Socket from "@/services/socket";
 import Ruleset from "@/models/ruleset";
-import importetRules from "@/rules";
+import Setting from "@/models/setting";
+import State from "@/models/state";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    settings: { vibration: true, music: true, sound: true },
-    players: [],
-    ruleset: importetRules.SpiralingDown,
-    gameModeMultiplayer: true,
-    socket: {},
-    yourId: 0,
-  },
+  state: new State(),
   mutations: {
-    setSettings(state: any, settings: any) {
+    setSettings(state: State, settings: Setting) {
       const newSettings = { ...state.settings, ...settings };
       state.settings = newSettings;
     },
-    setPlayers(state: any, players: Player[]) {
+    setPlayers(state: State, players: Player[]) {
       state.players = players;
     },
-    setRuleset(state: any, ruleset: any) {
+    setRuleset(state: State, ruleset: Ruleset) {
       state.ruleset = ruleset;
     },
-    gameModeMultiplayer(state: any, gameModeMultiplayer: boolean) {
+    gameModeMultiplayer(state: State, gameModeMultiplayer: boolean) {
       state.gameModeMultiplayer = gameModeMultiplayer;
     },
-    setSocket(state: any, socket: any) {
+    setSocket(state: State, socket: any) {
       state.socket = socket;
     },
-    setYourId(state: any, yourId: number) {
+    setYourId(state: State, yourId: number) {
       state.yourId = yourId;
     },
   },
   actions: {
     //Dice
+    // Todo maybe change any
     move({ state, commit }, movement: any) {
       const newPlayers: Player[] = JSON.parse(JSON.stringify(state.players));
       newPlayers[movement.id].tile += movement.roll;

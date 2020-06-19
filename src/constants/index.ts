@@ -12,7 +12,7 @@ const COLORS = [
   { value: "red", text: "Rot" },
   { value: "white", text: "Weiß" },
 ];
-const RULERULES = [
+const RULERULES: string[] = [
   "Die Wörter Ja und Nein werden mit einem Schluck honoriert",
   "Der Linke Nachbar trinkt mit (nicht kumulativ)",
   "Das Wort 'Trink' belohnt dich mit einem Schluck",
