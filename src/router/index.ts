@@ -10,24 +10,24 @@ const routes = [
   {
     path: "/",
     name: "gameMode",
-    component: GameMode
+    component: GameMode,
   },
   {
     path: "/newGame",
     name: "newGame",
-    component: NewGame
+    component: NewGame,
   },
   {
     path: "/game",
     name: "game",
-    component: Game
-  }
+    component: Game,
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 export default router;

@@ -2,7 +2,7 @@
   <div
     class="background"
     :style="{
-      'background-image': 'url(' + require('@/assets/marmor.jpg') + ')'
+      'background-image': 'url(' + require('@/assets/marmor.jpg') + ')',
     }"
   >
     <div class="fullscreen text-center">
@@ -14,8 +14,7 @@
           cols="8"
           class="newGameFrame"
           :style="{
-            'background-image':
-              'url(' + require('@/assets/tilebackground.jpg') + ')'
+            'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
           }"
         >
           <playerList
@@ -28,27 +27,22 @@
         <b-col
           class="newGameFrame"
           :style="{
-            'background-image':
-              'url(' + require('@/assets/tilebackground.jpg') + ')'
+            'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
           }"
         >
-          <b-form-group
-            label="Rule Set"
-            class="mt-3"
-            :disabled="gameModeMultiplayer && yourId != 0"
-          >
+          <b-form-group label="Rule Set" class="mt-3" :disabled="gameModeMultiplayer && yourId != 0">
             <b-form-select v-model="ruleset" :options="rulesets"></b-form-select>
           </b-form-group>
           <b-button
             :style="{
-              'background-image':
-                'url(' + require('@/assets/bierdeckel.jpg') + ')'
+              'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
             }"
             class="bierdeckel mt-2 float-right footerButoon"
             v-if="!gameModeMultiplayer || yourId === 0"
             type="button"
             @click="startNewGame"
-          >Starten!</b-button>
+            >Starten!</b-button
+          >
         </b-col>
       </b-row>
     </div>
@@ -69,7 +63,7 @@ import Socket from "../services/socket";
 import Ruleset from "../models/ruleset";
 
 @Component({
-  components: { playerList }
+  components: { playerList },
 })
 export default class NewGame extends Vue {
   private socket = new Socket();
@@ -94,7 +88,7 @@ export default class NewGame extends Vue {
     for (const variable in importetRules) {
       ruleSets.push({
         value: importetRules[variable],
-        text: importetRules[variable].name
+        text: importetRules[variable].name,
       });
     }
     return ruleSets;

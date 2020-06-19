@@ -38,10 +38,10 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 
 @Component({
-  components: {}
+  components: {},
 })
 export default class Dice extends Vue {
   //POINT ROLL FUNCTION
@@ -66,8 +66,6 @@ export default class Dice extends Vue {
 /* MODAL THINGS*/
 
 /*########## DICE THINGS ###########*/
-.container-dice {
-}
 
 .dice {
   position: relative;

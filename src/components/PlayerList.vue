@@ -11,7 +11,8 @@
             :size="deleteSize"
             class="deleteButton"
             type="button"
-          >Löschen</b-button>
+            >Löschen</b-button
+          >
         </b-col>
       </b-row>
       <ValidationObserver ref="valid" v-if="!gameModeMultiplayer">
@@ -34,13 +35,14 @@
     </div>
     <b-button
       :style="{
-        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')'
+        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
       }"
       type="button"
       class="bierdeckel mt-3 float-left"
       v-if="gameModeMultiplayer"
       @click="copyInvitationLink"
-    >Link kopieren</b-button>
+      >Link kopieren</b-button
+    >
     <WhatsAppButton
       class="share-button--circle mt-3 float-right"
       btnText
@@ -50,13 +52,14 @@
 
     <b-button
       :style="{
-        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')'
+        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
       }"
       class="bierdeckel mt-2 float-left"
       v-if="!gameModeMultiplayer"
       type="button"
       @click="addPlayer"
-    >Add Player</b-button>
+      >Add Player</b-button
+    >
   </div>
 </template>
 
@@ -72,7 +75,7 @@ import WhatsAppButton from "vue-share-buttons/src/components/WhatsAppButton.vue"
 import Socket from "../services/socket";
 
 @Component({
-  components: { WhatsAppButton }
+  components: { WhatsAppButton },
 })
 export default class PlayerList extends Vue {
   @Prop() private players!: Player[];
@@ -87,7 +90,7 @@ export default class PlayerList extends Vue {
 
   private mappedPlayers(playerColor: string) {
     let mappedColor = "not found";
-    this.colors.forEach(color => {
+    this.colors.forEach((color) => {
       if (playerColor === color.value) {
         mappedColor = color.text;
       }
@@ -122,17 +125,17 @@ export default class PlayerList extends Vue {
   private get playerColors(): string[] {
     // Todo any
     const colors: any[] = [...this.colors];
-    this.players.forEach(element => {
+    this.players.forEach((element) => {
       if (
         colors
-          .map(e => {
+          .map((e) => {
             return e.value;
           })
           .indexOf(element.color) > -1
       ) {
         colors.splice(
           colors
-            .map(e => {
+            .map((e) => {
               return e.value;
             })
             .indexOf(element.color),
@@ -163,7 +166,7 @@ export default class PlayerList extends Vue {
           name: this.playerName,
           activeTurn,
           tile: 0,
-          color: this.playerColor
+          color: this.playerColor,
         };
         this.$emit("addPlayer", newPlayer);
         this.playerName = "";

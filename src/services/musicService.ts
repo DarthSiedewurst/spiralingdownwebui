@@ -1,14 +1,7 @@
 export default class MusicService {
-  static gonzalesPlaylist = [
-    require("../assets/iwantgonzales.mp3"),
-    require("../assets/gonzalesbrueder.mp3")
-  ];
-  static trackNumber = Math.round(
-    Math.random() * MusicService.gonzalesPlaylist.length - 1
-  );
-  static gonzales = new Audio(
-    MusicService.gonzalesPlaylist[MusicService.trackNumber]
-  );
+  static gonzalesPlaylist = [require("../assets/iwantgonzales.mp3"), require("../assets/gonzalesbrueder.mp3")];
+  static trackNumber = Math.round(Math.random() * MusicService.gonzalesPlaylist.length - 1);
+  static gonzales = new Audio(MusicService.gonzalesPlaylist[MusicService.trackNumber]);
 
   public playMusic() {
     MusicService.gonzales.volume = 0.2;
@@ -27,8 +20,6 @@ export default class MusicService {
     } else {
       MusicService.trackNumber = 0;
     }
-    MusicService.gonzales = new Audio(
-      MusicService.gonzalesPlaylist[MusicService.trackNumber]
-    );
+    MusicService.gonzales = new Audio(MusicService.gonzalesPlaylist[MusicService.trackNumber]);
   }
 }

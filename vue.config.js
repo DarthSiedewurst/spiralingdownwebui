@@ -10,13 +10,13 @@ module.exports = {
     // configure the workbox plugin
     workboxOptions: {
       // swSrc is required in InjectManifest mode.
-      swSrc: "public/service-worker.js"
+      swSrc: "public/service-worker.js",
       // ...other Workbox options...
     },
     workboxPluginMode: "InjectManifest",
     manifestOptions: {
       orientation: "landscape",
-      display: "fullscreen"
-    }
-  }
+      display: "fullscreen",
+    },
+  },
 };
