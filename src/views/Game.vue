@@ -13,7 +13,7 @@
       static
     >{{ ruledescribtion }}</b-modal>
     <div v-for="(player, index) in players" :key="'player' + index">
-      <player ref="player" :player="player"></player>
+      <player ref="player" :player="player" @overlayRight="overlayRight"></player>
     </div>
     <table class="fullscreen">
       <tr v-for="(line, index) in matrix" :key="index">
@@ -270,6 +270,10 @@ export default class Game extends Vue {
     });
   }
 
+  private overlayRight(right: boolean) {
+    this.right = right;
+  }
+
   private async move(id: number) {
     this.diceable = false;
 
@@ -285,12 +289,6 @@ export default class Game extends Vue {
   }
 
   private showRule(id: number) {
-    document
-      .getElementById("fieldId" + this.activePlayer.tile)!
-      .getBoundingClientRect().left >
-    document.getElementById("fieldId4")!.getBoundingClientRect().left
-      ? (this.right = true)
-      : (this.right = false);
     const fieldId = "fieldId" + this.players[id].tile;
     this.rulename = (this.ruleset as any)[fieldId].name;
     this.ruledescribtion = (this.ruleset as any)[fieldId].describtion;

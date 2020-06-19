@@ -79,6 +79,14 @@ export default class Player extends Vue {
   }
 
   private movePlayerAutonom(tile: number) {
+    let right = false;
+    document.getElementById("fieldId" + tile)!.getBoundingClientRect().left >
+    document.getElementById("fieldId4")!.getBoundingClientRect().left
+      ? (right = true)
+      : (right = false);
+
+    this.$emit("overlayRight", right);
+
     const activeTile = document
       .getElementById("fieldId" + tile)!
       .getBoundingClientRect();
