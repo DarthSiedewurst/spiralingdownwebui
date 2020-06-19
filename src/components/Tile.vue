@@ -174,6 +174,7 @@ export default class Tile extends Vue {
   width: 11vw;
   height: 12.3vh;
   margin: 0px;
+  transition-delay: 1s;
   background: url("~@/assets/tilebackground.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
