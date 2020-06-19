@@ -200,7 +200,7 @@ export default class Tile extends Vue {
 .tileHighlighted {
   transition-delay: var(--transition-delay);
 
-  filter: invert(0%) sepia(0%) hue-rotate(320deg) saturate(100%)
-    brightness(100%) contrast(100%);
+  filter: invert(0%) sepia(25%) hue-rotate(12deg) saturate(150%)
+    brightness(120%) contrast(150%);
 }
 </style>
