@@ -11,15 +11,14 @@
       ref="rule"
       @ok="handleOk"
       static
-      >{{ ruledescribtion }}</b-modal
-    >
+    >{{ ruledescribtion }}</b-modal>
     <div v-for="(player, index) in players" :key="'player' + index">
       <player ref="player" :player="player"></player>
     </div>
     <table class="fullscreen">
       <tr v-for="(line, index) in matrix" :key="index">
         <td class="m-0 p-0" v-for="(n, index) in line" :key="index">
-          <tile :fieldNumber="n" :ruleset="ruleset" :players="players"></tile>
+          <tile :fieldNumber="n" :ruleset="ruleset" :players="players" :roll="roll"></tile>
         </td>
       </tr>
 
@@ -60,7 +59,7 @@ import Socket from "../services/socket";
 import constants from "../constants";
 
 @Component({
-  components: { tile, player, dice },
+  components: { tile, player, dice }
 })
 export default class Game extends Vue {
   private rulename = "";
@@ -80,14 +79,14 @@ export default class Game extends Vue {
     [26, 49, 64, 71, 70, 69, 58, 39, 12],
     [25, 48, 63, 62, 61, 60, 59, 40, 13],
     [24, 47, 46, 45, 44, 43, 42, 41, 14],
-    [23, 22, 21, 20, 19, 18, 17, 16, 15],
+    [23, 22, 21, 20, 19, 18, 17, 16, 15]
   ];
 
   private async mounted() {
-    this.players.forEach((element) => {
+    this.players.forEach(element => {
       (this.$refs.player as any)[element.id].movePlayerAutonom(0);
     });
-    Socket.mySocket.on("diceWasRolled", async (payload) => {
+    Socket.mySocket.on("diceWasRolled", async payload => {
       this.players = payload.players;
       let id = 0;
       this.players.forEach((element: any) => {
@@ -96,12 +95,12 @@ export default class Game extends Vue {
         }
       });
       this.roll = payload.roll;
-      await new Promise((resolve) => {
+      await new Promise(resolve => {
         setTimeout(() => {
           resolve(
             Socket.mySocket.emit("showRuleInSocket", {
               id,
-              lobby: Socket.lobby,
+              lobby: Socket.lobby
             })
           );
         }, 500 * (Math.abs(this.roll) + 2));
@@ -110,13 +109,13 @@ export default class Game extends Vue {
     Socket.mySocket.on("okHasBeenClicked", () => {
       this.okClicked();
     });
-    Socket.mySocket.on("ruleOpened", (payload) => {
+    Socket.mySocket.on("ruleOpened", payload => {
       this.players = payload.players;
       if (this.popUpOpen) {
         this.showRule(payload.id);
       }
     });
-    Socket.mySocket.on("nextTurn", (players) => {
+    Socket.mySocket.on("nextTurn", players => {
       let id = 0;
       players.forEach((element: any) => {
         if (element.activeTurn) {
@@ -132,7 +131,7 @@ export default class Game extends Vue {
         }
       }
     });
-    Socket.mySocket.on("popUpUpdated", (popUpOpen) => {
+    Socket.mySocket.on("popUpUpdated", popUpOpen => {
       this.popUpOpen = popUpOpen;
       if (!this.popUpOpen) {
         this.$nextTick(() => {
@@ -201,7 +200,7 @@ export default class Game extends Vue {
           await Socket.mySocket.emit("moveInSocket", {
             roll: this.roll,
             playerId: id,
-            lobby: Socket.lobby,
+            lobby: Socket.lobby
           });
         } else {
           await this.move(id);
@@ -238,7 +237,7 @@ export default class Game extends Vue {
         await Socket.mySocket.emit("moveInSocket", {
           roll: this.roll,
           playerId: this.yourId,
-          lobby: Socket.lobby,
+          lobby: Socket.lobby
         });
       } else if (!this.gameModeMultiplayer) {
         this.move(this.activePlayer.id);
@@ -260,7 +259,9 @@ export default class Game extends Vue {
       }
     }
 
-    document.getElementById("fieldId" + this.activePlayer.tile)!.getBoundingClientRect().left >
+    document
+      .getElementById("fieldId" + this.activePlayer.tile)!
+      .getBoundingClientRect().left >
     document.getElementById("fieldId4")!.getBoundingClientRect().left
       ? (this.right = true)
       : (this.right = false);
@@ -274,7 +275,7 @@ export default class Game extends Vue {
 
     await this.$store.dispatch("move", { id, roll: this.roll });
 
-    await new Promise((resolve) => {
+    await new Promise(resolve => {
       setTimeout(() => {
         resolve(this.showRule(id));
       }, 500 * (Math.abs(this.roll) + 2));
@@ -284,7 +285,9 @@ export default class Game extends Vue {
   }
 
   private showRule(id: number) {
-    document.getElementById("fieldId" + this.activePlayer.tile)!.getBoundingClientRect().left >
+    document
+      .getElementById("fieldId" + this.activePlayer.tile)!
+      .getBoundingClientRect().left >
     document.getElementById("fieldId4")!.getBoundingClientRect().left
       ? (this.right = true)
       : (this.right = false);

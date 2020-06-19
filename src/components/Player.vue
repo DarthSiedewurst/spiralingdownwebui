@@ -103,6 +103,7 @@ export default class Player extends Vue {
 
 <style lang="scss" scoped>
 .player {
+  z-index: 100;
   height: 4vh;
   width: 1.5vw;
   position: absolute;

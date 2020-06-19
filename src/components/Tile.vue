@@ -1,10 +1,16 @@
 <template>
   <div
-    :style="{
-      'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
-    }"
+    :style="highlightStyle"
     class="tileContainer"
-    :class="[{ borderBottom: borderBottom }, { borderLeft: borderLeft }, { borderRight: borderRight }]"
+    :class="[
+      { borderBottom: borderBottom },
+      { borderLeft: borderLeft },
+      { borderRight: borderRight },
+      { tileMoveForward: tileMoveForward },
+      { tileMoveBackward: tileMoveBackward },
+      { tileRule: tileRule },
+      { tileHighlighted: tileHighlighted }
+    ]"
   >
     <div :id="fieldId" class="tile">
       <span class="responsiveNumber ml-2">{{ fieldNumber }}</span>
@@ -19,15 +25,23 @@
 <script lang="ts">
 // @ is an alias to /src
 import { Component, Prop, Vue } from "vue-property-decorator";
+import Player from "../models/player";
 @Component({
-  components: {},
+  components: {}
 })
 export default class Tile extends Vue {
   @Prop() private fieldNumber!: number;
   @Prop() private ruleset!: any;
+  @Prop() private players!: Player[];
+  @Prop() private roll!: number;
 
   private fieldId: string = "fieldId" + this.fieldNumber;
   private rule = (this.ruleset as any)[this.fieldId].name;
+
+  private get highlightStyle() {
+    const rolled = Math.abs(this.roll / 2) + 1 + "s";
+    return { "--transition-delay": rolled };
+  }
 
   private get borderBottom() {
     return this.borderBottomList.indexOf(this.fieldNumber) > -1 ? true : false;
@@ -37,6 +51,44 @@ export default class Tile extends Vue {
   }
   private get borderRight() {
     return this.borderRightList.indexOf(this.fieldNumber) > -1 ? true : false;
+  }
+
+  private get tileMoveForward() {
+    let filterOn = false;
+    this.players.forEach(player => {
+      if (this.fieldNumber === player.tile) {
+        filterOn = (this.ruleset as any)[this.fieldId].move > 0;
+      }
+    });
+    return filterOn;
+  }
+  private get tileMoveBackward() {
+    let filterOn = false;
+    this.players.forEach(player => {
+      if (this.fieldNumber === player.tile) {
+        filterOn = (this.ruleset as any)[this.fieldId].move < 0;
+      }
+    });
+    return filterOn;
+  }
+  private get tileRule() {
+    let filterOn = false;
+    this.players.forEach(player => {
+      if (this.fieldNumber === player.tile) {
+        filterOn =
+          (this.ruleset as any)[this.fieldId].rulerule !== "" ? true : false;
+      }
+    });
+    return filterOn;
+  }
+  private get tileHighlighted() {
+    let filterOn = false;
+    this.players.forEach(player => {
+      if (this.fieldNumber === player.tile) {
+        filterOn = true;
+      }
+    });
+    return filterOn;
   }
 
   private borderBottomList: number[] = [
@@ -74,10 +126,23 @@ export default class Tile extends Vue {
     70,
     71,
     66,
-    67,
+    67
   ];
   private borderLeftList: number[] = [47, 48, 49, 50, 51, 63, 64, 65, 71];
-  private borderRightList: number[] = [36, 37, 38, 39, 40, 41, 56, 57, 58, 59, 68, 69];
+  private borderRightList: number[] = [
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    56,
+    57,
+    58,
+    59,
+    68,
+    69
+  ];
 }
 </script>
 
@@ -87,14 +152,14 @@ export default class Tile extends Vue {
   line-height: 1;
 }
 .borderBottom {
-  border-bottom: 0.5vh solid black;
+  border-bottom: 0.5vh solid black !important;
 }
 .borderLeft {
-  border-left: 0.4vh solid black;
+  border-left: 0.4vh solid black !important;
 }
 
 .borderRight {
-  border-right: 0.4vh solid black;
+  border-right: 0.4vh solid black !important;
 }
 .responsiveText {
   margin-top: 2vh;
@@ -109,7 +174,32 @@ export default class Tile extends Vue {
   width: 11vw;
   height: 12.3vh;
   margin: 0px;
+  background: url("~@/assets/tilebackground.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+.tileMoveForward {
+  transition-delay: var(--transition-delay);
+
+  filter: invert(0%) sepia(0%) hue-rotate(40deg) saturate(300%) brightness(80%)
+    contrast(150%) !important;
+}
+.tileMoveBackward {
+  transition-delay: var(--transition-delay);
+
+  filter: invert(0%) sepia(0%) hue-rotate(315deg) saturate(300%) brightness(80%)
+    contrast(150%) !important;
+}
+.tileRule {
+  transition-delay: var(--transition-delay);
+
+  filter: invert(0%) sepia(30%) hue-rotate(182deg) saturate(300%)
+    brightness(80%) contrast(150%) !important;
+}
+.tileHighlighted {
+  transition-delay: var(--transition-delay);
+
+  filter: invert(0%) sepia(0%) hue-rotate(320deg) saturate(100%)
+    brightness(100%) contrast(100%);
 }
 </style>
