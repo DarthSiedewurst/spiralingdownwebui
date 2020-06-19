@@ -290,8 +290,14 @@ export default class Game extends Vue {
 
   private showRule(id: number) {
     const fieldId = "fieldId" + this.players[id].tile;
+
     this.rulename = (this.ruleset as any)[fieldId].name;
     this.ruledescribtion = (this.ruleset as any)[fieldId].describtion;
+    this.ruledescribtion = this.ruledescribtion.replace(
+      /{playerName}/g,
+      this.activePlayer.name
+    );
+
     if ((this.ruleset as any)[fieldId].rulerule !== "") {
       if ((this.ruleset as any)[fieldId].rulerule === "Random") {
         const random = Math.floor(Math.random() * constants.RULERULES.length);
@@ -302,6 +308,10 @@ export default class Game extends Vue {
       } else {
         this.rulerule = (this.ruleset as any)[fieldId].rulerule;
       }
+      this.rulerule = this.rulerule.replace(
+        /{playerName}/g,
+        this.activePlayer.name
+      );
     }
     (this.$refs["rule"] as any).show();
   }

@@ -116,12 +116,12 @@
   },
   "fieldId19": {
     "name": "Ja Mr. QwesdjionMAsta",
-    "describtion": "Du bist nun der Questionmaster! Jeder der eine deiner Fragen beantwortet, muss seine Antwort der Höflichkeit halber mit den Worten 'Ja Mr. Questionmaster' beenden",
+    "describtion": "{playerName} ist nun der Questionmaster! Jeder der ihm/ihr eine Fragen beantwortet, muss seine Antwort der Höflichkeit halber mit den Worten 'Ja Mr. Questionmaster' beenden",
     "move": 0,
-    "rulerule": "Antworten auf die Fragen von $Spieler sind mit 'Ja Mr. Questionmaster' zu beenden"
+    "rulerule": "Antworten auf die Fragen von {playerName} sind mit 'Ja Mr. Questionmaster' zu beenden"
   },
   "fieldId20": {
-    "name": "Verhandlungsbereitschaft",
+    "name": "Verhandlungs-bereitschaft",
     "describtion": "Deine Verhandlungsbereitschaft kommt dich teuer zu stehen. Trinke fünf Schlücke",
     "move": 0,
     "rulerule": ""
@@ -178,7 +178,7 @@
     "name": "Ey DJ mach nochmal Polka",
     "describtion": "Aber statt Polka spielt er was von Meduza. Du bist jetzt Medusa. Wer dir in deine Augen schaut, der trinkt",
     "move": 0,
-    "rulerule": "$Spieler ist Medusa. Wer ihm in die Augen sieht, der trinkt"
+    "rulerule": "{playerName} ist Medusa. Wer ihm in die Augen sieht, der trinkt"
   },
   "fieldId30": {
     "name": "Rührei",
@@ -266,15 +266,15 @@
   },
   "fieldId44": {
     "name": "Ja Mr. QwesdjionMAsta",
-    "describtion": "Du bist nun der Questionmaster! Jeder der eine deiner Fragen beantwortet, muss seine Antwort der Höflichkeit halber mit den Worten 'Ja Mr. Questionmaster' beenden",
+    "describtion": "{playerName} ist nun der Questionmaster! Jeder ihm/ihr Fragen beantwortet, muss seine Antwort der Höflichkeit halber mit den Worten 'Ja Mr. Questionmaster' beenden",
     "move": 0,
-    "rulerule": "Antworten auf die Fragen von $Spieler sind mit 'Ja Mr. Questionmaster' zu beenden"
+    "rulerule": "Antworten auf die Fragen von {playerName} sind mit 'Ja Mr. Questionmaster' zu beenden"
   },
   "fieldId45": {
     "name": "Versace-Gürtel",
     "describtion": "Du wirst vom Versace-Gürtel des Parkinhabers geblendet und wirst selbst zu Medusa",
     "move": 0,
-    "rulerule": "$Spieler ist Medusa. Wer ihm in die Augen sieht, der trinkt"
+    "rulerule": "{playerName} ist Medusa. Wer ihm in die Augen sieht, der trinkt"
   },
   "fieldId46": {
     "name": "Pur Hitmix",
