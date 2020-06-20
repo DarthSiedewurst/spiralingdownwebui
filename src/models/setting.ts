@@ -5,7 +5,7 @@ export default class Setting {
 
   constructor() {
     this.vibration = true;
-    this.music = false;
+    this.music = true;
     this.sound = true;
   }
 }
