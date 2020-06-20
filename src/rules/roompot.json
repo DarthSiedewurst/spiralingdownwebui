@@ -1,5 +1,5 @@
 {
-  "name": "roompot-edition",
+  "name": "Roompot Edition",
   "fieldId0": {
     "name": "Start",
     "description": "",
@@ -56,7 +56,7 @@
   },
   "fieldId9": {
     "name": "Anfängerfehler",
-    "description": "Jeder, der kein alkoholhaltiges Beigetränk führt, ext unverzüglich sein Glas. Unverschämtheit. Ein leeres Beigetränk ist mindestens genauso Unverschämt. Exe in dem Fall ebenfalls",
+    "description": "Du hast das Öl der Fritöse gewechselt. Trinke 2 für diese Verschwendung",
     "move": 0,
     "rulerule": ""
   },
@@ -182,7 +182,7 @@
   },
   "fieldId30": {
     "name": "Rührei",
-    "description": "Es gibt ungesalzenes Rührei. Nehme für zusätzlichen Genuss zwei Schlücke von deinem Beigetränk. Solltest du keins haben, exe dein Hauptgetränk.",
+    "description": "Es gibt ungesalzenes Rührei. Nehme für zusätzlichen Genuss zwei Schlücke von deinem Getränk",
     "move": 0,
     "rulerule": ""
   },
@@ -212,7 +212,7 @@
   },
   "fieldId35": {
     "name": "Countdown",
-    "description": "Du wirst ausgezählt. Exe dein Glas, um deine Spieltaiglichkeit zu unterstreichen",
+    "description": "Du wirst ausgezählt, konntest dich aber bei 3 noch aufraffen. Nach der Anstrengung hast du dir einen schluck verdient",
     "move": 0,
     "rulerule": ""
   },
@@ -325,8 +325,8 @@
     "rulerule": ""
   },
   "fieldId54": {
-    "name": "Countdown",
-    "description": "Du wirst ausgezählt. Exe dein Glas, um deine Spieltauglichkeit zu unterstreichen",
+    "name": "Rhymes",
+    "description": "Wähle ein Wort und findet im Uhrzeigersinn passende Reime. Der erste Spieler, der keinen Reim nennen kann, trinkt zwei",
     "move": 0,
     "rulerule": ""
   },
@@ -397,8 +397,8 @@
     "rulerule": ""
   },
   "fieldId66": {
-    "name": "Rhymes",
-    "description": "Wähle ein Wort und findet im Uhrzeigersinn passende Reime. Der erste Spieler, der keinen Reim nennen kann, trinkt zwei",
+    "name": "Countdown ",
+    "description": "Du wirst ausgezählt. Exe dein Glas, um deine Spieltauglichkeit zu unterstreichen",
     "move": 0,
     "rulerule": ""
   },
