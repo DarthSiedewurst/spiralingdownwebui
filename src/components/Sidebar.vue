@@ -70,13 +70,6 @@ export default class Sidebar extends Vue {
           this.music = false;
         });
     }
-
-    Socket.mySocket.on("reconnect", () => {
-      Socket.mySocket.emit("reconnectSocket", {
-        lobby: Socket.lobby,
-        ownLobby: Socket.mySocket.id
-      });
-    });
   }
   private get vibration() {
     return this.$store.state.settings.vibration;

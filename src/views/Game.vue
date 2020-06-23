@@ -87,6 +87,15 @@ export default class Game extends Vue {
     this.players.forEach(element => {
       (this.$refs.player as any)[element.id].movePlayerAutonom(element.tile);
     });
+    Socket.mySocket.on("reconnect", () => {
+      Socket.mySocket.emit("reconnectSocket", {
+        lobby: Socket.lobby,
+        ownLobby: Socket.mySocket.id
+      });
+    });
+    Socket.mySocket.on("playersUpdated", (newPlayers: Player[]) => {
+      this.$store.commit("setPlayers", newPlayers);
+    });
     Socket.mySocket.on("diceWasRolled", async payload => {
       this.players = payload.players;
       let id = 0;
