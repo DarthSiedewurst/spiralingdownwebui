@@ -17,8 +17,8 @@ export default class Socket extends Vue {
   public joinLobby(lobby: string) {
     Socket.mySocket.emit("joinLobby", lobby);
     Socket.mySocket.on("lobbyJoined", (data: string) => {
-      Socket.lobby = lobby;
-      console.log(data);
+      Socket.lobby = data;
+      console.log("You have sucessfully joined: " + data);
     });
   }
   //Ruleset
