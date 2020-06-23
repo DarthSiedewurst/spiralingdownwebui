@@ -150,7 +150,9 @@ export default class Game extends Vue {
         Socket.mySocket.emit("updatePopUpOpen", Socket.lobby);
       }, 1000);
     });
-    Socket.mySocket.on("gotUpdate", players => {});
+    Socket.mySocket.on("gotUpdate", newPlayers => {
+      this.$store.commit("setPlayers", newPlayers);
+    });
   }
 
   private get settings() {
