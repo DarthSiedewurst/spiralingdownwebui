@@ -85,7 +85,7 @@ export default class Game extends Vue {
 
   private async mounted() {
     this.players.forEach(element => {
-      (this.$refs.player as any)[element.id].movePlayerAutonom(0);
+      (this.$refs.player as any)[element.id].movePlayerAutonom(element.tile);
     });
     Socket.mySocket.on("diceWasRolled", async payload => {
       this.players = payload.players;
@@ -142,10 +142,15 @@ export default class Game extends Vue {
       }
     });
     window.addEventListener("focus", () => {
+      Socket.mySocket.emit("getUpdate", {
+        lobby: Socket.lobby,
+        ownLobby: Socket.mySocket.id
+      });
       setTimeout(() => {
         Socket.mySocket.emit("updatePopUpOpen", Socket.lobby);
       }, 1000);
     });
+    Socket.mySocket.on("gotUpdate", players => {});
   }
 
   private get settings() {

@@ -207,7 +207,7 @@ export default class NewGame extends Vue {
         });
         Socket.mySocket.on("goToNewGame", () => {
           this.$store.commit("gameModeMultiplayer", true);
-          this.$store.commit("setYourId", this.players.length);
+          this.$store.commit("setYourId", this.players.length - 1);
 
           this.goToNewGame();
         });
