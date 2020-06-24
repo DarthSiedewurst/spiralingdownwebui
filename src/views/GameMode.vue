@@ -182,7 +182,6 @@ export default class NewGame extends Vue {
           activeTurn: activeTurn,
           color: this.playerColor
         };
-        console.log("new Player: " + JSON.stringify(newPlayer));
 
         const lobby = !this.$route.query.lobby
           ? Socket.mySocket.id + "All"

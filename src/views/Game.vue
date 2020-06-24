@@ -120,6 +120,7 @@ export default class Game extends Vue {
       this.okClicked();
     });
     Socket.mySocket.on("ruleOpened", payload => {
+      console.log(payload);
       this.players = payload.players;
       if (this.popUpOpen) {
         this.showRule(payload.id);
@@ -243,8 +244,6 @@ export default class Game extends Vue {
   private async okClicked() {
     const fieldId = "fieldId" + this.players[this.activePlayer.id].tile;
     this.ruleMovement = this.ruleset[fieldId].move;
-
-    console.log("rulemovement: " + this.ruleMovement);
 
     if (this.ruleMovement !== 0) {
       this.$nextTick(() => {
