@@ -69,6 +69,7 @@ export default class Game extends Vue {
   private ruleMovement = 0;
   private diceable = true;
   private popUpOpen = true;
+  private random = 0;
 
   private socket = new Socket();
 
@@ -143,8 +144,9 @@ export default class Game extends Vue {
       }
       this.diceable = true;
     });
-    Socket.mySocket.on("popUpUpdated", popUpOpen => {
-      this.popUpOpen = popUpOpen;
+    Socket.mySocket.on("popUpUpdated", payload => {
+      this.popUpOpen = payload.popUpOpen;
+      this.random = payload.random;
       if (!this.popUpOpen) {
         this.$nextTick(() => {
           (this.$refs["rule"] as any).hide();
@@ -317,9 +319,19 @@ export default class Game extends Vue {
 
     if (this.ruleset[fieldId].rulerule !== "") {
       if (this.ruleset[fieldId].rulerule === "Random") {
-        const random = Math.floor(Math.random() * constants.RULERULES.length);
+        let random = 0;
+        if (this.gameModeMultiplayer) {
+          random = this.random;
+        } else {
+          random = Math.random();
+        }
+        random = Math.floor(random * constants.RULERULES.length);
         this.rulerule = constants.RULERULES[random];
         this.ruledescription = constants.RULERULES[random];
+        this.ruledescription = this.ruledescription.replace(
+          /{playerName}/g,
+          this.activePlayer.name
+        );
       } else if (this.ruleset[fieldId].rulerule === "-") {
         this.rulerule = "";
       } else {
