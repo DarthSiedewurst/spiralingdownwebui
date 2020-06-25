@@ -51,7 +51,6 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import MusicService from "@/services/musicService";
-import Socket from "../services/socket";
 
 @Component({
   components: {}

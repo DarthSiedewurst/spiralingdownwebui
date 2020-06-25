@@ -154,14 +154,17 @@ export default class Game extends Vue {
       }
     });
     window.addEventListener("focus", () => {
-      Socket.mySocket.emit("getUpdate", {
-        lobby: Socket.lobby,
-        ownLobby: Socket.mySocket.id
-      });
-      setTimeout(() => {
-        Socket.mySocket.emit("updatePopUpOpen", Socket.lobby);
-      }, 1000);
+      if (this.gameModeMultiplayer) {
+        Socket.mySocket.emit("getUpdate", {
+          lobby: Socket.lobby,
+          ownLobby: Socket.mySocket.id
+        });
+        setTimeout(() => {
+          Socket.mySocket.emit("updatePopUpOpen", Socket.lobby);
+        }, 1000);
+      }
     });
+
     Socket.mySocket.on("gotUpdate", newPlayers => {
       this.$store.commit("setPlayers", newPlayers);
     });
