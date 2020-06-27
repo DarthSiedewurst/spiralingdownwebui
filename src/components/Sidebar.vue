@@ -19,8 +19,16 @@
       <b-container class="sidebarContent">
         <b-row>
           <b-col>
-            <input class="drinkbox" type="checkbox" v-model="vibration" id="myCheckbox1" />
-            <label :class="[vibration ? 'drinkboxChecked' : 'drinkboxUnchecked']" for="myCheckbox1"></label>
+            <input
+              class="drinkbox"
+              type="checkbox"
+              v-model="vibration"
+              id="myCheckbox1"
+            />
+            <label
+              :class="[vibration ? 'drinkboxChecked' : 'drinkboxUnchecked']"
+              for="myCheckbox1"
+            ></label>
           </b-col>
           <b-col class="drinkboxText">
             <b-icon-phone class="sidebarIcon"></b-icon-phone>Vibration
@@ -28,17 +36,36 @@
         </b-row>
         <b-row>
           <b-col>
-            <input class="drinkbox" type="checkbox" v-model="music" id="myCheckbox2" />
-            <label :class="[music ? 'drinkboxChecked' : 'drinkboxUnchecked']" for="myCheckbox2"></label>
+            <input
+              class="drinkbox"
+              type="checkbox"
+              v-model="music"
+              id="myCheckbox2"
+            />
+            <label
+              :class="[music ? 'drinkboxChecked' : 'drinkboxUnchecked']"
+              for="myCheckbox2"
+            ></label>
           </b-col>
           <b-col class="drinkboxText">
-            <b-icon-music-note-beamed class="sidebarIcon"></b-icon-music-note-beamed>Musik
+            <b-icon-music-note-beamed
+              class="sidebarIcon"
+            ></b-icon-music-note-beamed
+            >Musik
           </b-col>
         </b-row>
         <b-row>
           <b-col>
-            <input class="drinkbox" type="checkbox" v-model="sound" id="myCheckbox3" />
-            <label :class="[sound ? 'drinkboxChecked' : 'drinkboxUnchecked']" for="myCheckbox3"></label>
+            <input
+              class="drinkbox"
+              type="checkbox"
+              v-model="sound"
+              id="myCheckbox3"
+            />
+            <label
+              :class="[sound ? 'drinkboxChecked' : 'drinkboxUnchecked']"
+              for="myCheckbox3"
+            ></label>
           </b-col>
           <b-col class="drinkboxText">
             <b-icon-volume-up class="sidebarIcon"></b-icon-volume-up>Sound

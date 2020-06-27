@@ -25,7 +25,7 @@ export default class Socket extends Vue {
   public setRuleset(ruleset: Ruleset) {
     Socket.mySocket.emit("setRulesetToSocket", {
       ruleset,
-      lobby: Socket.lobby,
+      lobby: Socket.lobby
     });
   }
 }

@@ -11,7 +11,8 @@
             :size="deleteSize"
             class="deleteButton"
             type="button"
-          >Löschen</b-button>
+            >Löschen</b-button
+          >
         </b-col>
       </b-row>
       <ValidationObserver ref="valid" v-if="!gameModeMultiplayer">
@@ -24,7 +25,10 @@
           </b-col>
           <b-col cols="4">
             <ValidationProvider rules="required" v-slot="{ errors }">
-              <b-form-select v-model="playerColor" :options="playerColors"></b-form-select>
+              <b-form-select
+                v-model="playerColor"
+                :options="playerColors"
+              ></b-form-select>
               <span class="playerValidation">{{ errors[0] }}</span>
             </ValidationProvider>
           </b-col>
@@ -34,13 +38,14 @@
     </div>
     <b-button
       :style="{
-        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
+        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')'
       }"
       type="button"
       class="bierdeckel mt-2 float-left"
       v-if="gameModeMultiplayer"
       @click="copyInvitationLink"
-    >Link kopieren</b-button>
+      >Link kopieren</b-button
+    >
     <WhatsAppButton
       class="share-button--circle mt-3 float-right"
       btnText
@@ -50,13 +55,14 @@
 
     <b-button
       :style="{
-        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
+        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')'
       }"
       class="bierdeckel mt-2 float-left"
       v-if="!gameModeMultiplayer"
       type="button"
       @click="addPlayer"
-    >Add Player</b-button>
+      >Add Player</b-button
+    >
   </div>
 </template>
 

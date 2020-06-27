@@ -29,7 +29,7 @@ export default new Vuex.Store({
     },
     setYourId(state: State, yourId: number) {
       state.yourId = yourId;
-    },
+    }
   },
   actions: {
     //Dice
@@ -72,7 +72,7 @@ export default new Vuex.Store({
       if (Socket.ruleset !== ruleset) {
         socket.setRuleset(ruleset);
       }
-    },
+    }
   },
-  modules: {},
+  modules: {}
 });

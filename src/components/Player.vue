@@ -1,6 +1,11 @@
 <template>
   <div>
-    <img :id="player.id" class="player" :class="player.color" src="@/assets/Black-Bishop.png" />
+    <img
+      :id="player.id"
+      class="player"
+      :class="player.color"
+      src="@/assets/Black-Bishop.png"
+    />
   </div>
 </template>
 

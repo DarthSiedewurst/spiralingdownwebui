@@ -10,7 +10,7 @@ const COLORS = [
   { value: "pink", text: "Pink" },
   { value: "brown", text: "Braun" },
   { value: "red", text: "Rot" },
-  { value: "white", text: "Weiß" },
+  { value: "white", text: "Weiß" }
 ];
 const RULERULES: string[] = [
   "Die Wörter Ja und Nein werden mit einem Schluck honoriert",
@@ -22,10 +22,10 @@ const RULERULES: string[] = [
   "Es darf nur mit der schwachen Hand getrunken werden",
   "Benehmt euch! Keine Kraftausdrücke mehr",
   "{playerName} ist Medusa. Wer ihm in die Augen sieht, der trinkt",
-  "{playerName} ist nun der Questionmaster! Jeder ihm/ihr Fragen beantwortet, muss seine Antwort der Höflichkeit halber mit den Worten 'Ja Mr. Questionmaster' beenden",
+  "{playerName} ist nun der Questionmaster! Jeder ihm/ihr Fragen beantwortet, muss seine Antwort der Höflichkeit halber mit den Worten 'Ja Mr. Questionmaster' beenden"
 ];
 
 export default {
   COLORS: COLORS,
-  RULERULES: RULERULES,
+  RULERULES: RULERULES
 };

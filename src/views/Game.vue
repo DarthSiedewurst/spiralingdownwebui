@@ -11,14 +11,24 @@
       ref="rule"
       @ok="handleOk"
       static
-    >{{ ruledescription }}</b-modal>
+      >{{ ruledescription }}</b-modal
+    >
     <div v-for="(player, index) in players" :key="'player' + index">
-      <player ref="player" :player="player" @overlayRight="overlayRight"></player>
+      <player
+        ref="player"
+        :player="player"
+        @overlayRight="overlayRight"
+      ></player>
     </div>
     <table class="fullscreen">
       <tr v-for="(line, index) in matrix" :key="index">
         <td class="m-0 p-0" v-for="(n, index) in line" :key="index">
-          <tile :fieldNumber="n" :ruleset="ruleset" :players="players" :roll="roll"></tile>
+          <tile
+            :fieldNumber="n"
+            :ruleset="ruleset"
+            :players="players"
+            :roll="roll"
+          ></tile>
         </td>
       </tr>
 
@@ -26,8 +36,10 @@
         <div>
           <b-row class="overlayCenter">
             <h1 class="player m-auto">
-              <span :class="[isActive ? 'active' : '']">{{ activePlayer.name }}</span>
-              ist am zug
+              <span :class="[isActive ? 'active' : '']">{{
+                activePlayer.name
+              }}</span>
+              ist am Zug
             </h1>
           </b-row>
           <b-row>
@@ -40,7 +52,12 @@
           </b-row>
           <b-row class="newGameUi" v-if="!gameModeMultiplayer">
             <b-col>
-              <b-button @click="newGame" class="newGameButton float-right" type="button">Neues Spiel</b-button>
+              <b-button
+                @click="newGame"
+                class="newGameButton float-right"
+                type="button"
+                >Neues Spiel</b-button
+              >
             </b-col>
           </b-row>
         </div>

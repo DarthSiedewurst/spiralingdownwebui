@@ -9,7 +9,7 @@
       { tileMoveForward: tileMoveForward },
       { tileMoveBackward: tileMoveBackward },
       { tileRule: tileRule },
-      { tileHighlighted: tileHighlighted },
+      { tileHighlighted: tileHighlighted }
     ]"
   >
     <div :id="fieldId" class="tile">
@@ -28,7 +28,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import Player from "../models/player";
 import Ruleset from "../models/ruleset";
 @Component({
-  components: {},
+  components: {}
 })
 export default class Tile extends Vue {
   @Prop() private fieldNumber!: number;
@@ -56,7 +56,7 @@ export default class Tile extends Vue {
 
   private get tileMoveForward() {
     let filterOn = false;
-    this.players.forEach((player) => {
+    this.players.forEach(player => {
       if (this.fieldNumber === player.tile) {
         filterOn = this.ruleset[this.fieldId].move > 0;
       }
@@ -65,7 +65,7 @@ export default class Tile extends Vue {
   }
   private get tileMoveBackward() {
     let filterOn = false;
-    this.players.forEach((player) => {
+    this.players.forEach(player => {
       if (this.fieldNumber === player.tile) {
         filterOn = this.ruleset[this.fieldId].move < 0;
       }
@@ -74,7 +74,7 @@ export default class Tile extends Vue {
   }
   private get tileRule() {
     let filterOn = false;
-    this.players.forEach((player) => {
+    this.players.forEach(player => {
       if (this.fieldNumber === player.tile) {
         filterOn = this.ruleset[this.fieldId].rulerule !== "" ? true : false;
       }
@@ -83,7 +83,7 @@ export default class Tile extends Vue {
   }
   private get tileHighlighted() {
     let filterOn = false;
-    this.players.forEach((player) => {
+    this.players.forEach(player => {
       if (this.fieldNumber === player.tile) {
         filterOn = true;
       }
@@ -126,10 +126,23 @@ export default class Tile extends Vue {
     70,
     71,
     66,
-    67,
+    67
   ];
   private borderLeftList: number[] = [47, 48, 49, 50, 51, 63, 64, 65, 71];
-  private borderRightList: number[] = [36, 37, 38, 39, 40, 41, 56, 57, 58, 59, 68, 69];
+  private borderRightList: number[] = [
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    56,
+    57,
+    58,
+    59,
+    68,
+    69
+  ];
 }
 </script>
 
@@ -169,21 +182,25 @@ export default class Tile extends Vue {
 .tileMoveForward {
   transition-delay: var(--transition-delay);
 
-  filter: invert(0%) sepia(0%) hue-rotate(40deg) saturate(300%) brightness(80%) contrast(150%) !important;
+  filter: invert(0%) sepia(0%) hue-rotate(40deg) saturate(300%) brightness(80%)
+    contrast(150%) !important;
 }
 .tileMoveBackward {
   transition-delay: var(--transition-delay);
 
-  filter: invert(0%) sepia(0%) hue-rotate(315deg) saturate(300%) brightness(80%) contrast(150%) !important;
+  filter: invert(0%) sepia(0%) hue-rotate(315deg) saturate(300%) brightness(80%)
+    contrast(150%) !important;
 }
 .tileRule {
   transition-delay: var(--transition-delay);
 
-  filter: invert(0%) sepia(30%) hue-rotate(182deg) saturate(300%) brightness(80%) contrast(150%) !important;
+  filter: invert(0%) sepia(30%) hue-rotate(182deg) saturate(300%)
+    brightness(80%) contrast(150%) !important;
 }
 .tileHighlighted {
   transition-delay: var(--transition-delay);
 
-  filter: invert(0%) sepia(25%) hue-rotate(12deg) saturate(150%) brightness(120%) contrast(150%);
+  filter: invert(0%) sepia(25%) hue-rotate(12deg) saturate(150%)
+    brightness(120%) contrast(150%);
 }
 </style>
