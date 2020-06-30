@@ -18,8 +18,7 @@
               'background-image':
                 'url(' + require('@/assets/tilebackground.jpg') + ')'
             }"
-            >Auf einem Gerät</b-button
-          >
+          >Auf einem Gerät</b-button>
           <b-button
             class="gameModeButton ml-3"
             @click="multiplayer"
@@ -27,16 +26,13 @@
               'background-image':
                 'url(' + require('@/assets/tilebackground.jpg') + ')'
             }"
-            >Online Lobby erstellen</b-button
-          >
+          >Online Lobby erstellen</b-button>
         </b-col>
       </b-row>
       <b-row>
-        <b-col v-if="showInstallApp !== null" class="mt-5 installAppButton">
+        <b-col v-if="deferredPrompt !== null" class="mt-5 installAppButton">
           <b-icon-arrow-right-short></b-icon-arrow-right-short>
-          <b-button type="button" @click="addToHomescreen" variant="warning"
-            >App installieren!</b-button
-          >
+          <b-button type="button" @click="addToHomescreen" variant="warning">App installieren!</b-button>
           <b-icon-arrow-left-short></b-icon-arrow-left-short>
         </b-col>
       </b-row>
@@ -65,10 +61,7 @@
           </b-col>
           <b-col>
             <ValidationProvider rules="required" v-slot="{ errors }">
-              <b-form-select
-                v-model="playerColor"
-                :options="playerColors"
-              ></b-form-select>
+              <b-form-select v-model="playerColor" :options="playerColors"></b-form-select>
               <span>{{ errors[0] }}</span>
             </ValidationProvider>
           </b-col>
@@ -95,10 +88,6 @@ export default class NewGame extends Vue {
   private playerColor = "";
   private socket = new Socket();
   private deferredPrompt: any = null;
-
-  private showInstallApp() {
-    return this.deferredPrompt;
-  }
 
   private async mounted() {
     window.addEventListener("beforeinstallprompt", e => {
