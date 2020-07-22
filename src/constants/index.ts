@@ -22,7 +22,8 @@ const RULERULES: string[] = [
   "Es darf nur mit der schwachen Hand getrunken werden",
   "Benehmt euch! Keine Kraftausdrücke mehr",
   "{playerName} ist Medusa. Wer ihm in die Augen sieht, der trinkt",
-  "{playerName} ist nun der Questionmaster! Jeder ihm/ihr Fragen beantwortet, muss seine Antwort der Höflichkeit halber mit den Worten 'Ja Mr. Questionmaster' beenden"
+  "{playerName} ist nun der Questionmaster! Jeder ihm/ihr Fragen beantwortet, muss seine Antwort der Höflichkeit halber mit den Worten 'Ja Mr. Questionmaster' beenden",
+  "Man darf auf niemanden zeigen"
 ];
 
 export default {

@@ -182,7 +182,7 @@
   },
   "fieldId30": {
     "name": "Rührei",
-    "description": "Es gibt ungesalzenes Rührei. Nehme für zusätzlichen Genuss zwei Schlücke von deinem Getränk",
+    "description": "Es gibt ungesalzenes Rührei. Nimm für zusätzlichen Genuss zwei Schlücke von deinem Getränk",
     "move": 0,
     "rulerule": ""
   },
@@ -206,7 +206,7 @@
   },
   "fieldId34": {
     "name": "Wie echte Kerle regeln",
-    "description": "Wähle deinen Kontrahenten weise. Ihr spielt eine Runde Stein-Schere-Papier und der verlierer trinkt zwei",
+    "description": "Wähle deinen Kontrahenten weise. Ihr spielt eine Runde Stein-Schere-Papier und der Verlierer trinkt zwei",
     "move": 0,
     "rulerule": ""
   },
@@ -230,7 +230,7 @@
   },
   "fieldId38": {
     "name": "Verbrannte Zunge",
-    "description": "Du hast dir die Zunge an einer Fleischkrokette verbrannt. Trinke zwei um deine Zunge zu kühlen",
+    "description": "Du hast dir die Zunge an einer Fleischkrokette verbrannt. Trinke zwei, um deine Zunge zu kühlen",
     "move": 0,
     "rulerule": ""
   },
