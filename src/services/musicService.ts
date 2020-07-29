@@ -11,6 +11,7 @@ export default class MusicService {
   );
 
   public playMusic() {
+    console.log("tracknumber: " + MusicService.trackNumber);
     MusicService.gonzales.volume = 0.2;
     MusicService.gonzales.play();
     MusicService.gonzales.onended = () => {

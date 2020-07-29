@@ -271,7 +271,13 @@ export default class Game extends Vue {
       this.$nextTick(() => {
         (this.$refs["rule"] as any).hide();
       });
-      this.roll = this.ruleMovement;
+      if (this.ruleMovement === -99) {
+        this.roll = Math.floor(
+          Math.random() * (this.players[this.activePlayer.id].tile - 0) * -1
+        );
+      } else {
+        this.roll = this.ruleMovement;
+      }
       if (this.gameModeMultiplayer && this.yourId === this.activePlayer.id) {
         await Socket.mySocket.emit("moveInSocket", {
           roll: this.roll,
@@ -327,11 +333,117 @@ export default class Game extends Vue {
     this.diceable = true;
   }
 
+  private getPosition(string, index) {
+    return string.split("{switch}", index).join("{switch}").length;
+  }
+
   private showRule(id: number) {
     const fieldId = "fieldId" + this.players[id].tile;
 
     this.rulename = this.ruleset[fieldId].name;
-    this.ruledescription = this.ruleset[fieldId].description;
+
+    const countDescription = (
+      this.ruleset[fieldId].description.match(/{switch}/g) || []
+    ).length;
+    console.log("countDescription: " + countDescription);
+    if (countDescription > 0) {
+      const descriptions = Math.round(6 / countDescription);
+      const firstSwitch = this.getPosition(
+        this.ruleset[fieldId].description,
+        1
+      );
+      const secondSwitch = this.getPosition(
+        this.ruleset[fieldId].description,
+        2
+      );
+      const thirdSwitch = this.getPosition(
+        this.ruleset[fieldId].description,
+        3
+      );
+      const forthSwitch = this.getPosition(
+        this.ruleset[fieldId].description,
+        4
+      );
+      const fifthSwitch = this.getPosition(
+        this.ruleset[fieldId].description,
+        5
+      );
+      let rule = "";
+      switch (descriptions) {
+        case 6:
+          if (this.roll <= 3) {
+            rule = this.ruleset[fieldId].description.substring(0, firstSwitch);
+            this.ruledescription = rule;
+          } else {
+            rule = this.ruleset[fieldId].description.substring(firstSwitch + 9);
+            this.ruledescription = rule;
+          }
+          break;
+        case 3:
+          if (this.roll < 3) {
+            rule = this.ruleset[fieldId].description.substring(0, firstSwitch);
+          } else if (this.roll < 5) {
+            rule = this.ruleset[fieldId].description.substring(
+              firstSwitch + 9,
+              secondSwitch
+            );
+          } else {
+            rule = this.ruleset[fieldId].description.substring(
+              secondSwitch + 9,
+              thirdSwitch
+            );
+          }
+          break;
+        case 2:
+          if (this.roll < 2) {
+            rule = this.ruleset[fieldId].description.substring(0, firstSwitch);
+          } else if (this.roll < 4) {
+            rule = this.ruleset[fieldId].description.substring(
+              firstSwitch + 9,
+              secondSwitch
+            );
+          } else if (this.roll < 6) {
+            rule = this.ruleset[fieldId].description.substring(
+              secondSwitch + 9,
+              thirdSwitch
+            );
+          } else {
+            rule = this.ruleset[fieldId].description.substring(thirdSwitch + 9);
+          }
+          break;
+        case 1:
+          if (this.roll < 2) {
+            rule = this.ruleset[fieldId].description.substring(0, firstSwitch);
+          } else if (this.roll < 3) {
+            rule = this.ruleset[fieldId].description.substring(
+              firstSwitch + 9,
+              secondSwitch
+            );
+          } else if (this.roll < 4) {
+            rule = this.ruleset[fieldId].description.substring(
+              secondSwitch + 9,
+              thirdSwitch
+            );
+          } else if (this.roll < 5) {
+            rule = this.ruleset[fieldId].description.substring(
+              thirdSwitch + 9,
+              forthSwitch
+            );
+          } else if (this.roll < 6) {
+            rule = this.ruleset[fieldId].description.substring(
+              forthSwitch + 9,
+              fifthSwitch
+            );
+          } else {
+            rule = this.ruleset[fieldId].description.substring(fifthSwitch + 9);
+          }
+          break;
+      }
+      this.ruledescription = rule;
+    } else {
+      this.ruledescription = this.ruleset[fieldId].description;
+    }
+
     this.ruledescription = this.ruledescription.replace(
       /{playerName}/g,
       this.activePlayer.name

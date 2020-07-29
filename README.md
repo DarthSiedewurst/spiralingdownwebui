@@ -1,6 +1,10 @@
 # Spiraling Down !
 
 https://alex-riedel.de/rand.php?anz=1
+-99
+{playerName}
+{switch}
+Random
 
 ## Project setup
 
