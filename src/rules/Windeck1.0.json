@@ -1,0 +1,435 @@
+{
+  "name": "Spiraling Windeck",
+  "fieldId0": {
+    "name": "Start",
+    "description": "Wurdest ausm Dall geschmissen? Trink einen Schluck oder zahl dem Führenden 1 Euro Eintritt!",
+    "move": 0,
+    "rulerule": "-"
+  },
+  "fieldId1": {
+    "name": "Der Bus kommt",
+    "description": "aber nur einmal pro Stunde. Diesmal hast du Glück.",
+    "move": 5,
+    "rulerule": ""
+  },
+  "fieldId2": {
+    "name": "Gesindel aus Dattenfeld",
+    "description": "Bis zu deinem nächsten Zug kriegst du kein Bier.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId3": {
+    "name": "Freiwillige Feuerwehr",
+    "description": "Wenn du das Training absolviert hast (5 Liegestütze) darfst du die Brände deiner Mitspieler löschen und 5 Schlücke verteilen, ansonsten trinke selbst 5 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId4": {
+    "name": "Bushalte",
+    "description": "Mit dem Bus geht es nur raus, aber nicht rein.",
+    "move": -4,
+    "rulerule": ""
+  },
+  "fieldId5": {
+    "name": "Jens Haus",
+    "description": "Du möchtest mit Jens einen Trinken. Aber er hat Bereitschaft. Bis du wieder dran bist, werden deine Schlücke verdoppelt",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId6": {
+    "name": "Siedlungen",
+    "description": "...moment, die Siedlungen gehören nicht zum Dall.",
+    "move": -3,
+    "rulerule": ""
+  },
+  "fieldId7": {
+    "name": "Hermann Josef",
+    "description": "So ein Glück! Der Hermann Josef nimmt dich auf dem Trecker mit",
+    "move": 10,
+    "rulerule": ""
+  },
+  "fieldId8": {
+    "name": "Ungerdall",
+    "description": "Der beschwerliche Aufstieg beginnt",
+    "move": -6,
+    "rulerule": ""
+  },
+  "fieldId9": {
+    "name": "Knöbb",
+    "description": "Das Ordnungsamt hat nichts zu tun und denkt sich Regeln aus",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId10": {
+    "name": "Bohnen Hans",
+    "description": "Nenn ein Gewächs aus Hans Garten oder trink einen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId11": {
+    "name": "Fronleichnam",
+    "description": "Endlich ist Fronleichnam. Alle trinken",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId12": {
+    "name": "Hungerligger",
+    "description": "Gib dem durstigsten einen Schluck!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId13": {
+    "name": "Hexenjagt",
+    "description": "Man hält dich für eine Hexe. Überzeuge deine Häscher vom Gegenteil indem du 5 Schlücke trinkst",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId14": {
+    "name": "Tut nich Not",
+    "description": "Ganz schnell raus ausm Ungerdall",
+    "move": 5,
+    "rulerule": ""
+  },
+  "fieldId15": {
+    "name": "Franken zieht um",
+    "description": "Wechsele deine Sitzgelegenheit oder trinke 3 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId16": {
+    "name": "Sammeln im Ungerdall",
+    "description": "Du und eine Person deiner Wahl trinken jeweils 3",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId17": {
+    "name": "Wutbürger",
+    "description": "Du hast einen Wutbürger verägert und er jagt dich mit der Schrotflinte. Nimm die Beine in die Hand!",
+    "move": -17,
+    "rulerule": ""
+  },
+  "fieldId18": {
+    "name": "Bitze",
+    "description": "Du und eine Person deiner Wahl trinken jeweils 2 bei Käthe",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId19": {
+    "name": "Käthe",
+    "description": "Käthe gibt dir einen aus. Trinke einen Kurzen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId20": {
+    "name": "Bundesverdienstkreuz",
+    "description": "Nenn den Vornamen des Verdienstkreuzträgers! Hast du Recht, verteile 4. Liegst du falsch, trinke 1.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId21": {
+    "name": "Ein guter Elektriker...",
+    "description": "...erdet",
+    "move": 0,
+    "rulerule": "Alle Mitspieler müssen ihr Getränk erden, bevor sie trinken"
+  },
+  "fieldId22": {
+    "name": "Zur Linde",
+    "description": "Du und eine Person deiner Wahl sitzen an der Theke und kriegen einen aufs Haus",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId23": {
+    "name": "Käthe gibt einen aus",
+    "description": "Käthe gibt jedem Mitspieler einen Schnaps aus",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId24": {
+    "name": "Käthes Kniffel Klub",
+    "description": "Bestimme den Spieler mit dem meisten Würfelglück! Er darf 3 Schlücke verteilen.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId25": {
+    "name": "Der Bus kommt nicht",
+    "description": "Diesmal hast du kein Glück. Um die Wartezeit zu überbrücken trinkst du 5 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId26": {
+    "name": "Sammeln in der Bitze",
+    "description": "Kotze jetzt oder trinke 4!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId27": {
+    "name": "Schmid",
+    "description": "Fange eine Dohle oder trinke 3 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId28": {
+    "name": "Morgenstund...",
+    "description": "...hat Früh im Mund, trink einen!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId29": {
+    "name": "Skatturnier",
+    "description": "Suche dir zwei Mitspiele und trinke mit ihnen zusammen jeweils 5 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId30": {
+    "name": "Wüste Gobi...",
+    "description": "...ist ein Witz dagegen. Bis zur nächsten Runde darfst du nicht trinken.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId31": {
+    "name": "Selbstgebrannter",
+    "description": "Du hoffst, dass du nicht Blind wirst und trinkst 3 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId32": {
+    "name": "Half zwölf",
+    "description": "Einen Schluck darfst du noch, bevor du gehen musst.",
+    "move": 1,
+    "rulerule": ""
+  },
+  "fieldId33": {
+    "name": "Zur Linde at Night",
+    "description": "Du möchtest einen Trinken gehen, aber leider hat die Linde schon zu",
+    "move": -3,
+    "rulerule": ""
+  },
+  "fieldId34": {
+    "name": "Der Dorfwirt",
+    "description": "Wie heißt er? Hast du recht, verteile 5! Liegst du falsch, trinke 1!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId35": {
+    "name": "Rosbacher",
+    "description": "Ab jetzt bist du Rosbacher, alle anderen werden dich nur noch 'den Rosbacher' nennen",
+    "move": 0,
+    "rulerule": "{playerName} darf nur noch als 'Der Rosbacher' angesprochen werden"
+  },
+  "fieldId36": {
+    "name": "Der Mitteldall...",
+    "description": "...ist nicht Vietnam, hier gibt es Regeln.",
+    "move": 0,
+    "rulerule": "random"
+  },
+  "fieldId37": {
+    "name": "Dorfkirmes",
+    "description": "Alle trinken",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId38": {
+    "name": "Die Jungfrau Maria...",
+    "description": "...ist dir im Horns Büsch erschienen. Knie nieder, bis dein Getränk leer ist!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId39": {
+    "name": "Johannes der Säufer",
+    "description": "Trinke 4 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId40": {
+    "name": "Hunde...",
+    "description": "...wollt ihr ewig leben? Der älteste darf 2 Schlücke verteilen.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId41": {
+    "name": "Die Bahn",
+    "description": "Die Bahnverbindung ist echt gut und bringt dich weit nach vorn",
+    "move": 20,
+    "rulerule": ""
+  },
+  "fieldId42": {
+    "name": "Waldautobahn",
+    "description": "Scheinbar eine Abkürzung, aber nicht wenn man in die falsche Richtung geht.",
+    "move": -4,
+    "rulerule": ""
+  },
+  "fieldId43": {
+    "name": "Hausparty",
+    "description": "Du lädst zu dir nach Hause ein. Verteile 10 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId44": {
+    "name": "Wat is dat fürn Viech?",
+    "description": "Beschreibe einen Waldbewohner deiner Wahl. Die Person, die das Tier errät verteilt 3 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId45": {
+    "name": "Bruno Althoff",
+    "description": "Weil niemand ihn davon abgehalten hat, hat er eigenmächtig eine neue Regel durchgesetzt",
+    "move": 0,
+    "rulerule": "Random"
+  },
+  "fieldId46": {
+    "name": "Morgens Früh...",
+    "description": "...abends tot. Bist du der erste auf diesem Feld, verteile 4 Schlücke. Bist du es nicht, trinke 1.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId47": {
+    "name": "Palinka",
+    "description": "Der Palinka hat dein Gedächtnis gelöscht. Weil du nicht mehr weißt wo du wohnst gehst du zur Linde",
+    "move": 0,
+    "rulerule": "-"
+  },
+  "fieldId48": {
+    "name": "Bei Thiels",
+    "description": "Hier muss keiner verdursten. Alle trinken.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId49": {
+    "name": "Thema",
+    "description": "Wähle eine Kategorie. Nennt im Uhrzeigersinn ein passendes Wort oder trinkt 3 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId50": {
+    "name": "Königspisse",
+    "description": "Trinke einen Schluck beim Paul",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId51": {
+    "name": "Der Stöcker",
+    "description": "Jeder der den Stöcker nicht kennt trinkt 2 Schlücke, alle anderen trinken einen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId52": {
+    "name": "Bei Wilmsens",
+    "description": "Hier wird sich gekümmert. Verteile 2!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId53": {
+    "name": "Finger",
+    "description": "Ist der Finger oben wird man dich loben",
+    "move": 0,
+    "rulerule": "Ist der Finger oben wird man dich loben"
+  },
+  "fieldId54": {
+    "name": "Der Overdall beginnt",
+    "description": "Trinke einen und geh ein Feld vor!",
+    "move": 1,
+    "rulerule": ""
+  },
+  "fieldId55": {
+    "name": "Graf von Windeck",
+    "description": "Der Graf von Windeck sucht dich heim. Du musst so schnell wie möglich das weite suchen",
+    "move": -33,
+    "rulerule": ""
+  },
+  "fieldId56": {
+    "name": "Die trinken hier...",
+    "description": "...bei jeder Gelegenheit. Trinke 2 Schlücke!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId57": {
+    "name": "Hendriks Haus",
+    "description": "Du willst Hendrik besuchen aber der Berg ist zu steil und du rollst wieder zurück",
+    "move": -38,
+    "rulerule": ""
+  },
+  "fieldId58": {
+    "name": "Der Nagel in der Wand",
+    "description": "Du hast Grund zum feiern. Trink!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId59": {
+    "name": "Küheschubsen",
+    "description": "Schubs eine Kuh oder trink 2 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId60": {
+    "name": "Man kennt sich",
+    "description": "Nenne das Alter jedes Mitspielers! Für jeden Fehler, trinke 2!",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId61": {
+    "name": "Verzögerungen im Betriebsablauf",
+    "description": "...",
+    "move": -10,
+    "rulerule": ""
+  },
+  "fieldId62": {
+    "name": "Der Hang",
+    "description": "Die Steigung ist schon heftig ohne E-Bike.",
+    "move": -18,
+    "rulerule": ""
+  },
+  "fieldId63": {
+    "name": "Ortskunde",
+    "description": "Jeder nennt reihum einen Ort in Windeck. Der erste Mitspieler mit einer falschen Antwort trinkt",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId64": {
+    "name": "Annemie...",
+    "description": "...ich kann nit mih. Trage deinen rechten Mitspieler huckepack zum Klo oder trinke einen.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId65": {
+    "name": "Noch ein Thema",
+    "description": "Wähle eine Kategorie. Nennt im Uhrzeigersinn ein passendes Wort oder trinkt 3 Schlücke",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId66": {
+    "name": "Immer noch Overdall",
+    "description": "Alle trinken",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId67": {
+    "name": "Poppels Pitter",
+    "description": "Du trittst in die Fußstapfen deines Vorbilds. Trinke einen Kurzen oder zünde das Haus an",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId68": {
+    "name": "Das schwerste Stück...",
+    "description": "...ist geschafft. Trink einen, als letztes Wegbier.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId69": {
+    "name": "Freddy fährt",
+    "description": "Freddy fährt dich nach Hause",
+    "move": -26,
+    "rulerule": ""
+  },
+  "fieldId70": {
+    "name": "Burgruine",
+    "description": "Hier... gibts keine Kneipe mehr. Bis zu deinem nächsten Zug, darfst du nicht trinken.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId71": {
+    "name": "SIEG",
+    "description": "",
+    "move": 0,
+    "rulerule": ""
+  }
+}

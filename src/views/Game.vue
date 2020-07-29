@@ -345,7 +345,6 @@ export default class Game extends Vue {
     const countDescription = (
       this.ruleset[fieldId].description.match(/{switch}/g) || []
     ).length;
-    console.log("countDescription: " + countDescription);
     if (countDescription > 0) {
       const descriptions = Math.round(6 / countDescription);
       const firstSwitch = this.getPosition(
