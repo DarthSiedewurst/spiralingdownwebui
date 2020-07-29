@@ -1,0 +1,435 @@
+{
+  "name": "Piberto",
+  "fieldId0": {
+    "name": "Start",
+    "description": "",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId1": {
+    "name": "Zu weit gekommen",
+    "description": "Du bist zu nah am Ziel, gehe lieber nochmal einen Schritt zurück und trinke einen Schluck zur Erholung.",
+    "move": -1,
+    "rulerule": ""
+  },
+  "fieldId2": {
+    "name": "Primzahl",
+    "description": "2 ist die kleinste Primzahl. Zur Auffrischung eurer Mathekenntnisse nennt ihr hintereinander die nächsten Primzahlen. Wer den ersten Fehler macht, trinkt 4.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId3": {
+    "name": "Sprint",
+    "description": "Du bist motiviert und legst direkt einen Sprint ein",
+    "move": 10,
+    "rulerule": ""
+  },
+  "fieldId4": {
+    "name": "Anstoßen",
+    "description": "Stoßt gemeinsam an und trinkt einen.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId5": {
+    "name": "Alkoholtest",
+    "description": "Laufe gerade auf einer Linie. Wenn du es nicht schaffst, musst du 3 trinken. Das ergibt keinen Sinn, ist aber so.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId6": {
+    "name": "Thema",
+    "description": "Wähle ein Thema. Wer keinen pasenden Begriff mehr weiß, trinkt.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId7": {
+    "name": "2 Trinken, 3 gehen",
+    "description": "Trinke 2 und gehe 3",
+    "move": 3,
+    "rulerule": ""
+  },
+  "fieldId8": {
+    "name": "Würfelzahl",
+    "description": "Trinke so viel wie du gewürfelt hast.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId9": {
+    "name": "Trinkpartner",
+    "description": "Wähle einen Partner aus, mit dem du immer gemeinsam trinkst.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId10": {
+    "name": "Weiber",
+    "description": "Alle Frauen trinken.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId11": {
+    "name": "Verdoppeln",
+    "description": "Trinke so viele Schlucke wie du willst. Bestimme jemanden der das Doppelte davon trinkt.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId12": {
+    "name": "Erschrocken!",
+    "description": "Der Eifelturm kommt plötzlich um die Ecke und verteilt dir 2 Schlucke.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId13": {
+    "name": "Gib ne Runde",
+    "description": "Verteile 15 Schlucke an mindestens 4 Spieler.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId14": {
+    "name": "Nachbarschaft",
+    "description": "Du und deine Sitznachbarn trinken 2.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId15": {
+    "name": "Zitronenhai",
+    "description": "Der Zitronenhai hat leider keine Zitronen dabei. Aus Frust trinkst du 3.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId16": {
+    "name": "Regel",
+    "description": "Die Wörter -Ja- und -Nein- müssen mit einem Schluck bezahlt werden.",
+    "move": 0,
+    "rulerule": "Es darf nicht -Ja- oder -Nein- gesagt werden."
+  },
+  "fieldId17": {
+    "name": "Typen",
+    "description": "Alle Männer trinken.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId18": {
+    "name": "Schnick Schnack Schnuck",
+    "description": "Spiele eine Runde mit einem Mitspieler deiner Wahl. Der verlierer trinkt 3.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId19": {
+    "name": "Regel",
+    "description": "Zufällige Regel",
+    "move": 0,
+    "rulerule": "Random"
+  },
+  "fieldId20": {
+    "name": "2 Wahrheiten und eine Lüge",
+    "description": "Erzähle 2 Wahrheiten und eine Lüge, die anderen raten. Wer falsch rät trinkt, pro richtig geratenem Spieler trinkst du.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId21": {
+    "name": "Introvertiert",
+    "description": "Du bist so introvertiert. Trinke 2 Schlucke, um ein bisschen lockerer zu werden.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId22": {
+    "name": "Verdoppeln",
+    "description": "Dein Feld verdoppelt sich, das kostet dich aber 4 Schlucke.",
+    "move": 22,
+    "rulerule": ""
+  },
+  "fieldId23": {
+    "name": "Wegbier",
+    "description": "Du hast Durst unterwegs. Trinke 3 Schlucke um ihn zu stillen.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId24": {
+    "name": "Wahrheit oder Pflicht",
+    "description": "Du musst eine Runde Wahrheit oder Pflicht spielen.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId25": {
+    "name": "Entschuldigen Sie...",
+    "description": "...ham sie Chevapchichi? Nein, aber Alkohol. Trinke 2.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId26": {
+    "name": "Kathrin",
+    "description": "Gib einem Spieler einen neuen Namen. Er behält ihn das gesamt Spiel.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId27": {
+    "name": "Es ist warm wie an der Karibik",
+    "description": "Du warst mal wieder im viel zu kalten Wasser schwimmen. Wärme dich von innen mit 3 leckeren Schlucken.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId28": {
+    "name": "Trinkpause",
+    "description": "Macht eine kurze Pause. Alle trinken 2.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId29": {
+    "name": "Nicht lachen",
+    "description": "Bestimme einen Mitspieler, ihr schaut euch gegenseitig in die Augen, der erste der lacht, trinkt 4.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId30": {
+    "name": "Mitfahrgelegenheit",
+    "description": "Du hast einem Italiener befohlen dich zu fahren und dir 10 Euro zu geben. Clever!",
+    "move": 10,
+    "rulerule": ""
+  },
+  "fieldId31": {
+    "name": "Mische verfeinern",
+    "description": "Dein Getränk schmeckt sehr fad. Wähle einen Spieler, der es dir ein wenig aufpeppt.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId32": {
+    "name": "Wollt ihr noch bleiben?",
+    "description": "Sag mal, wollt ihr noch bleiben? Hier bleibst du auf jeden Fall nicht, tschau.",
+    "move": -31,
+    "rulerule": ""
+  },
+  "fieldId33": {
+    "name": "Ich hab noch nie",
+    "description": "Spiele eine Runde -Ich hab noch nie-.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId34": {
+    "name": "Genderkonform",
+    "description": "Alle Spielerinnen und Spieler dürfen nur noch Genderkonform sprechen.",
+    "move": 0,
+    "rulerule": "Es darf nur Genderkonform gesprochen werden."
+  },
+  "fieldId35": {
+    "name": "Slap oder Schluck",
+    "description": "du bekommst 5 Slapper oder trinkst 5 Schlucke.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId36": {
+    "name": "Hack",
+    "description": "Alles wird aus Hack gemacht! Außer die 3 Schlucke, die du jetzt trinkst (hoffe ich zumindest).",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId37": {
+    "name": "Hängematte",
+    "description": "Du bist betrunken und fällst immer aus der Hängematte. Trinke einen Schluck zum ausnüchtern.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId38": {
+    "name": "Trinken verboten",
+    "description": "Wer das Wort -trinken- sagt, macht es auch",
+    "move": 0,
+    "rulerule": "Das Wort -trinken- darf nicht gesagt werden."
+  },
+  "fieldId39": {
+    "name": "Buddies",
+    "description": "Such dir einen Trinkbuddie aus. Ihr trinkt immer zusammen.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId40": {
+    "name": "Kiss oder slap",
+    "description": "Küsse deinen rechten Nachbarn oder trinke 5.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId41": {
+    "name": "Regel",
+    "description": "Regel",
+    "move": 0,
+    "rulerule": "Random"
+  },
+  "fieldId42": {
+    "name": "Saufautomat",
+    "description": "Saufi Saufi, feier richtig hart und trinke 4.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId43": {
+    "name": "Schlechter Geschmack",
+    "description": "Der 80ct Premium-Wein hat einen faden Beigeschmack. Spüle ihn mit 2 Schlucken runter.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId44": {
+    "name": "Auffüllen",
+    "description": "Wer am wenigsten in seinem Getränk hat füllt auf. Dazu trinkt er es natürlich zuerst leer.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId45": {
+    "name": "Mr Questionmaster",
+    "description": "Du bist Mr Questionmaster, wer deine Fragen beantwortet ohne deinen Namen zu nennen, trinkt.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId46": {
+    "name": "Witz",
+    "description": "Erzähle einen Witz. Trinke so viele Schlucke, wie Spieler die nicht lachen.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId47": {
+    "name": "Förmliche Ausdrucksweise",
+    "description": "Ihr seid gehobene Gesellschaft, Siezt euch also gefälligst.",
+    "move": 0,
+    "rulerule": "Die Spieler müssen sich gegenseitig Siezen."
+  },
+  "fieldId48": {
+    "name": "Kompliment",
+    "description": "Mache jedem Mitspieler ein Kompliment. Um dir die Lügen zu erleichtern trinke zuerst 2.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId49": {
+    "name": "RSDS",
+    "description": "Roompot sucht den Superstar. Singe einen Song deiner Wahl. Die Jury entscheidet wie viele Schlucke du dafür verteilen darfst (0-6).",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId50": {
+    "name": "Schätzfrage",
+    "description": "Stelle den anderen eine Schätzfrage. Wer falsch rät trinkt, rät einer richtig trinkst du.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId51": {
+    "name": "Neue Getränke",
+    "description": "Dein Kumpel holt eine neue Runde Getränke. Dein Glas muss leer werden, trinke nochmal schnell 3 daraus.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId52": {
+    "name": "Bedienung",
+    "description": "Such dir jemanden aus, der das Spiel über dein Butler ist.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId53": {
+    "name": "Loser",
+    "description": "Der letzte trinkt 5.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId54": {
+    "name": "Armdrücken",
+    "description": "Mache Armdrücken mit einem Mitspieler deiner Wahl. Der Gewinner verteilt 5.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId55": {
+    "name": "Sport",
+    "description": "Du darfst so viele Schlucke verteilen, wie du Liegestütze machst.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId56": {
+    "name": "Regel",
+    "description": "Es darf nur noch mit links getrunken werden.",
+    "move": 0,
+    "rulerule": "Es ist mit links zu trinken."
+  },
+  "fieldId57": {
+    "name": "Immunität",
+    "description": "Dein hoher Alkoholkonsum verleiht dir Immunität. Beim nächsten Mal setzt du beim trinken aus.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId58": {
+    "name": "Strippen",
+    "description": "Zieh ein Kleidungsstück aus.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId59": {
+    "name": "Schauspieler",
+    "description": "Immitiere eine Person aus der Runde. Wer es zuerst errät verteilt 5.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId60": {
+    "name": "Keine Idee",
+    "description": "Der Ersteller des Regelsets hat keine Ideen mehr. Deswegen trinkst du jetzt 3 ohne Grund.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId61": {
+    "name": "Stärkste Mische",
+    "description": "Derjenige, der mit dem stärksten Getränk spielt, verteilt 10 Schlucke.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId62": {
+    "name": "Zahlenreihe",
+    "description": "Such dir eine Ziffer zwischen 1 und 9 aus. Ihr zählt reihum, jedoch werden alle Zahlen, die die Ziffer enthalten oder durch sie teilbar sind durch -sauf- ersetzt. Der erste Fehler trinkt 5.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId63": {
+    "name": "Verdoppeln",
+    "description": "Du darfst einmal die Schluckzahl eines Mitspielers verdoppeln.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId64": {
+    "name": "Busfahrer",
+    "description": "Sage 2 Karten voraus. Du trinkst so lange, wie du Fehler machst.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId65": {
+    "name": "Kurze Pause",
+    "description": "Mach eine kleine Pause und genieße sie bei 4 Schlucken auf einem schönen Feld weiter vorne.",
+    "move": -12,
+    "rulerule": ""
+  },
+  "fieldId66": {
+    "name": "Bergheim",
+    "description": "Ein Krieg gegen Bergheim ist ein verlorener Krieg. Alle die nicht aus Bergheim kommen kapitulieren und trinken 2.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId67": {
+    "name": "Dreifach Runde",
+    "description": "Alle trinken 3",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId68": {
+    "name": "Rauswurf",
+    "description": "Du hast zu sehr randaliert und wirst rausgeworfen. Dumm gelaufen.",
+    "move": -68,
+    "rulerule": ""
+  },
+  "fieldId69": {
+    "name": "Ballast los werden",
+    "description": "Du willst das Ziel schnell erreichen. Dein Getränk bremst dich nur aus, trinke es also lieber leer.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId70": {
+    "name": "Fast geschafft",
+    "description": "Du bist bald am Ziel. Um den Rest weiter abzuhängen, verteile 5 Schlucke.",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId71": {
+    "name": "SIEG",
+    "description": "Du hast gewonnen! Trink einen Freudenschluck, alle anderen trinken 3 um dir zu huldigen.",
+    "move": 0,
+    "rulerule": ""
+  }
+}

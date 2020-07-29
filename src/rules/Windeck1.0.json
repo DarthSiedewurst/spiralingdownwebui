@@ -45,7 +45,7 @@
   "fieldId7": {
     "name": "Hermann Josef",
     "description": "So ein Glück! Der Hermann Josef nimmt dich auf dem Trecker mit",
-    "move": 10,
+    "move": 12,
     "rulerule": ""
   },
   "fieldId8": {
@@ -58,7 +58,7 @@
     "name": "Knöbb",
     "description": "Das Ordnungsamt hat nichts zu tun und denkt sich Regeln aus",
     "move": 0,
-    "rulerule": ""
+    "rulerule": "Random"
   },
   "fieldId10": {
     "name": "Bohnen Hans",
@@ -220,7 +220,7 @@
     "name": "Der Mitteldall...",
     "description": "...ist nicht Vietnam, hier gibt es Regeln.",
     "move": 0,
-    "rulerule": "random"
+    "rulerule": "Random"
   },
   "fieldId37": {
     "name": "Dorfkirmes",
@@ -327,7 +327,7 @@
   "fieldId54": {
     "name": "Der Overdall beginnt",
     "description": "Trinke einen und geh ein Feld vor!",
-    "move": 1,
+    "move": 2,
     "rulerule": ""
   },
   "fieldId55": {
