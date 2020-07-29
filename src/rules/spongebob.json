@@ -104,7 +104,7 @@
   },
   "fieldId17": {
     "name": "Weil ich meine Hose zerrisen hab",
-    "description": "Trinke 3 um mit der Peinlichkeit umzugehen {swtich} Du schmetterst einen herzzerreißenden Tophit. Alle anderen trinken 3",
+    "description": "Trinke 3 um mit der Peinlichkeit umzugehen {switch} Du schmetterst einen herzzerreißenden Tophit. Alle anderen trinken 3",
     "move": 0,
     "rulerule": ""
   },
@@ -140,7 +140,7 @@
   },
   "fieldId23": {
     "name": "Der Schatz Des Fliegenden Holländers",
-    "description": "Du einen Plastikschatz, trinke 4 {swtich} Du erhältst 2 Golddublonen. Jede kannst du in Form von 2 Schlücken verteilen",
+    "description": "Du einen Plastikschatz, trinke 4 {switch} Du erhältst 2 Golddublonen. Jede kannst du in Form von 2 Schlücken verteilen",
     "move": 0,
     "rulerule": ""
   },
@@ -248,7 +248,7 @@
   },
   "fieldId41": {
     "name": "Quallenfelder",
-    "description": "Eine Qualle hat dich gestochen. Trinke 3 Schlücke {swtich} Du hast 2 Quallen gefangen. Verteile 2 Schlücke {swtich} Du hast 3 Quallen gefangen. Verteile 3 Schlücke {swtich} Du hast 4 Quallen gefangen. Verteile 4 Schlücke {swtich} Du hast 5 Quallen gefangen. Verteile 5 Schluck {swtich} Du hast Cnidaria Rex gefunden. Trinke 6 Schlücke {swtich}",
+    "description": "Eine Qualle hat dich gestochen. Trinke 3 Schlücke {switch} Du hast 2 Quallen gefangen. Verteile 2 Schlücke {switch} Du hast 3 Quallen gefangen. Verteile 3 Schlücke {switch} Du hast 4 Quallen gefangen. Verteile 4 Schlücke {switch} Du hast 5 Quallen gefangen. Verteile 5 Schluck {switch} Du hast Cnidaria Rex gefunden. Trinke 6 Schlücke {switch}",
     "move": 0,
     "rulerule": ""
   },
