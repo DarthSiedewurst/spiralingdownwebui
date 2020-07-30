@@ -1,10 +1,10 @@
 {
   "name": "Taubes Nüsschen",
   "fieldId0": {
-    "name": "Start",
-    "description": "",
+    "name": "Bikini Bottom",
+    "description": "Eine Sondermeldung: Alle Regeln sind aufgehoben",
     "move": 0,
-    "rulerule": ""
+    "rulerule": "-"
   },
   "fieldId1": {
     "name": "Ich bin bereit!",
@@ -32,7 +32,7 @@
   },
   "fieldId5": {
     "name": "Rolltreppen, Rolltreppen, Rolltreppen",
-    "description": "Gehe auf Feld",
+    "description": "Gehe auf Feld 34",
     "move": 29,
     "rulerule": ""
   },
@@ -140,7 +140,7 @@
   },
   "fieldId23": {
     "name": "Der Schatz Des Fliegenden Holländers",
-    "description": "Du einen Plastikschatz, trinke 4 {switch} Du erhältst 2 Golddublonen. Jede kannst du in Form von 2 Schlücken verteilen",
+    "description": "Du erhältst einen Plastikschatz, trinke 4 {switch} Du erhältst 2 Golddublonen. Jede kannst du in Form von 2 Schlücken verteilen",
     "move": 0,
     "rulerule": ""
   },
@@ -164,9 +164,9 @@
   },
   "fieldId27": {
     "name": "Goo Lagoon",
-    "description": "{playerName} ist der Rettungsschwimmer. Er ist dafür verantwortlich, dass es keine leeren Getränke gibt",
+    "description": "{playerName} ist der Rettungsschwimmer. Sie/Er ist dafür verantwortlich, dass es keine leeren Getränke gibt",
     "move": 0,
-    "rulerule": "{playerName} ist der Rettungsschwimmer. Er ist dafür verantwortlich, dass es keine leeren Getränke gibt"
+    "rulerule": "{playerName} ist der Rettungsschwimmer. Sie/Er ist dafür verantwortlich, dass es keine leeren Getränke gibt"
   },
   "fieldId28": {
     "name": "Tanz den Schwamm",
@@ -176,13 +176,13 @@
   },
   "fieldId29": {
     "name": "Klaus, Klaus, Klaus",
-    "description": "{playerName} ist jetzt Klaus. Wer ihn anders anspricht, bekommt Angst und muss 1 trinken.",
+    "description": "{playerName} ist jetzt Klaus. Wer sie/ihn anders anspricht, bekommt Angst und muss 1 trinken.",
     "move": 0,
-    "rulerule": "{playerName} ist jetzt Klaus. Wer ihn anders anspricht, bekommt Angst und muss 1 trinken."
+    "rulerule": "{playerName} ist jetzt Klaus. Wer sie/ihn anders anspricht, bekommt Angst und muss 1 trinken."
   },
   "fieldId30": {
     "name": "Lachgetriebe",
-    "description": "Die erste Person, die Lacht, muss trinken",
+    "description": "Die erste Person, die lacht, muss trinken",
     "move": 0,
     "rulerule": ""
   },
@@ -194,7 +194,7 @@
   },
   "fieldId32": {
     "name": "Ich glaube ich ess meins gleich auf",
-    "description": "Die erste Person, die ihr Getränk leer, darf 8 verteilen",
+    "description": "Die erste Person, die ihr Getränk leert, darf 8 verteilen",
     "move": 0,
     "rulerule": ""
   },
@@ -260,7 +260,7 @@
   },
   "fieldId43": {
     "name": "Die Technik",
-    "description": "Die Technik bringt dich vorran. Gehe 4 Felder vor",
+    "description": "Die Technik bringt dich vorran. Gehe 6 Felder vor",
     "move": 4,
     "rulerule": ""
   },
@@ -319,10 +319,10 @@
     "rulerule": ""
   },
   "fieldId53": {
-    "name": "Echte Menschen sind auch zu sehen.",
-    "description": "",
-    "move": 0,
-    "rulerule": "Random"
+    "name": "Larry",
+    "description": "Du bist zu weit von deinem natürlichen Habitat entfernt. Gehe zur Goo Lagoon",
+    "move": -26,
+    "rulerule": ""
   },
   "fieldId54": {
     "name": "Sandys Kuppel",
