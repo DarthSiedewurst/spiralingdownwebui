@@ -1,5 +1,5 @@
 {
-  "name": "Piberto",
+  "name": "Reisegruppe Übelst Voll",
   "fieldId0": {
     "name": "Start",
     "description": "",
@@ -128,7 +128,7 @@
   },
   "fieldId21": {
     "name": "Introvertiert",
-    "description": "Du bist so introvertiert. Trinke 2 Schlucke, um ein bisschen lockerer zu werden.",
+    "description": "Du bist so introvertiert wie Jona. Trinke 2 Schlucke, um ein bisschen lockerer zu werden.",
     "move": 0,
     "rulerule": ""
   },

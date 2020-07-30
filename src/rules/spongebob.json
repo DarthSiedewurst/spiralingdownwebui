@@ -422,7 +422,7 @@
   },
   "fieldId70": {
     "name": "Magische Miesmuschel",
-    "description": "Die Magische Miesmuschel sagt dir, dich auf ein zufälliges Feld zurück zu bewegen",
+    "description": "Oh Magische Miesmuschel, auf welches Feld soll ich gehen?",
     "move": -99,
     "rulerule": ""
   },
