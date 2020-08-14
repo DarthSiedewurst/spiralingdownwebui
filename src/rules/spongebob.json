@@ -79,15 +79,15 @@
     "rulerule": ""
   },
   "fieldId13": {
-    "name": "M - Für Mini",
-    "description": "Deine Schlücke sind 1 Runde lang annuliert",
+    "name": "Meerjungfraumanns Gürtel",
+    "description": "M- für Mini: Deine Schlücke sind 1 Runde lang annuliert {switch} W - Für Wambo: Deine Schlücke sind 1 Runde lang verdoppelt",
     "move": 0,
     "rulerule": ""
   },
   "fieldId14": {
-    "name": "W - Für Wambo",
-    "description": "Deine Schlücke sind 1 Runde lang verdoppelt",
-    "move": 0,
+    "name": "Larry",
+    "description": "Du bist weit entfernt von deinem natürlichem Habitat. Gehe zur Goo-Lagoon",
+    "move": 13,
     "rulerule": ""
   },
   "fieldId15": {
@@ -175,10 +175,10 @@
     "rulerule": ""
   },
   "fieldId29": {
-    "name": "Klaus, Klaus, Klaus",
-    "description": "{playerName} ist jetzt Klaus. Wer sie/ihn anders anspricht, bekommt Angst und muss 1 trinken.",
-    "move": 0,
-    "rulerule": "{playerName} ist jetzt Klaus. Wer sie/ihn anders anspricht, bekommt Angst und muss 1 trinken."
+    "name": "...Aaaaaale",
+    "description": "Gehe zurück du Drecksackblase",
+    "move": -29,
+    "rulerule": ""
   },
   "fieldId30": {
     "name": "Lachgetriebe",
@@ -193,9 +193,10 @@
     "rulerule": ""
   },
   "fieldId32": {
-    "name": "Ich glaube ich ess meins gleich auf",
-    "description": "Die erste Person, die ihr Getränk leert, darf 8 verteilen",
-    "move": 0,
+
+    "name": "Begleite Perla",
+    "description": "Begleite Perler zum Abschlussball",
+    "move": -4,
     "rulerule": ""
   },
   "fieldId33": {
@@ -205,10 +206,10 @@
     "rulerule": ""
   },
   "fieldId34": {
-    "name": "...Aaaaaale",
-    "description": "Gehe zurück du Drecksackblase",
-    "move": -28,
-    "rulerule": ""
+    "name": "Klaus, Klaus, Klaus",
+    "description": "{playerName} ist jetzt Klaus. Wer sie/ihn anders anspricht, bekommt Angst und muss 1 trinken.",
+    "move": 0,
+    "rulerule": "{playerName} ist jetzt Klaus. Wer sie/ihn anders anspricht, bekommt Angst und muss 1 trinken."
   },
   "fieldId35": {
     "name": "Berühren",
@@ -283,20 +284,20 @@
     "rulerule": ""
   },
   "fieldId47": {
-    "name": "Geister",
-    "description": "Du wurdest erschreckt. Trinke 2",
+    "name": "König Neptun",
+    "description": "König Neptun verleiht dir den Goldenen Pfannenwender. Verteile eine Runde alles was du trinken müsstest",
     "move": 0,
     "rulerule": ""
   },
   "fieldId48": {
-    "name": "Geister",
-    "description": "Du wurdest erschreckt. Trinke 2",
+    "name": "Geister, Geister , Weißbrot",
+    "description": "Du wurdest erschreckt. Trinke 2 {swtich} Du wurdest erschreckt. Trinke 2 {swtich} Du bist unerschrocken. Deine Nachbarn trinken",
     "move": 0,
     "rulerule": ""
   },
   "fieldId49": {
-    "name": "Weißbrot",
-    "description": "Du bist unerschrocken. Deine Nachbarn trinken",
+    "name": "Blubber Bernd",
+    "description": "Du hast die Gürkchen unter Blubber Bernds Zunge nicht gefunden. Trinke 2 {swtisch} Du hast die Gürkchen unter Blubber Bernds Zunge gefunden. Verteile 2 ",
     "move": 0,
     "rulerule": ""
   },
@@ -319,9 +320,9 @@
     "rulerule": ""
   },
   "fieldId53": {
-    "name": "Larry",
-    "description": "Du bist zu weit von deinem natürlichen Habitat entfernt. Gehe zur Goo Lagoon",
-    "move": -26,
+    "name": "Seemansknoten",
+    "description": "Affenkette! Du und deine Nachbarn trinken {switch} Affenfaust! Du darfst 3 verteilen{switch} Der Affe! Alle trinken",
+    "move": 0,
     "rulerule": ""
   },
   "fieldId54": {
@@ -355,9 +356,9 @@
     "rulerule": "Vor jedem Trinken müsst ihr 'Krakataua' sagen"
   },
   "fieldId59": {
-    "name": "Begleite Perla",
-    "description": "Begleite Perler zum Abschlussball",
-    "move": -31,
+    "name": "Ich glaube ich ess meins gleich auf",
+    "description": "Die erste Person, die ihr Getränk leert, darf 8 verteilen",
+    "move": 0,
     "rulerule": ""
   },
   "fieldId60": {
@@ -381,7 +382,7 @@
   "fieldId63": {
     "name": "Anti-Seerhinozeros-Unterhosen",
     "description": "Du hast deine Anti-Seerhinozeros-Unterhosen nicht an. Ein Seerhinozeros jagt dich zurück zur Goo Lagoon",
-    "move": -36,
+    "move": -13,
     "rulerule": ""
   },
   "fieldId64": {
