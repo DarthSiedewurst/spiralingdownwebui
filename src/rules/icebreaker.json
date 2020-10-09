@@ -1,0 +1,435 @@
+{
+  "name": "Icebreaker",
+  "fieldId0": {
+    "name": "Start",
+    "description": "",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId1": {
+    "name": "WG?",
+    "description": "Könntest du mit {randomPlayer} in einer WG wohnen?",
+    "move": 0,
+    "rulerule": "Für jede Wahrheitsaufgabe wird getrunken"
+  },
+  "fieldId2": {
+    "name": "Hausbrand",
+    "description": "Welche 3 Gegenstände würdest du aus deinem Haus retten, wenn es brennt",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId3": {
+    "name": "Beziehung",
+    "description": "Was war deine längste Beziehung",
+    "move": 0,
+    "rulerule": "Für jede Wahrheitsaufgabe wird getrunken"
+  },
+  "fieldId4": {
+    "name": "No Homo",
+    "description": "Könntest du dir Sex mit einem Gleichgeschlechtlichem vorstellen",
+    "move": 0,
+    "rulerule": "Für jede Wahrheitsaufgabe wird getrunken"
+  },
+  "fieldId5": {
+    "name": "Macke",
+    "description": "Was ist deine größte Macke",
+    "move": 0,
+    "rulerule": "Für jede Wahrheitsaufgabe wird getrunken"
+  },
+  "fieldId6": {
+    "name": "Weit gekommen",
+    "description": "Alle trinken die Anzahl ihrer bisher beantworteten Fragen",
+    "move": 0,
+    "rulerule": "Für jede Wahrheitsaufgabe wird getrunken"
+  },
+  "fieldId7": {
+    "name": "Deep looks",
+    "description": "{playerName} und {randomPlayer} haltete euch am Kinn fest und schaut euch tief in die Augen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId8": {
+    "name": "Massage",
+    "description": "Massiere den Rücken von {randomPlayer}",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId9": {
+    "name": "Kuscheln",
+    "description": "Kuschle mit {randomPlayer}",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId10": {
+    "name": "Naughty talk",
+    "description": "Flüstere {randomPlayer} etwas versautes ins Ohr",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId11": {
+    "name": "Selbstmassage",
+    "description": "Massiere dir Lustvoll die Brust",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId12": {
+    "name": "Weil es so schön war",
+    "description": "Neuer Versuch für die Pflichtsektion. Gehe 6 Fleder zurück",
+    "move": -6,
+    "rulerule": ""
+  },
+  "fieldId13": {
+    "name": "Häufiger Sex",
+    "description": "Mit wie vielen Menschen hattest du bereits Sex?",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId14": {
+    "name": "Diebstahl",
+    "description": "Was war dein schlimmster Diebstahl",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId15": {
+    "name": "Superkraft",
+    "description": "Wenn du eine Superkraft haben könntest, welche wäre es?",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId16": {
+    "name": "Eifersüchtig",
+    "description": "Findest du Eifersucht sexy oder Lahm",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId17": {
+    "name": "Komplimente",
+    "description": "Was findest du an {randomPlayer} am schönsten",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId18": {
+    "name": "Es bröckelt",
+    "description": "Ist das Eis schon gebrochen? Trinkt lieber noch einen gemeinsam",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId19": {
+    "name": "Kleiner Kuss",
+    "description": "Gib {randomPlayer} einen Kuss auf die Wange",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId20": {
+    "name": "Twerken",
+    "description": "{playerName} und {randomPlayer} startet ein Twerk Battle! Der Verlierer trinkt",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId21": {
+    "name": "Böser Spieler",
+    "description": "{randomPlayer} war böse. Versohle Ihr/Ihm den Hintern",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId22": {
+    "name": "Selfie",
+    "description": "Mache zusammen mit {randomPlayer} ein Selfie",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId23": {
+    "name": "Lecker",
+    "description": "Lecke das Ohr von {randomPlayer}",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId24": {
+    "name": "Level Up",
+    "description": "Für jede Wahrheitsaufgabe werden 2 getrunken",
+    "move": 0,
+    "rulerule": "Für jede Wahrheitsaufgabe werden 2 getrunken"
+  },
+  "fieldId25": {
+    "name": "Rache",
+    "description": "Hast du jemals Rache genommen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId26": {
+    "name": "Nackt?",
+    "description": "Hast du dir einen Mitspieler schonmal nackt vorgestellt?",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId27": {
+    "name": "Entscheidung",
+    "description": "Wärst du lieber an einem schönem Strand, aber es ist echt kalt. Oder in einer langweiligen Eiswüste, aber das Wetter wäre perfekt",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId28": {
+    "name": "Nervig",
+    "description": "Was stört dich an {randomPlayer} am meisten",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId29": {
+    "name": "Drogen",
+    "description": "Welche Drogen hast du bereits ausprobiert",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId30": {
+    "name": "Level Up",
+    "description": "Für jede Wahrheit und für jede Pflichtaufgabe wird getrunken",
+    "move": 0,
+    "rulerule": "Für jede Wahrheit und für jede Pflichtaufgabe wird getrunken"
+  },
+  "fieldId31": {
+    "name": "Unangemessen",
+    "description": "Lege eine Runde lang deine Hand in den Schritt von {randomPlayer}",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId32": {
+    "name": "Massage",
+    "description": "Massiere den Kopf von {randomPlayer}",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId33": {
+    "name": "Kitzlig?",
+    "description": "Lass dich von {randomPlayer} 20 Sekunden lang kitzeln",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId34": {
+    "name": "Mitläufer",
+    "description": "Du musst die nächste Aufgabe von {randomPlayer} mitmachen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId35": {
+    "name": "Ausziehen!",
+    "description": "Zieh ein Kleidungsstück aus (Socken zählen als 1)",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId36": {
+    "name": "Joker",
+    "description": "Du darfst einer Wahrheit oder Pflicht ausweichen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId37": {
+    "name": "Bestechlich?",
+    "description": "Womit könnte {randomPlayer} dich sehr gut bestechen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId38": {
+    "name": "Urlaub",
+    "description": "Was ist dein Lieblings Low Budget Urlaub",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId39": {
+    "name": "Erstes Mal",
+    "description": "Erzähle von deinem ersten Mal",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId40": {
+    "name": "Kriterium",
+    "description": "Worauf achtest du beim anderen Geschlecht als erstes",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId41": {
+    "name": "Nacktbilder",
+    "description": "Hast du schon einmal nackt Bilder verschickt/erhalten?",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId42": {
+    "name": "Das geht hier zu schnell",
+    "description": "Nehmt mal ein wenig Tempo raus. Zurück mit dir auf Feld 30",
+    "move": -12,
+    "rulerule": ""
+  },
+  "fieldId43": {
+    "name": "Massage",
+    "description": "Massierer die Füße von {randomPlayer}",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId44": {
+    "name": "Tanz",
+    "description": "{playerName} und {randomPlayer} tanzen zusammen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId45": {
+    "name": "Naughty",
+    "description": "Lass dir von {randomPlayer} den Hintern versohlen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId46": {
+    "name": "Love is in the air",
+    "description": "Küsse {randomPlayer} auf den Mund",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId47": {
+    "name": "Austeilen",
+    "description": "Du darfst {randomPlayer} eine Pflicht erteilen, die du bereits gemacht hast",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId48": {
+    "name": "Gut gemacht",
+    "description": "Ihr seid wunderbar :). Freut euch und trinkt einen zusammen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId49": {
+    "name": "Kink",
+    "description": "Hast du einen Fetisch?",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId50": {
+    "name": "Entscheidung",
+    "description": "Würdest du lieber die Zahnbürste, oder die dreckige Unterwäsche eines Fremden verwenden",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId51": {
+    "name": "Go Wild",
+    "description": "Was ist die Beste Musik für wilden Sex",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId52": {
+    "name": "Filme",
+    "description": "Welche 3 Filme würdest du mit auf eine einsame Insel mitnehmen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId53": {
+    "name": "Würdest du?",
+    "description": "Würdest du mit {randomPlayer} schlafen?",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId54": {
+    "name": "Zusammen",
+    "description": "Die nächste Regel, die in diesem Spiel vorkommt, müssen alle mitmachen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId55": {
+    "name": "Touchy",
+    "description": "Lass dich von {randomPlayer} am Hintern oder an der Brust anfassen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId56": {
+    "name": "Purzelbaum",
+    "description": "Mache einen Purzelbaum",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId57": {
+    "name": "Ausziehen!",
+    "description": "Zieh ein Kleidungsstück aus (Socken zählen als 1)",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId58": {
+    "name": "Streicheln",
+    "description": "Lass dir von {randomPlayer} den Bauch streicheln",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId59": {
+    "name": "Kitzeln",
+    "description": "Kitzel {randomPlayer} 20 Sekunden lang",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId60": {
+    "name": "Und nochmal",
+    "description": "Eine kleine Wiederholung hat noch niemanden geschadet. Gehe 6 Felder zurück",
+    "move": -6,
+    "rulerule": ""
+  },
+  "fieldId61": {
+    "name": "Angst?",
+    "description": "Was ist deine größte Angst",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId62": {
+    "name": "Filmrolle",
+    "description": "Wenn du in einem Film mitspielen würdest, welche Rolle hättest du",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId63": {
+    "name": "Alter",
+    "description": "Was war der größte Altersunterschied zwischen dir und einem Sexpartner",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId64": {
+    "name": "Würdest du",
+    "description": "Würdest du mit {randomPlayer} Urlaub machen",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId65": {
+    "name": "Date",
+    "description": "Erzähle von deinem seltsamsten Date",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId66": {
+    "name": "Endspurt",
+    "description": "Fast geschafft. Den Rest macht Ihr zusammen: Haltet die Hand eures rechten Nachbarns",
+    "move": 0,
+    "rulerule": "Haltet die Hand eures rechten Nachbarns"
+  },
+  "fieldId67": {
+    "name": "And now Kiss",
+    "description": "{playerName} und {randomPlayer} küssen sich",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId68": {
+    "name": "Orgasm",
+    "description": "Täusche einen Orgasmus vor",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId69": {
+    "name": "Picasso",
+    "description": "{randomPlayer} darf etwas auf deinen Bauch malen oder schreiben",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId70": {
+    "name": "Sexstellung",
+    "description": "Stelle mit {randomPlayer} eine Sexstellung deiner Wahl nach",
+    "move": 0,
+    "rulerule": ""
+  },
+  "fieldId71": {
+    "name": "SIEG",
+    "description": "",
+    "move": 0,
+    "rulerule": ""
+  }
+}

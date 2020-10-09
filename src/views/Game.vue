@@ -337,6 +337,13 @@ export default class Game extends Vue {
     return string.split("{switch}", index).join("{switch}").length;
   }
 
+  private randomPlayer(id: number) {
+    let onePlayer: any = JSON.parse(JSON.stringify(this.players));
+    onePlayer.splice(id, 1);
+    onePlayer = onePlayer[Math.floor(Math.random() * onePlayer.length)];
+    return onePlayer.name;
+  }
+
   private showRule(id: number) {
     const fieldId = "fieldId" + this.players[id].tile;
 
@@ -446,6 +453,13 @@ export default class Game extends Vue {
     this.ruledescription = this.ruledescription.replace(
       /{playerName}/g,
       this.activePlayer.name
+    );
+
+    const randomPlayer = this.randomPlayer(this.activePlayer.id);
+
+    this.ruledescription = this.ruledescription.replace(
+      /{randomPlayer}/g,
+      randomPlayer
     );
 
     if (this.ruleset[fieldId].rulerule !== "") {
