@@ -205,7 +205,6 @@ export default class Game extends Vue {
   private right = false;
 
   private get players(): Player[] {
-    console.log(this.players);
     return this.$store.state.players;
   }
   private set players(players: Player[]) {
