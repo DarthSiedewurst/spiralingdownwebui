@@ -14,21 +14,12 @@
       >{{ ruledescription }}</b-modal
     >
     <div v-for="(player, index) in players" :key="'player' + index">
-      <player
-        ref="player"
-        :player="player"
-        @overlayRight="overlayRight"
-      ></player>
+      <player ref="player" :player="player" @overlayRight="overlayRight"></player>
     </div>
     <table class="fullscreen">
       <tr v-for="(line, index) in matrix" :key="index">
         <td class="m-0 p-0" v-for="(n, index) in line" :key="index">
-          <tile
-            :fieldNumber="n"
-            :ruleset="ruleset"
-            :players="players"
-            :roll="roll"
-          ></tile>
+          <tile :fieldNumber="n" :ruleset="ruleset" :players="players" :roll="roll"></tile>
         </td>
       </tr>
 
@@ -36,9 +27,7 @@
         <div>
           <b-row class="overlayCenter">
             <h1 class="player m-auto">
-              <span :class="[isActive ? 'active' : '']">{{
-                activePlayer.name
-              }}</span>
+              <span :class="[isActive ? 'active' : '']">{{ activePlayer.name }}</span>
               ist am Zug
             </h1>
           </b-row>
@@ -52,12 +41,7 @@
           </b-row>
           <b-row class="newGameUi" v-if="!gameModeMultiplayer">
             <b-col>
-              <b-button
-                @click="newGame"
-                class="newGameButton float-right"
-                type="button"
-                >Neues Spiel</b-button
-              >
+              <b-button @click="newGame" class="newGameButton float-right" type="button">Neues Spiel</b-button>
             </b-col>
           </b-row>
         </div>
@@ -68,21 +52,21 @@
 
 <script lang="ts">
 // @ is an alias to /src
-import { Component, Vue } from "vue-property-decorator";
-import tile from "@/components/Tile.vue";
-import player from "@/components/Player.vue";
-import dice from "@/components/Dice.vue";
-import Player from "@/models/player.ts";
-import Socket from "../services/socket";
-import constants from "../constants";
+import { Component, Vue } from 'vue-property-decorator';
+import tile from '@/components/Tile.vue';
+import player from '@/components/Player.vue';
+import dice from '@/components/Dice.vue';
+import Player from '@/models/player.ts';
+import Socket from '../services/socket';
+import constants from '../constants';
 
 @Component({
-  components: { tile, player, dice }
+  components: { tile, player, dice },
 })
 export default class Game extends Vue {
-  private rulename = "";
-  private ruledescription = "";
-  private rulerule = "";
+  private rulename = '';
+  private ruledescription = '';
+  private rulerule = '';
   private ruleMovement = 0;
   private diceable = true;
   private popUpOpen = true;
@@ -98,23 +82,24 @@ export default class Game extends Vue {
     [26, 49, 64, 71, 70, 69, 58, 39, 12],
     [25, 48, 63, 62, 61, 60, 59, 40, 13],
     [24, 47, 46, 45, 44, 43, 42, 41, 14],
-    [23, 22, 21, 20, 19, 18, 17, 16, 15]
+    [23, 22, 21, 20, 19, 18, 17, 16, 15],
   ];
 
   private async mounted() {
-    this.players.forEach(element => {
+    console.log('mounted. players: ' + this.players);
+    this.players.forEach((element) => {
       (this.$refs.player as any)[element.id].movePlayerAutonom(element.tile);
     });
-    Socket.mySocket.on("reconnect", () => {
-      Socket.mySocket.emit("reconnectSocket", {
+    Socket.mySocket.on('reconnect', () => {
+      Socket.mySocket.emit('reconnectSocket', {
         lobby: Socket.lobby,
-        ownLobby: Socket.mySocket.id
+        ownLobby: Socket.mySocket.id,
       });
     });
-    Socket.mySocket.on("playersUpdated", (newPlayers: Player[]) => {
-      this.$store.commit("setPlayers", newPlayers);
+    Socket.mySocket.on('playersUpdated', (newPlayers: Player[]) => {
+      this.$store.commit('setPlayers', newPlayers);
     });
-    Socket.mySocket.on("diceWasRolled", async payload => {
+    Socket.mySocket.on('diceWasRolled', async (payload) => {
       this.players = payload.players;
       let id = 0;
       this.players.forEach((element: Player) => {
@@ -123,28 +108,28 @@ export default class Game extends Vue {
         }
       });
       this.roll = payload.roll;
-      await new Promise(resolve => {
+      await new Promise((resolve) => {
         setTimeout(() => {
           resolve(
-            Socket.mySocket.emit("showRuleInSocket", {
+            Socket.mySocket.emit('showRuleInSocket', {
               id,
-              lobby: Socket.lobby
+              lobby: Socket.lobby,
             })
           );
         }, 500 * (Math.abs(this.roll) + 2));
       });
     });
-    Socket.mySocket.on("okHasBeenClicked", () => {
+    Socket.mySocket.on('okHasBeenClicked', () => {
       this.okClicked();
     });
-    Socket.mySocket.on("ruleOpened", payload => {
+    Socket.mySocket.on('ruleOpened', (payload) => {
       console.log(payload);
       this.players = payload.players;
       if (this.popUpOpen) {
         this.showRule(payload.id);
       }
     });
-    Socket.mySocket.on("nextTurn", players => {
+    Socket.mySocket.on('nextTurn', (players) => {
       let id = 0;
       players.forEach((element: Player) => {
         if (element.activeTurn) {
@@ -161,29 +146,29 @@ export default class Game extends Vue {
       }
       this.diceable = true;
     });
-    Socket.mySocket.on("popUpUpdated", payload => {
+    Socket.mySocket.on('popUpUpdated', (payload) => {
       this.popUpOpen = payload.popUpOpen;
       this.random = payload.random;
       if (!this.popUpOpen) {
         this.$nextTick(() => {
-          (this.$refs["rule"] as any).hide();
+          (this.$refs['rule'] as any).hide();
         });
       }
     });
-    window.addEventListener("focus", () => {
+    window.addEventListener('focus', () => {
       if (this.gameModeMultiplayer) {
-        Socket.mySocket.emit("getUpdate", {
+        Socket.mySocket.emit('getUpdate', {
           lobby: Socket.lobby,
-          ownLobby: Socket.mySocket.id
+          ownLobby: Socket.mySocket.id,
         });
         setTimeout(() => {
-          Socket.mySocket.emit("updatePopUpOpen", Socket.lobby);
+          Socket.mySocket.emit('updatePopUpOpen', Socket.lobby);
         }, 1000);
       }
     });
 
-    Socket.mySocket.on("gotUpdate", newPlayers => {
-      this.$store.commit("setPlayers", newPlayers);
+    Socket.mySocket.on('gotUpdate', (newPlayers) => {
+      this.$store.commit('setPlayers', newPlayers);
     });
   }
 
@@ -219,7 +204,7 @@ export default class Game extends Vue {
     return this.$store.state.players;
   }
   private set players(players: Player[]) {
-    this.$store.commit("setPlayers", players);
+    this.$store.commit('setPlayers', players);
   }
 
   private roll = 0;
@@ -238,10 +223,10 @@ export default class Game extends Vue {
         this.roll = (this.$refs.dice as any).roll();
 
         if (this.gameModeMultiplayer) {
-          await Socket.mySocket.emit("moveInSocket", {
+          await Socket.mySocket.emit('moveInSocket', {
             roll: this.roll,
             playerId: id,
-            lobby: Socket.lobby
+            lobby: Socket.lobby,
           });
         } else {
           await this.move(id);
@@ -256,7 +241,7 @@ export default class Game extends Vue {
 
     if (this.gameModeMultiplayer) {
       if (this.yourId === this.activePlayer.id) {
-        await Socket.mySocket.emit("okClicked", Socket.lobby);
+        await Socket.mySocket.emit('okClicked', Socket.lobby);
       }
     } else {
       this.okClicked();
@@ -264,25 +249,23 @@ export default class Game extends Vue {
   }
 
   private async okClicked() {
-    const fieldId = "fieldId" + this.players[this.activePlayer.id].tile;
+    const fieldId = 'fieldId' + this.players[this.activePlayer.id].tile;
     this.ruleMovement = this.ruleset[fieldId].move;
 
     if (this.ruleMovement !== 0) {
       this.$nextTick(() => {
-        (this.$refs["rule"] as any).hide();
+        (this.$refs['rule'] as any).hide();
       });
       if (this.ruleMovement === -99) {
-        this.roll = Math.floor(
-          Math.random() * (this.players[this.activePlayer.id].tile - 0) * -1
-        );
+        this.roll = Math.floor(Math.random() * (this.players[this.activePlayer.id].tile - 0) * -1);
       } else {
         this.roll = this.ruleMovement;
       }
       if (this.gameModeMultiplayer && this.yourId === this.activePlayer.id) {
-        await Socket.mySocket.emit("moveInSocket", {
+        await Socket.mySocket.emit('moveInSocket', {
           roll: this.roll,
           playerId: this.yourId,
-          lobby: Socket.lobby
+          lobby: Socket.lobby,
         });
       } else if (!this.gameModeMultiplayer) {
         this.move(this.activePlayer.id);
@@ -291,7 +274,7 @@ export default class Game extends Vue {
     }
 
     if (this.gameModeMultiplayer && this.yourId === this.activePlayer.id) {
-      Socket.mySocket.emit("newActivePlayer", Socket.lobby);
+      Socket.mySocket.emit('newActivePlayer', Socket.lobby);
     } else if (!this.gameModeMultiplayer) {
       this.players[this.activePlayer.id].activeTurn = false;
 
@@ -304,14 +287,12 @@ export default class Game extends Vue {
       }
     }
 
-    document
-      .getElementById("fieldId" + this.activePlayer.tile)!
-      .getBoundingClientRect().left >
-    document.getElementById("fieldId4")!.getBoundingClientRect().left
+    document.getElementById('fieldId' + this.activePlayer.tile)!.getBoundingClientRect().left >
+    document.getElementById('fieldId4')!.getBoundingClientRect().left
       ? (this.right = true)
       : (this.right = false);
     this.$nextTick(() => {
-      (this.$refs["rule"] as any).hide();
+      (this.$refs['rule'] as any).hide();
     });
   }
 
@@ -322,9 +303,9 @@ export default class Game extends Vue {
   private async move(id: number) {
     this.diceable = false;
 
-    await this.$store.dispatch("move", { id, roll: this.roll });
+    await this.$store.dispatch('move', { id, roll: this.roll });
 
-    await new Promise(resolve => {
+    await new Promise((resolve) => {
       setTimeout(() => {
         resolve(this.showRule(id));
       }, 500 * (Math.abs(this.roll) + 2));
@@ -334,7 +315,7 @@ export default class Game extends Vue {
   }
 
   private getPosition(string, index) {
-    return string.split("{switch}", index).join("{switch}").length;
+    return string.split('{switch}', index).join('{switch}').length;
   }
 
   private randomPlayer(id: number) {
@@ -345,36 +326,19 @@ export default class Game extends Vue {
   }
 
   private showRule(id: number) {
-    const fieldId = "fieldId" + this.players[id].tile;
+    const fieldId = 'fieldId' + this.players[id].tile;
 
     this.rulename = this.ruleset[fieldId].name;
 
-    const countDescription = (
-      this.ruleset[fieldId].description.match(/{switch}/g) || []
-    ).length;
+    const countDescription = (this.ruleset[fieldId].description.match(/{switch}/g) || []).length;
     if (countDescription > 0) {
       const descriptions = Math.round(6 / countDescription);
-      const firstSwitch = this.getPosition(
-        this.ruleset[fieldId].description,
-        1
-      );
-      const secondSwitch = this.getPosition(
-        this.ruleset[fieldId].description,
-        2
-      );
-      const thirdSwitch = this.getPosition(
-        this.ruleset[fieldId].description,
-        3
-      );
-      const forthSwitch = this.getPosition(
-        this.ruleset[fieldId].description,
-        4
-      );
-      const fifthSwitch = this.getPosition(
-        this.ruleset[fieldId].description,
-        5
-      );
-      let rule = "";
+      const firstSwitch = this.getPosition(this.ruleset[fieldId].description, 1);
+      const secondSwitch = this.getPosition(this.ruleset[fieldId].description, 2);
+      const thirdSwitch = this.getPosition(this.ruleset[fieldId].description, 3);
+      const forthSwitch = this.getPosition(this.ruleset[fieldId].description, 4);
+      const fifthSwitch = this.getPosition(this.ruleset[fieldId].description, 5);
+      let rule = '';
       switch (descriptions) {
         case 6:
           if (this.roll <= 3) {
@@ -389,30 +353,18 @@ export default class Game extends Vue {
           if (this.roll < 3) {
             rule = this.ruleset[fieldId].description.substring(0, firstSwitch);
           } else if (this.roll < 5) {
-            rule = this.ruleset[fieldId].description.substring(
-              firstSwitch + 9,
-              secondSwitch
-            );
+            rule = this.ruleset[fieldId].description.substring(firstSwitch + 9, secondSwitch);
           } else {
-            rule = this.ruleset[fieldId].description.substring(
-              secondSwitch + 9,
-              thirdSwitch
-            );
+            rule = this.ruleset[fieldId].description.substring(secondSwitch + 9, thirdSwitch);
           }
           break;
         case 2:
           if (this.roll < 2) {
             rule = this.ruleset[fieldId].description.substring(0, firstSwitch);
           } else if (this.roll < 4) {
-            rule = this.ruleset[fieldId].description.substring(
-              firstSwitch + 9,
-              secondSwitch
-            );
+            rule = this.ruleset[fieldId].description.substring(firstSwitch + 9, secondSwitch);
           } else if (this.roll < 6) {
-            rule = this.ruleset[fieldId].description.substring(
-              secondSwitch + 9,
-              thirdSwitch
-            );
+            rule = this.ruleset[fieldId].description.substring(secondSwitch + 9, thirdSwitch);
           } else {
             rule = this.ruleset[fieldId].description.substring(thirdSwitch + 9);
           }
@@ -421,25 +373,13 @@ export default class Game extends Vue {
           if (this.roll < 2) {
             rule = this.ruleset[fieldId].description.substring(0, firstSwitch);
           } else if (this.roll < 3) {
-            rule = this.ruleset[fieldId].description.substring(
-              firstSwitch + 9,
-              secondSwitch
-            );
+            rule = this.ruleset[fieldId].description.substring(firstSwitch + 9, secondSwitch);
           } else if (this.roll < 4) {
-            rule = this.ruleset[fieldId].description.substring(
-              secondSwitch + 9,
-              thirdSwitch
-            );
+            rule = this.ruleset[fieldId].description.substring(secondSwitch + 9, thirdSwitch);
           } else if (this.roll < 5) {
-            rule = this.ruleset[fieldId].description.substring(
-              thirdSwitch + 9,
-              forthSwitch
-            );
+            rule = this.ruleset[fieldId].description.substring(thirdSwitch + 9, forthSwitch);
           } else if (this.roll < 6) {
-            rule = this.ruleset[fieldId].description.substring(
-              forthSwitch + 9,
-              fifthSwitch
-            );
+            rule = this.ruleset[fieldId].description.substring(forthSwitch + 9, fifthSwitch);
           } else {
             rule = this.ruleset[fieldId].description.substring(fifthSwitch + 9);
           }
@@ -450,20 +390,14 @@ export default class Game extends Vue {
       this.ruledescription = this.ruleset[fieldId].description;
     }
 
-    this.ruledescription = this.ruledescription.replace(
-      /{playerName}/g,
-      this.activePlayer.name
-    );
+    this.ruledescription = this.ruledescription.replace(/{playerName}/g, this.activePlayer.name);
 
     const randomPlayer = this.randomPlayer(this.activePlayer.id);
 
-    this.ruledescription = this.ruledescription.replace(
-      /{randomPlayer}/g,
-      randomPlayer
-    );
+    this.ruledescription = this.ruledescription.replace(/{randomPlayer}/g, randomPlayer);
 
-    if (this.ruleset[fieldId].rulerule !== "") {
-      if (this.ruleset[fieldId].rulerule === "Random") {
+    if (this.ruleset[fieldId].rulerule !== '') {
+      if (this.ruleset[fieldId].rulerule === 'Random') {
         let random = 0;
         if (this.gameModeMultiplayer) {
           random = this.random;
@@ -473,26 +407,20 @@ export default class Game extends Vue {
         random = Math.floor(random * constants.RULERULES.length);
         this.rulerule = constants.RULERULES[random];
         this.ruledescription = constants.RULERULES[random];
-        this.ruledescription = this.ruledescription.replace(
-          /{playerName}/g,
-          this.activePlayer.name
-        );
-      } else if (this.ruleset[fieldId].rulerule === "-") {
-        this.rulerule = "";
+        this.ruledescription = this.ruledescription.replace(/{playerName}/g, this.activePlayer.name);
+      } else if (this.ruleset[fieldId].rulerule === '-') {
+        this.rulerule = '';
       } else {
         this.rulerule = this.ruleset[fieldId].rulerule;
       }
-      this.rulerule = this.rulerule.replace(
-        /{playerName}/g,
-        this.activePlayer.name
-      );
+      this.rulerule = this.rulerule.replace(/{playerName}/g, this.activePlayer.name);
     }
-    (this.$refs["rule"] as any).show();
+    (this.$refs['rule'] as any).show();
   }
 
   private newGame() {
-    this.$store.dispatch("newGame");
-    this.$router.push({ name: "newGame" });
+    this.$store.dispatch('newGame');
+    this.$router.push({ name: 'newGame' });
   }
 }
 </script>
