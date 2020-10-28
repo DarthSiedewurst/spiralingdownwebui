@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import VuexPersistence from 'vuex-persist'
 import Player from "@/models/player";
 import Socket from "@/services/socket";
 import Ruleset from "@/models/ruleset";
@@ -36,7 +35,7 @@ export default new Vuex.Store({
     //Dice
     // Todo maybe change any
     move({ state, commit }, movement: any) {
-      const newPlayers: Player[] = JSON.parse(JSON.stringify((state as any).players));
+      const newPlayers: Player[] = JSON.parse(JSON.stringify(state.players));
       newPlayers[movement.id].tile += movement.roll;
       if (newPlayers[movement.id].tile > 72) {
         newPlayers[movement.id].tile = 72;
@@ -45,12 +44,12 @@ export default new Vuex.Store({
     },
     //Player
     addPlayer({ state, commit }, newPlayer: Player) {
-      const newPlayers: Player[] = (state as any).players;
+      const newPlayers: Player[] = state.players;
       newPlayers.push(newPlayer);
       commit("setPlayers", newPlayers);
     },
     deletePlayer({ state, commit }, playerId: number) {
-      const newPlayers: Player[] = (state as any).players;
+      const newPlayers: Player[] = state.players;
       newPlayers.splice(playerId, 1);
       for (let i = 0; i < newPlayers.length; i++) {
         newPlayers[i].id = i;
@@ -62,7 +61,7 @@ export default new Vuex.Store({
     },
     //Ruleset
     setRuleset({ state, commit, dispatch }, ruleset: Ruleset) {
-      if ((state as any).gameModeMultiplayer) {
+      if (state.gameModeMultiplayer) {
         dispatch("setRulesetToSocket", ruleset);
       } else {
         commit("setRuleset", ruleset);
@@ -75,6 +74,5 @@ export default new Vuex.Store({
       }
     }
   },
-  modules: {},
-  plugins: [new VuexPersistence().plugin]
+  modules: {}
 });
