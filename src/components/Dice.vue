@@ -38,24 +38,24 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-  components: {}
+  components: {},
 })
 export default class Dice extends Vue {
   //POINT ROLL FUNCTION
   private roll() {
-    const elDiceOne = document.getElementById("dice1")!;
+    const elDiceOne = document.getElementById('dice1')!;
     // sets dice variables
     const diceOne = Math.floor(Math.random() * 6) + 1;
 
     //Dice reset and display
 
     for (let i = 1; i <= 6; i++) {
-      elDiceOne.classList.remove("show-" + i);
+      elDiceOne.classList.remove('show-' + i);
       if (diceOne === i) {
-        elDiceOne.classList.add("show-" + i);
+        elDiceOne.classList.add('show-' + i);
       }
     }
     return diceOne;
