@@ -25,10 +25,7 @@
           </b-col>
           <b-col cols="4">
             <ValidationProvider rules="required" v-slot="{ errors }">
-              <b-form-select
-                v-model="playerColor"
-                :options="playerColors"
-              ></b-form-select>
+              <b-form-select v-model="playerColor" :options="playerColors"></b-form-select>
               <span class="playerValidation">{{ errors[0] }}</span>
             </ValidationProvider>
           </b-col>
@@ -38,7 +35,7 @@
     </div>
     <b-button
       :style="{
-        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')'
+        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
       }"
       type="button"
       class="bierdeckel mt-2 float-left"
@@ -55,7 +52,7 @@
 
     <b-button
       :style="{
-        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')'
+        'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
       }"
       class="bierdeckel mt-2 float-left"
       v-if="!gameModeMultiplayer"
@@ -70,15 +67,15 @@
 /* eslint-disable no-useless-escape */
 
 // @ is an alias to /src
-import { Component, Prop, Vue } from "vue-property-decorator";
-import Player from "@/models/player";
-import { validate } from "vee-validate";
-import CONSTANTS from "@/constants";
-import WhatsAppButton from "vue-share-buttons/src/components/WhatsAppButton.vue";
-import Socket from "../services/socket";
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import Player from '@/models/player';
+import { validate } from 'vee-validate';
+import CONSTANTS from '@/constants';
+import WhatsAppButton from 'vue-share-buttons/src/components/WhatsAppButton.vue';
+import Socket from '../services/socket';
 
 @Component({
-  components: { WhatsAppButton }
+  components: { WhatsAppButton },
 })
 export default class PlayerList extends Vue {
   @Prop() private players!: Player[];
@@ -86,14 +83,14 @@ export default class PlayerList extends Vue {
 
   private colors = CONSTANTS.COLORS;
 
-  private invitationLink = "";
+  private invitationLink = '';
   private isMobile = false;
 
-  private deleteSize = "";
+  private deleteSize = '';
 
   private mappedPlayers(playerColor: string) {
-    let mappedColor = "not found";
-    this.colors.forEach(color => {
+    let mappedColor = 'not found';
+    this.colors.forEach((color) => {
       if (playerColor === color.value) {
         mappedColor = color.text;
       }
@@ -103,9 +100,9 @@ export default class PlayerList extends Vue {
 
   private mounted() {
     let url = process.env.VUE_APP_WEBSERVICE_URL;
-    url = url.replace(/;/g, "");
-    url = url.replace(/:3000/g, "");
-    url = url + "?lobby=" + Socket.mySocket.id;
+    url = url.replace(/;/g, '');
+    url = url.replace(/:3000/g, '');
+    url = url + '?lobby=' + Socket.mySocket.id;
     this.invitationLink = url;
 
     // device detection
@@ -118,7 +115,7 @@ export default class PlayerList extends Vue {
       )
     ) {
       this.isMobile = true;
-      this.deleteSize = "sm";
+      this.deleteSize = 'sm';
     }
   }
   private copyInvitationLink() {
@@ -126,19 +123,20 @@ export default class PlayerList extends Vue {
   }
 
   private get playerColors(): string[] {
+    console.log('color: ' + this.players);
     // Todo any
     const colors: any[] = [...this.colors];
-    this.players.forEach(element => {
+    this.players.forEach((element) => {
       if (
         colors
-          .map(e => {
+          .map((e) => {
             return e.value;
           })
           .indexOf(element.color) > -1
       ) {
         colors.splice(
           colors
-            .map(e => {
+            .map((e) => {
               return e.value;
             })
             .indexOf(element.color),
@@ -153,8 +151,8 @@ export default class PlayerList extends Vue {
     return this.players.length > 11 ? false : true;
   }
 
-  private playerName = "";
-  private playerColor = "";
+  private playerName = '';
+  private playerColor = '';
 
   private addPlayer() {
     (this.$refs.valid as any).validate().then((success: boolean) => {
@@ -169,17 +167,17 @@ export default class PlayerList extends Vue {
           name: this.playerName,
           activeTurn,
           tile: 0,
-          color: this.playerColor
+          color: this.playerColor,
         };
-        this.$emit("addPlayer", newPlayer);
-        this.playerName = "";
-        this.playerColor = "";
+        this.$emit('addPlayer', newPlayer);
+        this.playerName = '';
+        this.playerColor = '';
         this.$nextTick(() => (this.$refs.valid as any).reset());
       }
     });
   }
   private deletePlayer(playerId: number) {
-    this.$emit("deletePlayer", playerId);
+    this.$emit('deletePlayer', playerId);
   }
 }
 </script>

@@ -2,7 +2,7 @@
   <div
     class="background"
     :style="{
-      'background-image': 'url(' + require('@/assets/marmor.jpg') + ')'
+      'background-image': 'url(' + require('@/assets/marmor.jpg') + ')',
     }"
   >
     <div class="fullscreen text-center">
@@ -15,18 +15,18 @@
             class="gameModeButton"
             @click="singleplayer"
             :style="{
-              'background-image':
-                'url(' + require('@/assets/tilebackground.jpg') + ')'
+              'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
             }"
-          >Auf einem Gerät</b-button>
+            >Auf einem Gerät</b-button
+          >
           <b-button
             class="gameModeButton ml-3"
             @click="multiplayer"
             :style="{
-              'background-image':
-                'url(' + require('@/assets/tilebackground.jpg') + ')'
+              'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
             }"
-          >Online Lobby erstellen</b-button>
+            >Online Lobby erstellen</b-button
+          >
         </b-col>
       </b-row>
       <b-row>
@@ -38,15 +38,7 @@
       </b-row>
     </div>
 
-    <b-modal
-      hide-backdrop
-      centered
-      no-close-on-esc
-      no-close-on-backdrop
-      @ok="handleOk"
-      ok-only
-      ref="lobby"
-    >
+    <b-modal hide-backdrop centered no-close-on-esc no-close-on-backdrop @ok="handleOk" ok-only ref="lobby">
       <b-row>
         <b-col>Name</b-col>
         <b-col>Farbe</b-col>
@@ -73,24 +65,24 @@
 
 <script lang="ts">
 // @ is an alias to /src
-import { Component, Vue } from "vue-property-decorator";
-import Player from "../models/player";
-import Socket from "../services/socket";
-import CONSTANTS from "@/constants";
-import Ruleset from "../models/ruleset";
+import { Component, Vue } from 'vue-property-decorator';
+import Player from '../models/player';
+import Socket from '../services/socket';
+import CONSTANTS from '@/constants';
+import Ruleset from '../models/ruleset';
 
 @Component({
-  components: {}
+  components: {},
 })
 export default class NewGame extends Vue {
   private colors = CONSTANTS.COLORS;
-  private playerName = "";
-  private playerColor = "";
+  private playerName = '';
+  private playerColor = '';
   private socket = new Socket();
   private deferredPrompt: any = null;
 
   private async mounted() {
-    window.addEventListener("beforeinstallprompt", e => {
+    window.addEventListener('beforeinstallprompt', (e) => {
       // Prevent the mini-infobar from appearing on mobile
       e.preventDefault();
       // Stash the event so it can be triggered later.
@@ -105,33 +97,33 @@ export default class NewGame extends Vue {
     }
 
     if (this.$route.query.lobby) {
-      await this.socket.joinLobby((this.$route.query.lobby as string) + "All");
+      await this.socket.joinLobby((this.$route.query.lobby as string) + 'All');
       await this.playersUpdated();
       await this.rulesetUpdated();
-      (this.$refs["lobby"] as any).show();
+      (this.$refs['lobby'] as any).show();
     }
   }
 
   private addToHomescreen(e) {
     this.deferredPrompt.prompt();
-    this.deferredPrompt.userChoice.then(choiceResult => {
-      if (choiceResult.outcome === "accepted") {
-        console.log("User accepted the install prompt");
+    this.deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the install prompt');
       } else {
-        console.log("User dismissed the install prompt");
+        console.log('User dismissed the install prompt');
       }
     });
   }
 
   private playersUpdated() {
-    Socket.mySocket.on("playersUpdated", (newPlayers: Player[]) => {
-      this.$store.commit("setPlayers", newPlayers);
+    Socket.mySocket.on('playersUpdated', (newPlayers: Player[]) => {
+      this.$store.commit('setPlayers', newPlayers);
     });
   }
   public rulesetUpdated() {
-    Socket.mySocket.on("rulesetUpdated", (ruleset: Ruleset) => {
+    Socket.mySocket.on('rulesetUpdated', (ruleset: Ruleset) => {
       Socket.ruleset = ruleset;
-      this.$store.commit("setRuleset", ruleset);
+      this.$store.commit('setRuleset', ruleset);
     });
   }
 
@@ -142,18 +134,19 @@ export default class NewGame extends Vue {
   private get playerColors(): string[] {
     // Todo any
     const colors: any[] = [...this.colors];
+    console.log('color:' + this.players);
 
-    this.players.forEach(element => {
+    this.players.forEach((element) => {
       if (
         colors
-          .map(e => {
+          .map((e) => {
             return e.value;
           })
           .indexOf(element.color) > -1
       ) {
         colors.splice(
           colors
-            .map(e => {
+            .map((e) => {
               return e.value;
             })
             .indexOf(element.color),
@@ -165,11 +158,11 @@ export default class NewGame extends Vue {
   }
 
   private singleplayer() {
-    this.$store.commit("gameModeMultiplayer", false);
+    this.$store.commit('gameModeMultiplayer', false);
     this.goToNewGame();
   }
   private multiplayer() {
-    (this.$refs["lobby"] as any).show();
+    (this.$refs['lobby'] as any).show();
   }
   private handleOk(bvModalEvt) {
     bvModalEvt.preventDefault();
@@ -182,33 +175,33 @@ export default class NewGame extends Vue {
           name: this.playerName,
           tile: 0,
           activeTurn: activeTurn,
-          color: this.playerColor
+          color: this.playerColor,
         };
 
         const lobby = !this.$route.query.lobby
-          ? Socket.mySocket.id + "All"
-          : ((this.$route.query.lobby + "All") as string);
+          ? Socket.mySocket.id + 'All'
+          : ((this.$route.query.lobby + 'All') as string);
 
         if (!this.$route.query.lobby) {
-          await this.socket.joinLobby(Socket.mySocket.id + "All");
+          await this.socket.joinLobby(Socket.mySocket.id + 'All');
           await this.playersUpdated();
           await this.rulesetUpdated();
-          Socket.mySocket.emit("getPlayerFromSocket", lobby);
+          Socket.mySocket.emit('getPlayerFromSocket', lobby);
         }
-        (this.$refs["lobby"] as any).show();
+        (this.$refs['lobby'] as any).show();
 
-        Socket.mySocket.emit("addPlayerToSocket", {
+        Socket.mySocket.emit('addPlayerToSocket', {
           newPlayer,
           lobby,
-          ownLobby: Socket.mySocket.id
+          ownLobby: Socket.mySocket.id,
         });
 
-        Socket.mySocket.on("playersNotUpdated", (color: string) => {
-          window.alert(color + " wird schon verwendet");
+        Socket.mySocket.on('playersNotUpdated', (color: string) => {
+          window.alert(color + ' wird schon verwendet');
         });
-        Socket.mySocket.on("goToNewGame", () => {
-          this.$store.commit("gameModeMultiplayer", true);
-          this.$store.commit("setYourId", this.players.length - 1);
+        Socket.mySocket.on('goToNewGame', () => {
+          this.$store.commit('gameModeMultiplayer', true);
+          this.$store.commit('setYourId', this.players.length - 1);
 
           this.goToNewGame();
         });
@@ -217,7 +210,7 @@ export default class NewGame extends Vue {
   }
 
   private goToNewGame() {
-    this.$router.push({ path: "newGame" });
+    this.$router.push({ path: 'newGame' });
   }
 }
 </script>
