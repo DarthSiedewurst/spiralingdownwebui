@@ -159,6 +159,7 @@ export default class NewGame extends Vue {
 
   private singleplayer() {
     this.$store.commit('gameModeMultiplayer', false);
+    this.socket.deleteSocket();
     this.goToNewGame();
   }
   private multiplayer() {

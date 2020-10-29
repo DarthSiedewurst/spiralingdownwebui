@@ -14,6 +14,9 @@ export default class Socket extends Vue {
     url = url.replace(/;/g, "");
     Socket.mySocket = io(url);
   }
+  public deleteSocket() {
+    Socket.mySocket = null
+  }
   public joinLobby(lobby: string) {
     Socket.mySocket.emit("joinLobby", lobby);
     Socket.mySocket.on("lobbyJoined", (data: string) => {
