@@ -2,7 +2,7 @@
   <div
     class="background"
     :style="{
-      'background-image': 'url(' + require('@/assets/marmor.jpg') + ')'
+      'background-image': 'url(' + require('@/assets/marmor.jpg') + ')',
     }"
   >
     <div class="fullscreen text-center">
@@ -14,8 +14,7 @@
           cols="8"
           class="newGameFrame"
           :style="{
-            'background-image':
-              'url(' + require('@/assets/tilebackground.jpg') + ')'
+            'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
           }"
         >
           <playerList
@@ -28,24 +27,15 @@
         <b-col
           class="newGameFrame"
           :style="{
-            'background-image':
-              'url(' + require('@/assets/tilebackground.jpg') + ')'
+            'background-image': 'url(' + require('@/assets/tilebackground.jpg') + ')',
           }"
         >
-          <b-form-group
-            label="Rule Set"
-            class="mt-3"
-            :disabled="gameModeMultiplayer && yourId != 0"
-          >
-            <b-form-select
-              v-model="ruleset"
-              :options="rulesets"
-            ></b-form-select>
+          <b-form-group label="Rule Set" class="mt-3" :disabled="gameModeMultiplayer && yourId != 0">
+            <b-form-select v-model="ruleset" :options="rulesets"></b-form-select>
           </b-form-group>
           <b-button
             :style="{
-              'background-image':
-                'url(' + require('@/assets/bierdeckel.jpg') + ')'
+              'background-image': 'url(' + require('@/assets/bierdeckel.jpg') + ')',
             }"
             class="bierdeckel mt-2 float-right footerButoon"
             v-if="!gameModeMultiplayer || yourId === 0"
@@ -63,37 +53,37 @@
 /* eslint-disable no-useless-escape */
 
 // @ is an alias to /src
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from 'vue-property-decorator';
 // @ts-ignore
-import Player from "@/models/player.ts";
-import playerList from "@/components/PlayerList.vue";
+import Player from '@/models/player.ts';
+import playerList from '@/components/PlayerList.vue';
 // @ts-ignore
-import importetRules from "@/rules";
-import Socket from "../services/socket";
-import Ruleset from "../models/ruleset";
+import importetRules from '@/rules';
+import Socket from '../services/socket';
+import Ruleset from '../models/ruleset';
 
 @Component({
-  components: { playerList }
+  components: { playerList },
 })
 export default class NewGame extends Vue {
   private socket = new Socket();
 
   private mounted() {
-    Socket.mySocket.on("gameStarted", () => {
-      this.$router.push({ path: "game" });
+    Socket.mySocket.on('gameStarted', () => {
+      this.$router.push({ path: 'game' });
     });
-    Socket.mySocket.on("reconnect", () => {
-      Socket.mySocket.emit("reconnectSocket", {
+    Socket.mySocket.on('reconnect', () => {
+      Socket.mySocket.emit('reconnectSocket', {
         lobby: Socket.lobby,
-        ownLobby: Socket.mySocket.id
+        ownLobby: Socket.mySocket.id,
       });
     });
-    Socket.mySocket.on("rulesetUpdated", (ruleset: Ruleset) => {
+    Socket.mySocket.on('rulesetUpdated', (ruleset: Ruleset) => {
       Socket.ruleset = ruleset;
-      this.$store.commit("setRuleset", ruleset);
+      this.$store.commit('setRuleset', ruleset);
     });
-    Socket.mySocket.on("playersUpdated", (newPlayers: Player[]) => {
-      this.$store.commit("setPlayers", newPlayers);
+    Socket.mySocket.on('playersUpdated', (newPlayers: Player[]) => {
+      this.$store.commit('setPlayers', newPlayers);
     });
   }
 
@@ -111,8 +101,13 @@ export default class NewGame extends Vue {
     for (const variable in importetRules) {
       ruleSets.push({
         value: importetRules[variable],
-        text: importetRules[variable].name
+        text: importetRules[variable].name,
       });
+    }
+    if (this.gameModeMultiplayer) {
+      const index = ruleSets.findIndex((x) => x.text === 'Icebreaker');
+
+      ruleSets.splice(index, 1);
     }
     return ruleSets;
   }
@@ -122,24 +117,24 @@ export default class NewGame extends Vue {
   }
 
   private set ruleset(ruleset: Ruleset) {
-    this.$store.dispatch("setRuleset", ruleset);
+    this.$store.dispatch('setRuleset', ruleset);
   }
 
   private get players(): Player[] {
     return this.$store.state.players;
   }
   private addPlayer(newPlayer: Player) {
-    this.$store.dispatch("addPlayer", newPlayer);
+    this.$store.dispatch('addPlayer', newPlayer);
   }
   private deletePlayer(playerId: number) {
-    this.$store.dispatch("deletePlayer", playerId);
+    this.$store.dispatch('deletePlayer', playerId);
   }
   private startNewGame() {
-    if (this.players.length > 0 && Object.keys(this.ruleset).length > 0) {
+    if (this.players.length > 1 && Object.keys(this.ruleset).length > 0) {
       if (this.gameModeMultiplayer) {
-        Socket.mySocket.emit("startGame", Socket.lobby);
+        Socket.mySocket.emit('startGame', Socket.lobby);
       } else {
-        this.$router.push({ path: "game" });
+        this.$router.push({ path: 'game' });
       }
     }
   }

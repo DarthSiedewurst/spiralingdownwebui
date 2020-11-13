@@ -55,7 +55,6 @@ export default class Tile extends Vue {
   }
 
   private get tileMoveForward() {
-    console.log('tileforward:' + this.players);
     let filterOn = false;
     this.players.forEach((player) => {
       if (this.fieldNumber === player.tile) {
@@ -65,8 +64,6 @@ export default class Tile extends Vue {
     return filterOn;
   }
   private get tileMoveBackward() {
-    console.log('tilebackward:' + this.players);
-
     let filterOn = false;
     this.players.forEach((player) => {
       if (this.fieldNumber === player.tile) {
@@ -76,8 +73,6 @@ export default class Tile extends Vue {
     return filterOn;
   }
   private get tileRule() {
-    console.log('tilerule:' + this.players);
-
     let filterOn = false;
     this.players.forEach((player) => {
       if (this.fieldNumber === player.tile) {
@@ -87,8 +82,6 @@ export default class Tile extends Vue {
     return filterOn;
   }
   private get tileHighlighted() {
-    console.log('tilehighlight:' + this.players);
-
     let filterOn = false;
     this.players.forEach((player) => {
       if (this.fieldNumber === player.tile) {

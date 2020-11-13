@@ -44,11 +44,49 @@ import { Component, Vue } from 'vue-property-decorator';
   components: {},
 })
 export default class Dice extends Vue {
+  // BUllshit remove later
+  private get ruleset() {
+    return this.$store.state.ruleset;
+  }
+  private get players() {
+    return this.$store.state.players;
+  }
   //POINT ROLL FUNCTION
   private roll() {
     const elDiceOne = document.getElementById('dice1')!;
+    console.log(this.players);
+    console.log(this.ruleset);
     // sets dice variables
-    const diceOne = Math.floor(Math.random() * 6) + 1;
+    let diceOne = Math.floor(Math.random() * 6) + 1;
+    if (this.ruleset.name === 'Icebreaker') {
+      this.players.forEach((element) => {
+        if (element.activeTurn && element.name === 'Natascha' && element.tile > 28 && element.tile < 35) {
+          switch (element.tile) {
+            case 29:
+              diceOne = 6;
+              break;
+            case 30:
+              diceOne = 5;
+              break;
+            case 31:
+              diceOne = 4;
+              break;
+            case 32:
+              diceOne = 3;
+              break;
+            case 33:
+              diceOne = 2;
+              break;
+            case 34:
+              diceOne = 1;
+              break;
+
+            default:
+              break;
+          }
+        }
+      });
+    }
 
     //Dice reset and display
 
