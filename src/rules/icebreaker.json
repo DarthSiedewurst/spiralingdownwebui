@@ -67,8 +67,8 @@
     "rulerule": ""
   },
   "fieldId11": {
-    "name": "Selbstmassage",
-    "description": "Massiere dir Lustvoll die Brust",
+    "name": "Yoga",
+    "description": "Mache die Katze Kuh Stellung vor",
     "move": 0,
     "rulerule": ""
   },
@@ -139,8 +139,8 @@
     "rulerule": ""
   },
   "fieldId23": {
-    "name": "Lecker",
-    "description": "Lecke das Ohr von {randomPlayer}",
+    "name": "Miau",
+    "description": "Sei eine verführerische Katze",
     "move": 0,
     "rulerule": ""
   },
