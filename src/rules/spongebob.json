@@ -291,13 +291,13 @@
   },
   "fieldId48": {
     "name": "Geister, Geister , Weißbrot",
-    "description": "Du wurdest erschreckt. Trinke 2 {swtich} Du wurdest erschreckt. Trinke 2 {swtich} Du bist unerschrocken. Deine Nachbarn trinken",
+    "description": "Du wurdest erschreckt. Trinke 2 {switch} Du wurdest erschreckt. Trinke 2 {switch} Du bist unerschrocken. Deine Nachbarn trinken",
     "move": 0,
     "rulerule": ""
   },
   "fieldId49": {
     "name": "Blubber Bernd",
-    "description": "Du hast die Gürkchen unter Blubber Bernds Zunge nicht gefunden. Trinke 2 {swtisch} Du hast die Gürkchen unter Blubber Bernds Zunge gefunden. Verteile 2 ",
+    "description": "Du hast die Gürkchen unter Blubber Bernds Zunge nicht gefunden. Trinke 2 {switch} Du hast die Gürkchen unter Blubber Bernds Zunge gefunden. Verteile 2 ",
     "move": 0,
     "rulerule": ""
   },
