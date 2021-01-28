@@ -86,6 +86,33 @@ export default class Dice extends Vue {
           }
         }
       });
+      this.players.forEach((element) => {
+        if (element.activeTurn && element.name === 'Natascha' && element.tile > 50 && element.tile < 57) {
+          switch (element.tile) {
+            case 51:
+              diceOne = 6;
+              break;
+            case 52:
+              diceOne = 5;
+              break;
+            case 53:
+              diceOne = 4;
+              break;
+            case 54:
+              diceOne = 3;
+              break;
+            case 55:
+              diceOne = 2;
+              break;
+            case 56:
+              diceOne = 1;
+              break;
+
+            default:
+              break;
+          }
+        }
+      });
     }
 
     //Dice reset and display
