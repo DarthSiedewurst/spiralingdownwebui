@@ -1,0 +1,5 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target" : { "namespace": "android_app", "package_name": "de.spiralingdown.twa",
+                   "sha256_cert_fingerprints": ["A3:7F:E4:BE:03:0C:1C:B3:79:41:B8:A9:C1:2A:D3:08:CD:AF:3D:E4:F8:00:E0:DA:99:FA:30:1F:B8:57:9B:70"] }
+    }]
