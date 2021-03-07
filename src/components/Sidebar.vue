@@ -19,68 +19,42 @@
       <b-container class="sidebarContent">
         <b-row>
           <b-col>
-            <input
-              class="drinkbox"
-              type="checkbox"
-              v-model="vibration"
-              id="myCheckbox1"
-            />
-            <label
-              :class="[vibration ? 'drinkboxChecked' : 'drinkboxUnchecked']"
-              for="myCheckbox1"
-            ></label>
+            <input class="drinkbox" type="checkbox" v-model="vibration" id="myCheckbox1" />
+            <label :class="[vibration ? 'drinkboxChecked' : 'drinkboxUnchecked']" for="myCheckbox1"></label>
+          </b-col>
+          <b-col class="drinkboxText"> <b-icon-phone class="sidebarIcon"></b-icon-phone>Vibration </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <input class="drinkbox" type="checkbox" v-model="music" id="myCheckbox2" />
+            <label :class="[music ? 'drinkboxChecked' : 'drinkboxUnchecked']" for="myCheckbox2"></label>
           </b-col>
           <b-col class="drinkboxText">
-            <b-icon-phone class="sidebarIcon"></b-icon-phone>Vibration
+            <b-icon-music-note-beamed class="sidebarIcon"></b-icon-music-note-beamed>Musik
           </b-col>
         </b-row>
         <b-row>
           <b-col>
-            <input
-              class="drinkbox"
-              type="checkbox"
-              v-model="music"
-              id="myCheckbox2"
-            />
-            <label
-              :class="[music ? 'drinkboxChecked' : 'drinkboxUnchecked']"
-              for="myCheckbox2"
-            ></label>
+            <input class="drinkbox" type="checkbox" v-model="sound" id="myCheckbox3" />
+            <label :class="[sound ? 'drinkboxChecked' : 'drinkboxUnchecked']" for="myCheckbox3"></label>
           </b-col>
-          <b-col class="drinkboxText">
-            <b-icon-music-note-beamed
-              class="sidebarIcon"
-            ></b-icon-music-note-beamed
-            >Musik
-          </b-col>
+          <b-col class="drinkboxText"> <b-icon-volume-up class="sidebarIcon"></b-icon-volume-up>Sound </b-col>
         </b-row>
-        <b-row>
-          <b-col>
-            <input
-              class="drinkbox"
-              type="checkbox"
-              v-model="sound"
-              id="myCheckbox3"
-            />
-            <label
-              :class="[sound ? 'drinkboxChecked' : 'drinkboxUnchecked']"
-              for="myCheckbox3"
-            ></label>
-          </b-col>
-          <b-col class="drinkboxText">
-            <b-icon-volume-up class="sidebarIcon"></b-icon-volume-up>Sound
-          </b-col>
-        </b-row>
+        <template #footer>
+          <div class="d-flex bg-dark text-light align-items-center px-3 py-2">
+            <strong class="mr-auto"> gemacht von Marco Müller </strong>
+          </div>
+        </template>
       </b-container>
     </b-sidebar>
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import MusicService from "@/services/musicService";
+import { Component, Vue } from 'vue-property-decorator';
+import MusicService from '@/services/musicService';
 
 @Component({
-  components: {}
+  components: {},
 })
 export default class Sidebar extends Vue {
   private mounted() {
@@ -91,7 +65,7 @@ export default class Sidebar extends Vue {
         .then(() => {
           MusicService.gonzales.volume = 0.2;
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
           this.music = false;
         });
@@ -127,14 +101,14 @@ export default class Sidebar extends Vue {
 
   // wanted any
   private commitToStore(settings: any) {
-    this.$store.commit("setSettings", settings);
+    this.$store.commit('setSettings', settings);
   }
 }
 </script>
 <style scoped>
 >>> .sidebarAll {
   background-size: 100% 100%;
-  background: url("~@/assets/marmor.jpg");
+  background: url('~@/assets/marmor.jpg');
 }
 .sidebarMenu {
   position: fixed;
@@ -158,7 +132,7 @@ export default class Sidebar extends Vue {
   display: none;
 }
 .drinkboxChecked {
-  background: url("~@/assets/bier-voll.png");
+  background: url('~@/assets/bier-voll.png');
   height: 20vh;
   width: 10vw;
   display: inline-block;
@@ -166,7 +140,7 @@ export default class Sidebar extends Vue {
   overflow: hidden;
 }
 .drinkboxUnchecked {
-  background: url("~@/assets/bier-leer.png");
+  background: url('~@/assets/bier-leer.png');
   height: 20vh;
   width: 10vw;
   display: inline-block;
@@ -175,5 +149,9 @@ export default class Sidebar extends Vue {
 }
 .drinkboxText {
   margin-top: 10vh;
+}
+.footer {
+  font-size: 2vh;
+  vertical-align: text-bottom;
 }
 </style>

@@ -38,6 +38,11 @@
       </b-row>
     </div>
 
+    <b-modal centered ok-only no-close-on-esc no-close-on-backdrop ref="disclaimer" title="Vorsicht">
+      Der Missbrauch von Alkohol ist gesundheitsschädigend. Wenn ihr fortfahrt, bestätigt ihr, dass ihr für eventuelle
+      Konsequenzen, die der Gebrauch von Spiraling Down verursachen kann, selbst verantwortlich seid.
+    </b-modal>
+
     <b-modal hide-backdrop centered no-close-on-esc no-close-on-backdrop @ok="handleOk" ok-only ref="lobby">
       <b-row>
         <b-col>Name</b-col>
@@ -102,6 +107,7 @@ export default class NewGame extends Vue {
       await this.rulesetUpdated();
       (this.$refs['lobby'] as any).show();
     }
+    (this.$refs['disclaimer'] as any).show();
   }
 
   private addToHomescreen(e) {

@@ -70,7 +70,7 @@
     "name": "Ehret den Park",
     "description": "Die Schönheit der Unterkunft ist vor jedem Trinken mit den Worten 'Ehret den Park!' zu würdigen. Um das zu üben gehe vier",
     "move": 4,
-    "rulerule": "Vor dem Trinken ist die Unterkunft mit den Worten 'Ehret den Park!' würdigen."
+    "rulerule": "Vor dem Trinken ist die Unterkunft mit den Worten 'Ehret den Park!' zu würdigen."
   },
   "fieldId12": {
     "name": "Teamwork!",
