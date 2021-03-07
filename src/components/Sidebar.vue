@@ -40,12 +40,13 @@
           </b-col>
           <b-col class="drinkboxText"> <b-icon-volume-up class="sidebarIcon"></b-icon-volume-up>Sound </b-col>
         </b-row>
-        <template #footer>
-          <div class="d-flex bg-dark text-light align-items-center px-3 py-2">
-            <strong class="mr-auto"> gemacht von Marco Müller </strong>
-          </div>
-        </template>
       </b-container>
+      <template #footer>
+        <div class="px-3 py-1 float-right">
+          <p><strong class="mr-auto">made by Marco Müller</strong></p>
+          <p>BearBeerTime</p>
+        </div>
+      </template>
     </b-sidebar>
   </div>
 </template>
